@@ -1,0 +1,2489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<title>HORMUZ ESCORT // GLOBAL MARITIME COMMAND</title>
+<style>
+:root{--night:#020a10;--line:rgba(147,203,219,.18);--cyan:#70e1f5;--orange:#ff7a2f;--amber:#ffc857;--safe:#4ee29a;--alert:#ff4d55;--paper:#eef8f9;--muted:#88a6af;--mono:"Cascadia Mono",Consolas,monospace;--sans:Inter,"Segoe UI",Arial,sans-serif}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{width:100%;height:100%;overflow:hidden;background:var(--night);color:var(--paper);font-family:var(--sans);touch-action:none;user-select:none}canvas{display:block;width:100vw;height:100vh}.hidden{display:none!important}
+.overlay{position:fixed;inset:0;z-index:10;display:grid;place-items:center;padding:clamp(14px,3vw,40px);overflow-y:auto;background:radial-gradient(circle at 72% 35%,rgba(41,135,160,.18),transparent 31%),linear-gradient(135deg,rgba(2,10,16,.96),rgba(5,23,33,.91));backdrop-filter:blur(10px)}
+.overlay:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.32;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:54px 54px;mask-image:linear-gradient(to bottom,#000,transparent 90%)}
+.command-shell{position:relative;width:min(1120px,100%);min-height:min(650px,88vh);display:grid;grid-template-rows:auto 1fr auto;border:1px solid rgba(112,225,245,.28);border-radius:22px;overflow:hidden;background:linear-gradient(135deg,rgba(7,26,37,.94),rgba(3,14,21,.96));box-shadow:0 30px 100px #000a,inset 0 1px #fff1}
+.command-shell:before,.command-shell:after{content:"";position:absolute;width:60px;height:60px;pointer-events:none;z-index:2}.command-shell:before{top:9px;left:9px;border-top:2px solid var(--cyan);border-left:2px solid var(--cyan)}.command-shell:after{right:9px;bottom:9px;border-right:2px solid var(--orange);border-bottom:2px solid var(--orange)}
+.topbar{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 28px;border-bottom:1px solid var(--line);font:600 10px/1 var(--mono);letter-spacing:.18em;color:var(--muted)}.brand{display:flex;align-items:center;gap:11px;color:var(--paper)}.brand-mark{width:24px;height:24px;border:1px solid var(--cyan);transform:rotate(45deg);display:grid;place-items:center;box-shadow:0 0 20px #70e1f544}.brand-mark:after{content:"";width:7px;height:7px;background:var(--cyan);border-radius:50%}.live{display:flex;align-items:center;gap:8px;color:var(--safe)}.live i{width:7px;height:7px;background:var(--safe);border-radius:50%;box-shadow:0 0 12px var(--safe);animation:pulse 1.5s infinite}
+.menu-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);gap:clamp(30px,5vw,76px);align-items:center;padding:clamp(34px,6vw,76px)}.eyebrow{font:700 10px/1 var(--mono);letter-spacing:.24em;color:var(--orange);margin-bottom:20px}h1{font-size:clamp(48px,7vw,88px);line-height:.86;letter-spacing:-.06em;font-weight:900;text-transform:uppercase;margin-bottom:25px}h1 span{display:block;color:transparent;-webkit-text-stroke:1px #eef8f999}.hero-copy{max-width:590px;font-size:clamp(15px,1.55vw,19px);line-height:1.6;color:#b7cdd3;margin-bottom:30px}.hero-copy b{color:var(--paper)}
+button{border:0;border-radius:8px;padding:16px 25px;cursor:pointer;font:800 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;transition:.18s}button:hover{transform:translateY(-2px);filter:brightness(1.08)}button:active{transform:translateY(1px)}.primary{background:linear-gradient(135deg,#ff934f,var(--orange));color:#1b0b02;box-shadow:0 12px 34px #ff7a2f44}.primary:after{content:"→";margin-left:22px;font-size:15px}
+.mission-card{padding:25px;border:1px solid var(--line);border-radius:14px;background:linear-gradient(160deg,#0f2e3be0,#061822c8);box-shadow:inset 0 1px #fff1}.mission-card:before{content:"MISSION BRIEF // 001";display:block;margin-bottom:24px;font:700 9px/1 var(--mono);letter-spacing:.2em;color:var(--cyan)}.route{display:flex;align-items:center;gap:12px;margin-bottom:22px;font:700 10px/1 var(--mono);letter-spacing:.12em}.route-line{position:relative;flex:1;height:1px;background:linear-gradient(90deg,var(--orange),var(--safe))}.route-line:before,.route-line:after{content:"";position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px currentColor}.route-line:after{right:0;background:var(--safe)}
+.cargo-value{padding:18px;border-radius:9px;background:#0004;margin-bottom:20px}.cargo-value small,.stat small{display:block;font:600 8px/1 var(--mono);letter-spacing:.16em;color:var(--muted);margin-bottom:8px}.cargo-value strong{font:800 clamp(24px,3vw,37px)/1 var(--mono);color:var(--amber)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden;margin-bottom:22px}.stat{padding:13px 10px;background:#091c26}.stat b{font:700 11px/1 var(--mono)}.brief{font:500 11px/1.8 var(--mono);color:#aec4ca}.brief b{color:var(--orange)}.keys{display:flex;flex-wrap:wrap;align-items:center;gap:7px;margin-bottom:13px}.brief .k{display:inline-grid;place-items:center;min-width:27px;height:27px;padding:0 7px;border:1px solid #93cbdb66;border-radius:5px;background:#93cbdb14;color:var(--paper);font-size:9px;box-shadow:inset 0 -2px #0004}.brief-note{padding-top:14px;border-top:1px solid var(--line);color:var(--muted)}.bottom-meta{display:flex;justify-content:space-between;padding:16px 28px;border-top:1px solid var(--line);font:600 8px/1 var(--mono);letter-spacing:.15em;color:#5f7c85}
+#result .command-shell{width:min(1000px,100%);min-height:min(680px,91vh)}.result-grid{display:grid;grid-template-columns:.82fr 1.18fr;min-height:0}.result-summary{display:flex;flex-direction:column;justify-content:center;align-items:flex-start;padding:48px;border-right:1px solid var(--line);background:radial-gradient(circle at 30% 40%,#4ee29a17,transparent 55%)}.result-kicker{font:700 9px/1 var(--mono);letter-spacing:.2em;color:var(--muted);margin-bottom:20px}.result-big{font-size:clamp(38px,5vw,64px);line-height:.92;letter-spacing:-.05em;font-weight:900;text-align:left}.result-big.win{color:var(--safe);text-shadow:0 0 35px #4ee29a38}.result-big.lose{color:var(--alert);text-shadow:0 0 35px #ff4d5538}.reward{font:800 clamp(28px,4vw,44px)/1 var(--mono);margin:24px 0 11px}.stamp{display:inline-block;border:1px solid var(--safe);color:var(--safe);padding:7px 12px;border-radius:4px;letter-spacing:.18em;font:700 8px/1 var(--mono);transform:rotate(-2deg)}.fund-box{margin-top:36px;padding-top:25px;border-top:1px solid var(--line);width:100%}.fund-label{font:700 8px/1 var(--mono);letter-spacing:.18em;color:var(--muted);margin-bottom:8px}.money{font:800 clamp(23px,3vw,34px)/1 var(--mono)}
+.upgrade-panel{display:flex;flex-direction:column;padding:36px 40px;min-height:0}.panel-title{display:flex;align-items:end;justify-content:space-between;margin-bottom:18px}.panel-title h2{font-size:18px}.panel-title span{font:600 8px/1 var(--mono);letter-spacing:.14em;color:var(--muted)}.shop{display:flex;flex-direction:column;gap:8px;flex:1;overflow:auto;margin-bottom:20px}.shop-row{display:flex;align-items:center;gap:12px;background:#93cbdb0b;border:1px solid var(--line);border-radius:9px;padding:12px 13px}.shop-row .info{flex:1;text-align:left}.shop-row .name{font:700 10px/1.2 var(--mono);letter-spacing:.05em}.shop-row .lvl{font:500 8px/1.4 var(--mono);color:var(--muted);margin-top:5px}.shop-row button{padding:10px 12px;min-width:82px;background:#ff7a2f24;border:1px solid #ff7a2f59;color:#ffad7b;font-size:9px}.shop-row button:disabled{opacity:.32;filter:grayscale(1);cursor:not-allowed}.next-wrap{display:flex;align-items:center;gap:16px}.next-wrap .primary{flex:1}.next-label{font:600 8px/1.45 var(--mono);color:var(--muted);text-align:right}.sub{font:600 8px/1.5 var(--mono);letter-spacing:.1em;color:var(--muted)}
+@keyframes pulse{50%{opacity:.35;transform:scale(.75)}}@media(max-width:760px){.overlay{padding:10px}.command-shell{min-height:calc(100vh - 20px);border-radius:15px}.topbar{height:50px;padding:0 18px}.topbar>span:not(.live){display:none}.menu-grid{grid-template-columns:1fr;padding:30px 23px;gap:26px;overflow:auto}h1{font-size:clamp(44px,15vw,70px)}.hero-copy{font-size:14px;margin-bottom:22px}.mission-card{padding:19px}.bottom-meta{padding:13px 18px}.bottom-meta span:last-child{display:none}.result-grid{grid-template-columns:1fr;overflow:auto}.result-summary{padding:30px 25px;border-right:0;border-bottom:1px solid var(--line)}.fund-box{margin-top:22px}.upgrade-panel{padding:25px 20px}.next-wrap{flex-direction:column;align-items:stretch}.next-label{text-align:center}}
+
+/* ---- DEBRIEF (mission completion screens) ---- */
+#debrief{z-index:12}
+.db{width:min(880px,94vw);max-height:92vh;overflow-y:auto;position:relative;border-radius:14px;box-shadow:0 34px 110px #000d;animation:dbIn .55s cubic-bezier(.2,.9,.3,1.15)}
+@keyframes dbIn{from{transform:translateY(30px) scale(.95);opacity:0}}
+@keyframes dbTicker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes dbBlink{50%{opacity:.25}}
+@keyframes dbSweep{to{transform:rotate(360deg)}}
+@keyframes dbStamp{0%{transform:rotate(-8deg) scale(2.4);opacity:0}60%{transform:rotate(-8deg) scale(.94);opacity:1}100%{transform:rotate(-8deg) scale(1)}}
+@keyframes dbRise{from{transform:translateY(14px);opacity:0}to{transform:none;opacity:1}}
+.db-btn{display:block;width:calc(100% - 56px);margin:6px 28px 26px;padding:15px;border-radius:8px;font:800 11px/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border:0}
+.db-kicker{font:700 9px/1 var(--mono);letter-spacing:.24em}
+
+/* ---- STAGE INTRO CINEMATIC ---- */
+#stageIntro{z-index:14;background:#020a10;transition:opacity .55s ease;}
+#stageIntro.fadeout{opacity:0;pointer-events:none;}
+.intro-card{text-align:center;animation:introRise .7s cubic-bezier(.2,.9,.3,1.05) both;}
+.intro-kicker{font:800 11px/1 var(--mono);letter-spacing:.28em;color:var(--cyan);margin-bottom:18px;}
+.intro-title{font-size:clamp(50px,8vw,96px);line-height:.85;letter-spacing:-.06em;font-weight:900;text-transform:uppercase;color:var(--paper);text-shadow:0 0 38px rgba(112,225,245,.25);}
+.intro-title span{display:block;color:transparent;-webkit-text-stroke:1px rgba(238,248,249,.7);}
+.intro-op{margin-top:22px;font:800 13px/1 var(--mono);letter-spacing:.22em;color:var(--orange);}
+.intro-sub{margin-top:12px;font:700 11px/1 var(--mono);letter-spacing:.18em;color:var(--muted);}
+.intro-start{margin-top:30px;font:900 22px/1 var(--mono);letter-spacing:.18em;color:var(--safe);animation:dbBlink .85s infinite;}
+@keyframes introRise{from{transform:translateY(24px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+
+</style>
+</head>
+<body>
+<canvas id="cv"></canvas>
+
+<!-- MAIN MENU -->
+<div id="menu" class="overlay"><div class="command-shell">
+<div class="topbar"><div class="brand"><span class="brand-mark"></span>GLOBAL MARITIME COMMAND</div><span>HORMUZ TRAFFIC CONTROL // 26.5°N</span><span class="live"><i></i> NETWORK ONLINE</span></div>
+<div class="menu-grid">
+<section><div class="eyebrow">GLOBAL MARITIME COMMAND</div><h1>Hormuz <span>Escort.</span></h1><p class="hero-copy"><b>Protect the world's most important convoy.</b><br>Protect the tanker through the Strait of Hormuz and keep the energy lifeline open.</p><button id="btnStart" class="primary">Assume command</button></section>
+<aside class="mission-card"><div class="route"><span>PERSIAN GULF</span><span class="route-line"></span><span>ARABIAN SEA</span></div><div class="cargo-value"><small>CARGO UNDER YOUR PROTECTION</small><strong>$500,000,000</strong></div><div class="stats"><div class="stat"><small>CHOKEPOINT</small><b>21 NM</b></div><div class="stat"><small>TRANSIT</small><b>~48 SEC</b></div><div class="stat"><small>LOSS LIMIT</small><b>ZERO</b></div></div><div class="brief" id="briefText"><div class="keys"><span class="k">W</span><span class="k">A</span><span class="k">S</span><span class="k">D</span><span>MOVE</span><span class="k">SPACE</span><span>FIRE</span><span class="k">B</span><span>SUPPORT</span></div><div class="brief-note">Navigate between <b>Iran and Musandam</b>. Collect weapon crates to escalate firepower. <b>The tanker must pass.</b></div></div></aside>
+</div><div class="bottom-meta"><span>HORMUZ ESCORT</span><span>PROTECT THE TANKER · HOLD THE EXIT · KEEP THE WORLD MOVING</span></div>
+</div></div>
+<!-- RESULT + SHOP -->
+<div id="result" class="overlay hidden"><div class="command-shell">
+<div class="topbar"><div class="brand"><span class="brand-mark"></span>AFTER ACTION REPORT</div><span>GLOBAL MARITIME COMMAND</span><span class="live"><i></i> SECURE CHANNEL</span></div>
+<div class="result-grid">
+<section class="result-summary"><div class="result-kicker">CONVOY STATUS // FINAL</div><div id="resTitle" class="result-big win">SAFE DELIVERY</div><div id="resReward" class="reward">+$500M</div><div id="resStamp" class="stamp">MISSION COMPLETE</div><div class="fund-box"><div class="fund-label">TOTAL COMMAND FUNDS</div><div class="money" id="moneyLabel">$0M</div></div></section>
+<section class="upgrade-panel"><div class="panel-title"><h2>Fleet upgrades</h2><span>INVEST BEFORE DEPLOYMENT</span></div><div class="shop" id="shopRows"></div><div class="next-wrap"><button id="btnNext" class="primary">Launch next convoy</button><div class="next-label sub" id="nextLevelLabel"></div></div></section>
+</div>
+<div class="bottom-meta"><span>LEDGER VERIFIED</span><span>ONE MORE RUN. FEWER TARGETS. HIGHER TENSION.</span></div>
+</div></div>
+<div id="debrief" class="overlay hidden"></div>
+<div id="stageIntro" class="overlay hidden"><div class="intro-card">
+  <div class="intro-kicker">GLOBAL MARITIME COMMAND</div>
+  <div class="intro-title">HORMUZ <span>ESCORT</span></div>
+  <div class="intro-op" id="introOp">OPERATION 01</div>
+  <div class="intro-sub" id="introSub">CONVOY AT DUSK</div>
+  <div class="intro-start">MISSION START</div>
+</div></div>
+<script>
+"use strict";
+/* ============================== SETUP ============================== */
+const cv=document.getElementById('cv');
+const ctx=cv.getContext('2d');
+let W=0,H=0,DPR=1;
+function resize(){
+  DPR=Math.min(window.devicePixelRatio||1,2);
+  W=window.innerWidth;H=window.innerHeight;
+  cv.width=W*DPR;cv.height=H*DPR;
+  ctx.setTransform(DPR,0,0,DPR,0,0);
+}
+window.addEventListener('resize',resize);resize();
+
+const rnd=(a,b)=>a+Math.random()*(b-a);
+const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+const lerp=(a,b,t)=>a+(b-a)*t;
+const TAU=Math.PI*2;
+const IS_TOUCH='ontouchstart' in window;
+
+/* ============================== AUDIO ============================== */
+let AC=null;
+function audio(){ if(!AC){try{AC=new (window.AudioContext||window.webkitAudioContext)();}catch(e){}} if(AC&&AC.state==='suspended')AC.resume(); return AC; }
+function tone(f0,f1,dur,type,vol){
+  const ac=audio(); if(!ac)return;
+  const o=ac.createOscillator(),g=ac.createGain();
+  o.type=type||'square';o.frequency.setValueAtTime(f0,ac.currentTime);
+  o.frequency.exponentialRampToValueAtTime(Math.max(1,f1),ac.currentTime+dur);
+  g.gain.setValueAtTime(vol,ac.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.0001,ac.currentTime+dur);
+  o.connect(g).connect(ac.destination);o.start();o.stop(ac.currentTime+dur);
+}
+function boom(size){
+  const ac=audio(); if(!ac)return;
+  const dur=0.22+size*0.4,n=ac.sampleRate*dur,buf=ac.createBuffer(1,n,ac.sampleRate),d=buf.getChannelData(0);
+  for(let i=0;i<n;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/n,2);
+  const s=ac.createBufferSource();s.buffer=buf;
+  const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=280+size*520;
+  const g=ac.createGain();g.gain.value=0.35+size*0.4;
+  s.connect(f).connect(g).connect(ac.destination);s.start();
+}
+function siren(){tone(760,760,0.16,'square',0.11);setTimeout(()=>tone(560,560,0.16,'square',0.11),170);setTimeout(()=>tone(760,760,0.16,'square',0.11),340);}
+let gunTick=0;
+const sfx={
+  gun:()=>{ if(performance.now()-gunTick<70)return; gunTick=performance.now(); tone(rnd(340,420),120,0.06,'square',0.05); },
+  rail:()=>{tone(1600,120,0.28,'sawtooth',0.14);boom(0.3);},
+  missile:()=>tone(900,240,0.22,'sawtooth',0.09),
+  ciws:()=>tone(1100,700,0.08,'square',0.06),
+  depth:()=>tone(150,60,0.35,'sine',0.14),
+  pickup:()=>{tone(700,700,0.08,'square',0.1);setTimeout(()=>tone(1050,1050,0.1,'square',0.1),90);},
+  bomb:()=>{boom(1.6);tone(90,40,1.1,'sawtooth',0.25);},
+  intercept:()=>{boom(0.35);tone(1400,300,0.12,'square',0.08);},
+  hitTanker:()=>{boom(0.9);tone(180,60,0.5,'sawtooth',0.2);},
+  hitPlayer:()=>boom(0.55),
+  splash:()=>tone(500,120,0.3,'sine',0.07),
+  cash:()=>{tone(880,880,0.1,'square',0.1);setTimeout(()=>tone(1320,1320,0.14,'square',0.1),110);},
+  lost:()=>{boom(1.4);tone(300,40,1.4,'sawtooth',0.22);}
+};
+function vibrate(pattern){try{if(typeof navigator!=='undefined'&&navigator.vibrate)navigator.vibrate(pattern);}catch(e){}}
+
+/* ============================== MUSIC ============================== */
+const STAGE_MUSIC_SRC="stage.mp3";
+const BOSS_MUSIC_SRC="boss.mp3";
+const music={
+  stage:null,boss:null,current:null,currentName:null,ready:false,fadeTimer:null,paused:false,pausedName:null,targetVolumes:{stage:0.46,boss:0.58},
+  init(){
+    if(this.ready)return;
+    this.stage=new Audio(STAGE_MUSIC_SRC);this.boss=new Audio(BOSS_MUSIC_SRC);
+    [this.stage,this.boss].forEach(a=>{a.loop=true;a.preload='auto';a.volume=0;});
+    this.ready=true;
+  },
+  play(name,dur){
+    this.init();
+    const next=name==='boss'?this.boss:this.stage;
+    const target=this.targetVolumes[name]||0.46;
+    if(this.current===next&&!next.paused&&!this.paused)return;
+    const prev=this.current;
+    this.current=next;this.currentName=name;this.paused=false;this.pausedName=null;
+    next.volume=next.volume||0;
+    if(prev!==next)next.currentTime=0;
+    next.play().catch(()=>{});
+    this.crossfade(prev,next,target,dur==null?800:dur);
+  },
+  crossfade(prev,next,target,dur){
+    clearInterval(this.fadeTimer);
+    const start=performance.now(),prevStart=prev?prev.volume:0,nextStart=next?next.volume:0;
+    this.fadeTimer=setInterval(()=>{
+      const t=Math.min(1,(performance.now()-start)/dur);
+      const eased=t*t*(3-2*t);
+      if(prev)prev.volume=Math.max(0,prevStart*(1-eased));
+      if(next)next.volume=nextStart+(target-nextStart)*eased;
+      if(t>=1){
+        clearInterval(this.fadeTimer);
+        if(prev&&prev!==next){prev.pause();prev.currentTime=0;prev.volume=0;}
+        if(next)next.volume=target;
+      }
+    },33);
+  },
+  fadeOut(dur=300,reset=false){
+    this.init();
+    clearInterval(this.fadeTimer);
+    const active=this.current;
+    if(!active)return;
+    const start=performance.now(),vol=active.volume;
+    this.fadeTimer=setInterval(()=>{
+      const t=Math.min(1,(performance.now()-start)/dur);
+      active.volume=vol*(1-(t*t*(3-2*t)));
+      if(t>=1){clearInterval(this.fadeTimer);active.pause();active.volume=0;if(reset)active.currentTime=0;}
+    },33);
+  },
+  stageTrack(){this.play('stage',800);},
+  bossTrack(){this.play('boss',800);},
+  pause(){
+    if(!this.current||this.paused)return;
+    this.paused=true;this.pausedName=this.currentName;
+    this.fadeOut(300,false);
+  },
+  resume(){
+    if(!this.paused)return;
+    const name=this.pausedName||this.currentName||'stage';
+    this.paused=false;this.pausedName=null;
+    this.init();
+    const a=name==='boss'?this.boss:this.stage;
+    this.current=a;this.currentName=name;
+    a.play().catch(()=>{});
+    this.crossfade(null,a,this.targetVolumes[name]||0.46,300);
+  },
+  stop(){
+    this.init();
+    this.paused=false;this.pausedName=null;
+    const prev=this.current;
+    this.currentName=null;
+    if(prev){this.current=prev;this.fadeOut(650,true);}
+    this.current=null;
+    setTimeout(()=>{[this.stage,this.boss].forEach(a=>{if(a){a.pause();a.currentTime=0;a.volume=0;}});},720);
+  }
+};
+
+const bossSfx={
+  ping:()=>{ // deep sonar ping with a fading echo — the "what was that?" moment
+    tone(1180,1050,.55,'sine',.17);
+    setTimeout(()=>tone(1180,980,.7,'sine',.07),620);
+    setTimeout(()=>tone(1180,940,.8,'sine',.03),1280);
+    tone(46,30,1.1,'sine',.1); // sub-bass presence under the ping
+  },
+  intro:()=>{
+    tone(150,85,.9,'sine',.22);tone(75,42,1.25,'sawtooth',.13);
+    setTimeout(()=>siren(),120);setTimeout(()=>siren(),650);
+    setTimeout(()=>tone(980,620,.5,'square',.13),300);
+  },
+  rising:()=>{tone(62,28,1.35,'sawtooth',.24);setTimeout(()=>tone(110,48,.9,'sine',.17),260);},
+  emerge:()=>{
+    boom(2.4);tone(52,25,1.25,'sawtooth',.28);tone(230,65,.5,'square',.18);
+    setTimeout(()=>{tone(72,58,1.1,'sawtooth',.17);tone(145,110,.7,'square',.08);},260);
+    // hull-metal impact ring
+    setTimeout(()=>{tone(410,180,.35,'square',.12);tone(620,240,.28,'triangle',.08);},120);
+    // boss-music transition motif (menacing minor arpeggio)
+    [110,131,165,196,220].forEach((f,i)=>setTimeout(()=>tone(f,f*.7,.4,'sawtooth',.13),520+i*140));
+    // engine start: throbbing diesel pulses after she settles
+    for(let i=0;i<6;i++)setTimeout(()=>tone(58+((i%2)*8),50,.16,'sawtooth',.12-i*.012),950+i*185);
+  }
+};
+
+/* ============================== GAME STATE ============================== */
+const G={
+  scene:'menu', money:0, level:1, paused:false,
+  upg:{speed:0,gun:0,armor:0,bombs:0},
+  time:0,timeScale:1,slowTimer:0,shake:0,flash:0,
+  tanker:null,player:null,convoy:[],towers:[],enemies:[],shots:[],parts:[],texts:[],chatter:[],pickups:[],beams:[],rings:[],
+  weapon:{type:'cannon',lvl:1},bombs:1,bombCd:0,lives:3,
+  spawnT:2,journey:46,banner:null,bannerT:0,endT:0,deliveryFx:0,deliveryBeat:0,bossSpawned:false,threat:1,
+  bossWarningT:0,cameraPunch:0,ambushQuiet:0,bombHintCd:0,combo:0,comboT:0,comboBest:0,score:0,stageKills:0,noDamage:true,noBomb:true,stageEvent:null,eventT:0,empT:0,medalT:0,panicT:0,rapidT:0,wingmanT:0,magnetT:0,wingmanFireT:0,starterDrops:false,bonusText:'',convoySaveBonus:0,bossPreWarn:false,flowBeat:0
+};
+const UPGRADES=[
+  {key:'speed',name:'ENGINE OVERHAUL',desc:'Faster destroyer',base:300,max:5},
+  {key:'gun',  name:'GUN COOLING',   desc:'Faster fire rate',base:340,max:5},
+  {key:'armor',name:'REACTIVE ARMOR',desc:'Tougher destroyer',base:340,max:5},
+  {key:'bombs',name:'BOMB YIELD UPGRADE',desc:'Stronger once-per-stage fleet bomb',base:600,max:3},
+];
+const cost=u=>Math.round(u.base*(G.upg[u.key]+1)*(u.key==='bombs'?1.5:1));
+const stats={
+  pSpeed:()=>190+G.upg.speed*28,
+  gunMul:()=>Math.pow(0.9,G.upg.gun)*((G.rapidT||0)>0?0.55:1),
+  threatFireMul:()=>Math.max(.72,1-(Math.max(1,G.threat)-1)*.045),
+  pHp:()=>15+G.upg.armor*4,
+  bombCap:()=>3,
+  bombPower:()=>1+G.upg.bombs*.55
+};
+
+/* ============================== WEAPONS ============================== */
+const WEAPONS={
+  cannon:{name:'30MM CANNON', color:'#dff6ff', letter:'C'},
+  spread:{name:'SPREAD SHOT', color:'#ffd166', letter:'S'},
+  missile:{name:'MISSILES',   color:'#ffa1e0', letter:'M'},
+  rail:  {name:'RAILGUN',     color:'#8fd3ff', letter:'R'},
+  ciws:  {name:'CIWS',        color:'#b6ff8f', letter:'W'},
+  depth: {name:'DEPTH CHARGES',color:'#c9a5ff', letter:'D'},
+};
+const WKEYS=Object.keys(WEAPONS);
+const THREAT_WEAPONS={1:['cannon'],2:['cannon','spread'],3:['cannon','spread','missile'],
+  4:['cannon','spread','missile','rail'],5:['cannon','spread','missile','rail','depth'],
+  6:['cannon','spread','missile','rail','depth','ciws'],7:WKEYS};
+const THREAT_UNLOCK={2:'spread',3:'missile',4:'rail',5:'depth',6:'ciws',7:'all'};
+function threatLevel(progress){
+  const p=progress==null?(G.tanker?G.tanker.progress:0):progress;
+  if(G.level===1)return p<.35?1:2;
+  if(G.level===2)return 2;
+  return clamp(G.level,3,7);
+}
+function availableWeapons(level){return THREAT_WEAPONS[clamp(level||G.threat||1,1,7)]||WKEYS;}
+function addPickup(x,y,type,value){G.pickups.push({x,y,type,value:value||0,t:12,phase:rnd(0,TAU)});}
+
+function stageEventFor(L){
+  const events=[
+    {id:'heat',name:'EUROPE HEATWAVE',desc:'Deliver the tanker. Keep the air conditioners running.'},
+    {id:'storm',name:'STORM FRONT',desc:'Rain, waves, and faster surprise attacks.'},
+    {id:'night',name:'NIGHT OPERATION',desc:'Reduced visibility. Watch the warning arrows.'},
+    {id:'minefield',name:'MINEFIELD',desc:'Mines and suicide craft pressure the route.'},
+    {id:'airbase',name:'ENEMY AIR BASE',desc:'Fighters launch repeated bombing runs.'},
+    {id:'convoy',name:'CONVOY ESCORT',desc:'Multiple ships enter the route. Prioritize threats.'}
+  ];
+  return events[(L-1)%events.length];
+}
+function addScore(v,x,y,label,color){
+  const mul=(G.medalT||0)>0?2:1;
+  const pts=Math.round(v*mul*(1+Math.min(30,G.combo||0)*0.04));
+  G.score=(G.score||0)+pts;
+  if(x!=null)floatText(x,y||0,(label?label+' ':'')+'+'+pts,(color||((G.medalT||0)>0?'#ffc857':'#dff6ff')));
+}
+function registerKill(e){
+  G.stageKills=(G.stageKills||0)+1;
+  G.combo=(G.combo||0)+1;G.comboT=2.15;G.comboBest=Math.max(G.comboBest||0,G.combo);
+  const base=e.type==='destroyer'?5000:e.type==='missileBoat'?900:e.type==='sub'?1200:e.type==='heli'?850:e.type==='fighter'?700:e.type==='supply'?650:e.type==='suicide'||e.type==='kamikaze'?450:250;
+  addScore(base,e.x,e.y,G.combo>=8?'CHAIN '+G.combo:'',G.combo>=12?'#ffc857':'#9fdcb4');
+  if(G.combo===8||G.combo===16||G.combo===24){setBanner('CHAIN '+G.combo+' — ESCORT BONUS','#ffc857');sfx.cash();}
+  if(e.critical){G.shake=Math.max(G.shake,12);G.slowTimer=Math.max(G.slowTimer,.3);}
+}
+function triggerPanic(msg){
+  G.panicT=1.6;setBanner(msg||'MAYDAY — SAVE THE TANKER','#ff4d55');siren();
+}
+
+function activeProtectedShips(){
+  const ships=[];
+  if(G.tanker)ships.push(G.tanker);
+  if(G.convoy)for(const c of G.convoy)if(!c.dead)ships.push(c);
+  return ships;
+}
+function protectedTarget(){
+  const ships=activeProtectedShips();
+  if(!ships.length)return G.tanker;
+  const roll=Math.random();
+  // Tension build: most enemies now care about the tanker first.
+  // Fewer enemies on screen, but 75-85% of their decisions pressure the escort objective.
+  if(G.tanker&&roll<0.80)return G.tanker;
+  const liveTowers=(G.towers||[]).filter(t=>!t.dead&&t.hp>0);
+  if(liveTowers.length&&roll<0.91){
+    liveTowers.sort((a,b)=>(a.hp/a.maxHp)-(b.hp/b.maxHp));
+    return liveTowers[0];
+  }
+  const aliveSupport=(G.convoy||[]).filter(c=>!c.dead);
+  if(aliveSupport.length){
+    aliveSupport.sort((a,b)=>(a.hp/a.maxHp)-(b.hp/b.maxHp));
+    return aliveSupport[0];
+  }
+  return G.tanker;
+}
+function initConvoyShips(){
+  G.convoy=[];G.convoySaveBonus=0;
+  if(!G.stageEvent||G.stageEvent.id!=='convoy')return;
+  G.convoy=[
+    {kind:'hospital',label:'HOSPITAL SHIP',role:'REPAIR BONUS',x:-210,y:H*.5-74,offX:-78,offY:-72,w:112,h:28,r:34,hp:70,maxHp:70,dead:false,progress:0},
+    {kind:'ammo',label:'AMMO SHIP',role:'BOMB BONUS',x:-240,y:H*.5+76,offX:-118,offY:74,w:105,h:26,r:32,hp:58,maxHp:58,dead:false,progress:0}
+  ];
+  radio('CONVOY STAGE — PROTECT THE OIL TANKER, HOSPITAL SHIP, AND AMMO SHIP.','#ffc857');
+  setBanner('CONVOY ESCORT — THREE SHIPS UNDER PROTECTION','#ffc857');
+}
+function updateConvoyShips(dt){
+  if(!G.tanker||!G.convoy)return;
+  for(const c of G.convoy){
+    c.progress=G.tanker.progress;
+    c.x=G.tanker.x+c.offX;
+    c.y=clamp(G.tanker.y+c.offY+Math.sin(G.time*1.2+(c.kind==='ammo'?2.1:0))*7,H*.18,H*.86);
+    if(!c.dead&&c.hp/c.maxHp<.28&&Math.random()<dt*.55){
+      triggerPanic(c.label+' UNDER FIRE — SAVE THE CONVOY');
+      floatText(c.x,c.y-42,'MAYDAY','#ff4d55');
+    }
+  }
+}
+function damageProtectedShip(ship,amount){
+  if(!ship||ship.dead)return;
+  if(ship===G.tanker){damageTanker(amount);return;}
+  ship.hp-=amount;G.noDamage=false;
+  G.shake=Math.min(14,G.shake+amount*.16);
+  puff(ship.x,ship.y,'#ff9a3d',5,48);
+  floatText(ship.x,ship.y-38,ship.label+' -'+Math.round(amount),'#ff8b91');
+  radio(ship.label+' HIT — KEEP THE CONVOY TOGETHER.','#ff8b91');
+  if(ship.hp<=0){
+    ship.dead=true;explode(ship.x,ship.y,1.7);sfx.lost();
+    if(ship.kind==='hospital'){
+      G.tanker.hp=clamp(G.tanker.hp-18,1,G.tanker.maxHp);
+      radio('HOSPITAL SHIP LOST — NO REPAIR CREWS AVAILABLE.','#ff4d55');
+      setBanner('HOSPITAL SHIP LOST — HULL PENALTY','#ff4d55');
+    }else if(ship.kind==='ammo'){
+      G.bombs=0;G.bombCd=999;
+      radio('AMMO SHIP LOST — BOMB SUPPORT OFFLINE.','#ff4d55');
+      setBanner('AMMO SHIP LOST — BOMB OFFLINE','#ff4d55');
+    }
+  }
+}
+function nearestProtectedCollision(s){
+  let best=null,bd=1e9;
+  for(const ship of activeProtectedShips()){
+    if(ship.dead)continue;
+    const rr=(ship.r||36)-5+(s.r||3),d=dist(s,ship);
+    if(d<rr&&d<bd){best=ship;bd=d;}
+  }
+  return best;
+}
+function grantThreatSupply(level){
+  const unlock=THREAT_UNLOCK[level];if(!unlock)return;
+  const type=unlock==='all'?pick(WKEYS):unlock;
+  const P=G.player,x=clamp(P.x+110,60,W-60),y=clamp(P.y+rnd(-45,45),H*.2,H*.8);
+  addPickup(x,y,type);radio('THREAT LEVEL '+level+' — '+(unlock==='all'?'FULL ARSENAL':WEAPONS[type].name)+' AUTHORIZED.','#70e1f5');
+  setBanner('THREAT '+level+'  //  '+(unlock==='all'?'ALL WEAPONS AVAILABLE':'NEW WEAPON AUTHORIZED'));
+}
+
+/* ============================== CHATTER ============================== */
+function radio(msg,color){G.chatter.push({msg,color:color||'#9fdcb4',t:5});if(G.chatter.length>3)G.chatter.shift();}
+const SAY={
+  vampire:["VAMPIRE! VAMPIRE! MISSILE INBOUND!","BIRDS IN THE AIR — BRACE!","LOCK-ON DETECTED — VAMPIRE INBOUND!"],
+  torpedo:["TORPEDO IN THE WATER!","SONAR CONTACT — FISH INBOUND!"],
+  splash:["SPLASH ONE!","GOOD KILL, GOOD KILL.","TARGET DESTROYED.","THREAT NEUTRALIZED."],
+  playerDown:["WE'RE HIT! ABANDONING SHIP!","SHE'S GOING DOWN — TANKER STILL AFLOAT!","MAYDAY MAYDAY — HOLD THE HORMUZ ESCORT!"],
+  respawn:["RESERVE DESTROYER ON STATION.","BACK IN THE FIGHT.","NEW HULL, SAME MISSION."],
+  tankerHit:["TANKER IS HIT! SHE'S STILL MOVING!","HULL BREACH — SHE'S HOLDING!","DAMAGE REPORT — SHE WON'T STOP!"],
+  close:["THAT WAS TOO CLOSE.","JUST A LITTLE FARTHER...","HOLD TOGETHER, GIRL."],
+  bomb:["FLEET SUPPORT — DANGER CLOSE!","BRACE! FIRE MISSION INBOUND!"],
+  start:["CONVOY UNDERWAY. HORMUZ ESCORT ACTIVE.","SHE NEVER STOPS. NEITHER DO WE."]
+};
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+
+/* ============================== RUN SETUP ============================== */
+function newRun(){
+  music.stageTrack();
+  G.enemies=[];G.shots=[];G.parts=[];G.texts=[];G.chatter=[];G.pickups=[];G.beams=[];G.rings=[];G.convoy=[];G.towers=[];
+  G.combo=0;G.comboT=0;G.comboBest=0;G.stageKills=0;G.noDamage=true;G.noBomb=true;G.empT=0;G.medalT=0;G.panicT=0;G.rapidT=0;G.wingmanT=0;G.magnetT=0;G.wingmanFireT=0;G.starterDrops=false;G.bonusText='';
+  G.stageEvent=stageEventFor(G.level);G.eventT=3.85;
+  G.time=0;G.timeScale=1;G.slowTimer=0;G.shake=0;G.flash=0;G.banner=null;G.endT=0;G.deliveryFx=0;G.deliveryBeat=0;
+  G.bossWarningT=0;G.cameraPunch=0;G.ambushQuiet=0;G.bombHintCd=0;G.bossPreWarn=false;G.flowBeat=0;
+  G.journey=46+G.level*1.5;G.spawnT=G.level===1?4.8:G.level===2?2.35:2.05;G.bossSpawned=false;
+  G.bombs=stats.bombCap();G.bombCd=0;G.lifeCarrierSpawned=false;
+  // Fewer, more meaningful supply moments: less screen clutter, stronger tension.
+  G.supplyQuota=G.level===1?1:(1+(Math.random()<0.35?1:0));
+  G.supplySpawned=0;
+  {
+    const spans=G.supplyQuota===2?[0.30,0.66]:[0.42];
+    G.supplyCheckpoints=spans.map(v=>clamp(v+rnd(-0.04,0.04),0.12,0.82)).sort((a,b)=>a-b);
+  }
+  G.weapon={type:G.weapon.type,lvl:Math.max(1,Math.min(G.weapon.lvl,8))};
+  G.runDeaths=0;
+  G.tanker={x:-120,y:H*0.5,hp:100,maxHp:100,progress:0,w:150,h:34,r:44,label:'OIL TANKER'};
+  initConvoyShips();
+  G.player={x:W*0.3,y:H*0.5,vx:0,vy:0,hp:stats.pHp(),maxHp:stats.pHp(),r:14,
+    fireT:0,ciwsT:0,depthT:0,facing:0,dead:false,respawnT:0,invuln:2.4,shield:0,shieldMax:0,shieldTime:0};
+  G.threat=threatLevel(0);
+  if(G.threat>1)grantThreatSupply(G.threat);
+  radio(pick(SAY.start),'#eaf3f5');
+  G.scene='playing';
+}
+
+/* ============================== SPAWNING ============================== */
+function edgePos(){
+  const side=Math.random();
+  if(side<0.38)return{x:rnd(W*0.3,W+40),y:H*0.19};
+  if(side<0.76)return{x:rnd(W*0.3,W+40),y:H*0.83};
+  return{x:W+50,y:rnd(H*0.22,H*0.8)};
+}
+function destroyerAmbushPos(){
+  const T=G.tanker,P=G.player;
+  const minX=clamp(T.x+Math.max(150,W*.12),W*.38,W*.78);
+  const maxX=clamp(T.x+Math.max(280,W*.26),minX+55,W*.88);
+  const safeT=Math.max(145,W*.11),safeP=Math.max(125,W*.095);
+  for(let i=0;i<14;i++){
+    const pos={x:rnd(minX,maxX),y:clamp(T.y+rnd(-H*.23,H*.23),H*.24,H*.76)};
+    if(dist(pos,T)>safeT&&(!P||dist(pos,P)>safeP))return pos;
+  }
+  return{x:clamp(T.x+Math.max(190,W*.18),W*.42,W*.84),y:clamp(T.y+(P&&P.y<T.y?H*.2:-H*.2),H*.25,H*.75)};
+}
+function spawnEnemy(type){
+  const p=edgePos();
+  const e={type,x:p.x,y:p.y,hp:1,maxHp:1,r:10,cool:rnd(1,3),phase:rnd(0,TAU),dead:false,dropOk:true,state:'approach',stateT:0,evadeT:0};
+  switch(type){
+    case 'gunboat':e.hp=e.maxHp=16;e.spd=44+Math.min(6,G.level)*2;e.r=12;e.standoff=Math.min(W,H)*.25;e.cool=rnd(1.15,2.05);break;
+    case 'suicide':e.hp=e.maxHp=11;e.spd=116+G.level*3;e.r=11;e.critical=true;break;
+    case 'missileBoat':e.hp=e.maxHp=28;e.spd=48;e.r=14;e.standoff=Math.min(W,H)*.36;e.cool=rnd(2.15,3.25);e.critical=true;break;
+    case 'rocketBoat':e.hp=e.maxHp=24;e.spd=52;e.r=13;e.standoff=Math.min(W,H)*.30;e.cool=rnd(2.0,3.0);break;
+    case 'drone':e.hp=e.maxHp=7;e.spd=98+G.level*2;e.r=7;e.standoff=145;e.cool=rnd(1.75,2.75);e.form=rnd(-1,1);e.dive=Math.random()<.42;break;
+    case 'kamikaze':e.hp=e.maxHp=8;e.spd=138+G.level*3;e.r=7;e.critical=true;break;
+    case 'heli':e.hp=e.maxHp=28;e.spd=64;e.r=14;e.standoff=Math.min(W,H)*.34;e.cool=rnd(1.8,2.8);e.salvo=0;break;
+    case 'fighter':e.hp=e.maxHp=18;e.spd=285;e.r=11;e.x=W+50;e.y=rnd(H*.2,H*.8);e.cool=.1;e.bombed=false;break;
+    case 'sub':e.hp=e.maxHp=40;e.spd=30;e.r=16;e.standoff=Math.min(W,H)*.34;e.cycle=rnd(2.5,4.5);e.surfaced=false;e.critical=true;e.y=clamp(e.y,H*.2,H*.82);break;
+    case 'mine':e.hp=e.maxHp=10;e.spd=8;e.r=11;e.x=Math.max(W+25,G.tanker.x+W*.42);e.y=G.tanker.y+rnd(-70,70);e.critical=true;setBanner('⚠ MINE AHEAD ⚠');siren();break;
+    case 'supply':
+      e.hp=e.maxHp=22+G.level*2;e.spd=44;e.r=13;e.standoff=Math.min(W,H)*.3;e.cool=rnd(2.6,3.8);
+      e.guaranteedDrop=true;e.dropOk=true;e.supply=true;
+      if(G.level%5===0&&!G.lifeCarrierSpawned){
+        G.lifeCarrierSpawned=true;e.lifeCarrier=true;e.hp=e.maxHp+=18;e.critical=true;
+        radio('RESCUE CARRIER SPOTTED — DESTROY IT FOR +1 ESCORT LIFE.','#4ee29a');
+        setBanner('⚑ RESCUE CARRIER — +1 LIFE IF DESTROYED','#4ee29a');
+      } else {
+        radio('WEAPONS CARRIER SPOTTED — DESTROY IT FOR A SUPPLY DROP.','#ffd166');
+        setBanner('⚑ SUPPLY CARRIER INBOUND','#ffd166');
+      }
+      break;
+    case 'destroyer':{
+      e.hp=e.maxHp=150+G.level*22;e.spd=0;e.r=30;
+      e.x=W-54;e.y=G.tanker?G.tanker.y:H*.5;
+      e.standoff=0;e.cool=1.2;e.salvo=0;e.summon=5;e.critical=true;e.rewardTier='mini';
+      e.blocksExit=true;
+      // Phase 0: the sea suddenly goes quiet. Just a sonar ping and a faint disturbance.
+      e.state='quiet';e.stateT=.7;e.surface=0;e.untargetable=true;
+      G.ambushQuiet=1.95;G.slowTimer=.95;G.timeScale=.22;
+      music.bossTrack();bossSfx.ping();vibrate([90]);
+      radio('...ALL STATIONS QUIET. SONAR HAS SOMETHING.','#9fb9c2');
+      break;
+    }
+    case 'cruise':fireHostile(W+45,rnd(H*.2,H*.8),'cruise',1,G.tanker);return;
+  }
+  // Elite enemy: rare, readable, high-priority target. One stronger unit creates tension without clutter.
+  if(!['destroyer','supply','mine','cruise'].includes(type) && G.level>=2 && Math.random()<(G.level>=4?0.12:0.08)){
+    e.elite=true;e.hp=Math.round(e.hp*2.05);e.maxHp=e.hp;e.r+=2;e.spd*=1.08;e.cool*=0.78;e.critical=true;e.dropOk=true;
+    floatText(e.x,e.y-26,'ELITE','#ffc857');
+  }
+  G.enemies.push(e);
+  if(type==='supply'&&!e.lifeCarrier){
+    // Supply carriers are valuable now: they enter with a small escort instead of being free loot.
+    setTimeout(()=>{if(G.scene==='playing'&&activeEnemyCount()<maxActiveEnemies()+2){const g=spawnEnemy(Math.random()<.55?'gunboat':'drone');}},180);
+    setTimeout(()=>{if(G.scene==='playing'&&activeEnemyCount()<maxActiveEnemies()+2){const g=spawnEnemy(Math.random()<.55?'drone':'gunboat');}},420);
+  }
+}
+function activeEnemyCount(){return G.enemies.filter(e=>!e.dead&&e.type!=='supply').length;}
+function maxActiveEnemies(){
+  // Simpler screen: fewer units at once, but every unit has a job.
+  if(G.level===1)return 3;
+  if(G.level===2)return 4;
+  return Math.min(6,4+Math.floor(G.level/3));
+}
+function urgentThreatOnScreen(){
+  return G.enemies.some(e=>!e.dead&&(e.type==='suicide'||e.type==='kamikaze'||e.type==='missileBoat'||e.type==='destroyer')) ||
+         G.shots.some(s=>s.hostile&&!s.dead&&s.critical);
+}
+function enemyPoolForStage(L,p){
+  // A cleaner Raiden/1945 rhythm: fewer enemy types, clearer roles.
+  // gunboat = light pressure, drone/suicide = tanker rush, missileBoat = must-intercept threat.
+  if(L===1){
+    if(p<.35)return ['gunboat','drone'];
+    if(p<.70)return ['gunboat','drone','suicide'];
+    return ['gunboat','suicide','missileBoat'];
+  }
+  if(L===2){
+    if(p<.30)return ['gunboat','drone','suicide'];
+    if(p<.68)return ['gunboat','suicide','missileBoat'];
+    return ['suicide','missileBoat','rocketBoat'];
+  }
+  const pool=['gunboat','drone','suicide','missileBoat'];
+  if(p>.48)pool.push('rocketBoat');
+  if(L>=4&&p>.55)pool.push('mine');
+  if(L>=5&&p>.62)pool.push('heli');
+  if(L>=6&&p>.74)pool.push('kamikaze');
+  if(L>=7&&p>.82)pool.push('cruise');
+  return pool;
+}
+function director(dt){
+  G.spawnT-=dt;
+  if(G.spawnT>0)return;
+  const L=G.level,p=G.tanker.progress;
+  const bossAlive=G.enemies.some(e=>e.type==='destroyer'&&!e.dead);
+  if(L>=3&&!G.bossSpawned&&p>.49&&!G.bossPreWarn){
+    G.bossPreWarn=true;G.spawnT=1.4;G.ambushQuiet=Math.max(G.ambushQuiet,1.25);
+    radio('SEA GOES QUIET — MAJOR CONTACT NEAR THE EXIT.','#9fb9c2');
+    setBanner('WARNING — CRITICAL DESTROYER APPROACHING','#ff4d55');
+    bossSfx.ping();return;
+  }
+  if(L>=3&&p>.54&&!G.bossSpawned){G.bossSpawned=true;spawnEnemy('destroyer');G.spawnT=4.5;setBanner('BOSS BLOCKING EXIT — DESTROY IT BEFORE ARRIVAL','#ff4d55');return;}
+  if(G.enemies.some(e=>e.type==='destroyer'&&!e.dead&&e.state!=='active')){G.spawnT=.8;return;}
+
+  const cap=maxActiveEnemies()+(bossAlive?1:0);
+  if(activeEnemyCount()>=cap){G.spawnT=.72;return;}
+
+  // Raiden/1945 rhythm: tension window -> short breath -> tension again.
+  const cycle=(G.time+G.level*2.7)%27;
+  const pressurePhase=cycle<18;
+  const danger=(G.tanker.hp/G.tanker.maxHp)<.42 || (G.panicT||0)>0 || urgentThreatOnScreen();
+  const base=L===1?5.2:L===2?4.15:Math.max(2.85,4.65-(L-2)*.24);
+  const ramp=p<.25?.95:p<.55?1.12:1.32+(p-.55)*1.28;
+  const dangerMul=danger?.68:1;
+  const phaseMul=pressurePhase?.82:1.42;
+  const jitter=rnd(.84,1.12);
+  G.spawnT=clamp(base/ramp*jitter*dangerMul*phaseMul,1.05,L===1?6.8:5.4);
+
+  const pool=enemyPoolForStage(L,p);
+  let t=pick(pool);
+  // If the screen is calm, send one clear objective threat. If already dangerous, use lighter pressure.
+  if(!danger&&pressurePhase&&p>.38&&Math.random()<.62)t=pick(['suicide','missileBoat']);
+  if(danger&&Math.random()<.72)t=pick(['gunboat','drone']);
+  if(!pressurePhase&&Math.random()<.62)t=pick(['gunboat','drone']);
+
+  if(t==='cruise'){ if(activeEnemyCount()<cap-1)spawnEnemy(t); return; }
+  if(t==='drone'){
+    const n=L===1?1:(L===2?2:Math.min(3,2+Math.floor(L/4)));
+    for(let i=0;i<n;i++)setTimeout(()=>{if(G.scene==='playing'&&activeEnemyCount()<maxActiveEnemies()+1)spawnEnemy('drone');},i*220);
+  } else {
+    spawnEnemy(t);
+  }
+}
+
+/* ============================== HOSTILE FIRE ============================== */
+const THREAT_SHOTS={
+  bullet:{spd:190,dmgT:4,dmgP:7,homing:false,r:3,critical:false,trail:'#ff6557'},
+  cannon:{spd:165,dmgT:10,dmgP:12,homing:false,r:4,critical:false,trail:'#ffb36b'},
+  rocket:{spd:145,dmgT:13,dmgP:14,homing:false,r:4,critical:false,trail:'#fff0a8'},
+  missile:{spd:125,dmgT:27,dmgP:22,homing:true,r:5,critical:true,trail:'#ffe39a'},
+  heliMissile:{spd:145,dmgT:20,dmgP:18,homing:true,r:5,critical:false,trail:'#fff0a8'},
+  torpedo:{spd:82,dmgT:46,dmgP:34,homing:true,r:6,critical:true,trail:'#9fe8f5'},
+  cruise:{spd:235,dmgT:50,dmgP:38,homing:true,r:7,critical:true,trail:'#fff'},
+  bomb:{spd:105,dmgT:24,dmgP:20,homing:false,r:7,critical:false,trail:'#ffb05f'}
+};
+function fireHostile(x,y,kind,spdMul,aimAt,angleOffset){
+  const T=(aimAt===G.tanker||!aimAt)?protectedTarget():aimAt;
+  const def=THREAT_SHOTS[kind]||THREAT_SHOTS.bullet;
+  const spd=def.spd*(spdMul||1)+(def.homing?G.level*2:0);
+  const a=Math.atan2(T.y-y,T.x-x)+(angleOffset||0)+(kind==='bullet'?rnd(-.055,.055):0);
+  G.shots.push({hostile:true,kind,x,y,spd,vx:Math.cos(a)*spd,vy:Math.sin(a)*spd,r:def.r,dead:false,
+    dmgT:def.dmgT,dmgP:def.dmgP,homing:def.homing,critical:def.critical,trail:def.trail,target:T});
+  if(kind==='torpedo'){radio(pick(SAY.torpedo),'#ffd166');tone(300,180,0.4,'sine',0.1);setBanner('TORPEDO IN THE WATER');}
+  else if(kind==='cruise'){radio('CRUISE MISSILE — IMPACT IMMINENT!','#ff4d55');siren();setBanner('⚠ CRUISE MISSILE INCOMING ⚠');}
+  else if(kind==='missile'){radio('MISSILE LOCK ON TANKER!','#ff6b61');siren();setBanner('⚠ MISSILE LOCK ON TANKER ⚠');}
+}
+function setBanner(t,color){G.banner=t;G.bannerT=1.92;G.bannerColor=color||'#ff3b30';}
+function maybeBombWarning(){
+  if(G.scene!=='playing'||G.bombs<=0||G.bombCd>0||G.bombHintCd>0)return;
+  const T=G.tanker,P=G.player;if(!T||!P||P.dead)return;
+  let criticalNear=0, bulletsNear=0, rammersNear=0;
+  for(const s of G.shots){
+    if(!s.hostile||s.dead)continue;
+    const d=dist(s,T);
+    if(s.critical&&d<260)criticalNear++;
+    if(s.kind==='bullet'&&d<150)bulletsNear++;
+  }
+  for(const e of G.enemies){
+    if(e.dead)continue;
+    const d=dist(e,T);
+    if((e.type==='suicide'||e.type==='kamikaze'||e.type==='destroyer')&&d<230)rammersNear++;
+  }
+  const hullDanger=T.hp<=38;
+  if(hullDanger||criticalNear>=1||bulletsNear>=5||rammersNear>=1){
+    setBanner('⚠ PRESS B TO USE BOMB ⚠','#ffc857');
+    radio('DANGER CLOSE — PRESS B TO USE BOMB.','#ffc857');
+    G.bombHintCd=5.5;
+  }
+}
+function interceptHostile(s,label){
+  if(!s||s.dead)return;
+  const close=dist(s,G.tanker)<150;
+  s.dead=true;explode(s.x,s.y,s.critical?.72:.45,s.critical?'#fff0a8':'#dff6ff');sfx.intercept();
+  if(s.critical&&close){
+    G.slowTimer=.75;G.timeScale=Math.min(G.timeScale,.32);G.shake=Math.max(G.shake,12);
+    floatText(G.tanker.x,G.tanker.y-62,label||'INTERCEPTED','#fff0a8');
+    radio('CRITICAL THREAT INTERCEPTED — TANKER SAFE.','#4ee29a');setBanner('✓ INTERCEPTED — THAT WAS CLOSE');
+  }
+}
+
+
+function damageDefenseTower(tw,amount){
+  if(!tw||tw.dead||tw.hp<=0)return;
+  tw.hp-=amount;
+  tw.hitT=.18;
+  G.shake=Math.min(12,G.shake+amount*.18);
+  puff(tw.x,tw.y,'#ffb05f',4,42);
+  if(Math.random()<.45)floatText(tw.x,tw.y-28,'TOWER HIT','#ffb05f');
+  if(tw.hp<=0){
+    tw.dead=true;tw.hp=0;
+    explode(tw.x,tw.y,1.2,'#b6ff8f');
+    sfx.lost();
+    radio('SHORE DEFENSE TOWER DESTROYED — BEAN SHOTS BREAKING THROUGH.','#ff8b91');
+    setBanner('DEFENSE TOWER DESTROYED','#ff4d55');
+  }
+}
+function nearestTowerCollision(s){
+  let best=null,bd=1e9;
+  for(const tw of (G.towers||[])){
+    if(tw.dead||tw.hp<=0)continue;
+    const r=s.kind==='bullet'?18:24;
+    const d=dist(s,tw);
+    if(d<r+(s.r||3)&&d<bd){best=tw;bd=d;}
+  }
+  return best;
+}
+
+function buildDefenseTower(){
+  if(!G.towers)G.towers=[];
+  const slots=[
+    {x:W*.24,y:H*.885},
+    {x:W*.52,y:H*.895},
+    {x:W*.80,y:H*.905}
+  ];
+  if(G.towers.length>=3){
+    floatText(W*.5,H*.82,'MAX 3 DEFENSE TOWERS','#b6ff8f');
+    radio('DEFENSE GRID FULL — THREE TOWERS ALREADY ONLINE.','#b6ff8f');
+    return;
+  }
+  const slot=slots[G.towers.length];
+  const x=clamp(slot.x+rnd(-10,10),46,W-46);
+  const y=clamp(slot.y+rnd(-5,5),H*.79,H*.94);
+  G.towers.push({x,y,cool:0,t:34,hp:42,maxHp:42,phase:rnd(0,TAU),slot:G.towers.length});
+  G.rings.push({x,y,r:10,max:92,t:.55,c:'rgba(182,255,143,.9)'});
+  floatText(x,y-22,'DEFENSE TOWER ONLINE','#b6ff8f');
+  radio('MUSANDAM SHORE DEFENSE BUILT — BEAN SHOTS WILL BE INTERCEPTED.','#b6ff8f');
+  setBanner('SHORE DEFENSE TOWER ONLINE','#b6ff8f');
+}
+function updateDefenseTowers(dt){
+  if(!G.towers||!G.towers.length)return;
+  for(const tw of G.towers){
+    tw.t-=dt;tw.cool-=dt;tw.hitT=Math.max(0,(tw.hitT||0)-dt);
+    if(tw.cool>0)continue;
+    let best=null,bd=330;
+    for(const s of G.shots){
+      if(!s.hostile||s.dead)continue;
+      const isBean=s.kind==='bullet'||s.kind==='cannon';
+      const R=isBean?330:180;
+      const d=dist(tw,s);
+      if(d<R&&d<bd){best=s;bd=d;}
+    }
+    if(best){
+      tw.cool=best.kind==='bullet'?0.13:0.28;
+      G.beams.push({x1:tw.x,y1:tw.y,x2:best.x,y2:best.y,t:0.08,ciws:true,w:best.kind==='bullet'?1.5:2.2});
+      interceptHostile(best,best.kind==='bullet'?'TOWER BLOCK':'TOWER INTERCEPT');
+      tw.hp=Math.max(0,tw.hp-(best.kind==='bullet'?0.35:1.2));
+      if(Math.random()<.18)puff(tw.x,tw.y,'#b6ff8f',2,30);
+    }
+  }
+  G.towers=G.towers.filter(t=>t.t>0&&t.hp>0&&!t.dead);
+}
+function drawDefenseTower(tw){
+  ctx.save();ctx.translate(tw.x,tw.y);
+  ctx.globalAlpha=clamp(tw.t,0,1);
+  if((tw.hitT||0)>0){ctx.shadowColor='#ff4d55';ctx.shadowBlur=18;}
+  ctx.fillStyle='rgba(9,22,18,.9)';ctx.fillRect(-15,7,30,12);
+  ctx.strokeStyle='#b6ff8f';ctx.lineWidth=2;ctx.strokeRect(-15,7,30,12);
+  ctx.fillStyle='#314846';ctx.fillRect(-8,-7,16,16);
+  ctx.strokeStyle='rgba(182,255,143,.9)';ctx.strokeRect(-8,-7,16,16);
+  ctx.save();ctx.rotate(Math.sin(G.time*2+tw.phase)*.22);
+  ctx.fillStyle='#b6ff8f';ctx.fillRect(-3,-20,6,22);
+  ctx.beginPath();ctx.moveTo(0,-25);ctx.lineTo(-7,-14);ctx.lineTo(7,-14);ctx.closePath();ctx.fill();
+  ctx.restore();
+  ctx.strokeStyle='rgba(182,255,143,.12)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(0,0,70+Math.sin(G.time*4+tw.phase)*3,0,TAU);ctx.stroke();
+  ctx.fillStyle='rgba(182,255,143,.95)';ctx.font='bold 7px "Cascadia Mono",monospace';ctx.textAlign='center';ctx.fillText('DEFENSE',0,31);
+  ctx.fillStyle='rgba(0,0,0,.6)';ctx.fillRect(-15,23,30,3);ctx.fillStyle='#b6ff8f';ctx.fillRect(-15,23,30*clamp(tw.hp/tw.maxHp,0,1),3);
+  ctx.restore();
+}
+
+/* ============================== PLAYER WEAPONS ============================== */
+function acquireTarget(from,maxR,projOk){
+  let best=null,bd=maxR||1e9;
+  for(const e of G.enemies){if(e.dead||e.untargetable)continue;const d=dist(from,e);if(d<bd){bd=d;best=e;}}
+  if(!best&&projOk){for(const s of G.shots){if(!s.hostile||s.dead||s.kind==='bullet')continue;const d=dist(from,s);if(d<bd){bd=d;best=s;}}}
+  return best;
+}
+function fireBullet(x,y,ang,spd,dmg,color,r,pierce){
+  G.shots.push({f:true,kind:'bullet',x,y,vx:Math.cos(ang)*spd,vy:Math.sin(ang)*spd,dmg,r:r||3,dead:false,c:color,pierce:pierce||0});
+}
+/* Lv1-8 arcade progression — every level visibly changes the weapon */
+const CANNON_STREAMS=[1,2,2,3,3,4,4,5];
+function firePrimary(dt){
+  const P=G.player,w=G.weapon;
+  P.fireT-=dt;
+  if(P.fireT>0)return;
+  const tgt=acquireTarget(P,1e9,true);
+  const aim=tgt?Math.atan2(tgt.y-P.y,tgt.x-P.x):P.facing;
+  const L=clamp(w.lvl,1,8),mul=stats.gunMul()*stats.threatFireMul();
+  const type=(w.type==='ciws'||w.type==='depth')?'backup':w.type;
+  if(type==='cannon'||type==='backup'){
+    const lv=type==='backup'?1:L;
+    P.fireT=Math.max(0.055,0.16-lv*0.011)*mul;
+    const n=CANNON_STREAMS[lv-1];
+    const big=lv>=6,r=big?4.4:3;
+    for(let i=0;i<n;i++){
+      const off=(i-(n-1)/2)*7;
+      fireBullet(P.x+Math.cos(aim+Math.PI/2)*off,P.y+Math.sin(aim+Math.PI/2)*off,
+        aim+rnd(-0.03,0.03),460+lv*10,3.6+lv*1.25,big?'#ffffff':'#dff6ff',r,lv>=8?1:0);
+    }
+    puff(P.x+Math.cos(aim)*20,P.y+Math.sin(aim)*20,'#dff6ff',Math.min(4,1+(lv>>1)),26+lv*4);
+    sfx.gun();
+  }
+  else if(type==='spread'){
+    // Lv1:3 → Lv6:8 projectiles · Lv7 faster · Lv8 bigger + piercing
+    P.fireT=(L>=8?0.115:L>=7?0.13:0.19)*mul;
+    const n=Math.min(8,L+2), arc=0.55+Math.min(6,L)*0.07;
+    const big=L>=8,r=big?4.6:3,pierce=big?1:0;
+    for(let i=0;i<n;i++){
+      const a=aim-arc/2+arc*(i/(n-1));
+      fireBullet(P.x,P.y,a,410+L*8,2.6+L*0.95,big?'#ffe9a0':'#ffd166',r,pierce);
+    }
+    puff(P.x+Math.cos(aim)*18,P.y+Math.sin(aim)*18,'#ffd166',big?5:2,30);
+    sfx.gun();
+  }
+  else if(type==='missile'){
+    // Lv1:2 missiles per volley → Lv8:16, faster lock + tracking
+    const volley=Math.min(16,L*2);
+    P.fireT=(0.72+volley*0.052)*mul*(L>=8?0.85:1);
+    const spd=330+L*16,turn=L>=8?9.5:L>=6?7.5:6,dmg=7.5+L*1.4;
+    for(let i=0;i<volley;i++){
+      setTimeout(()=>{
+        if(G.scene!=='playing'||P.dead)return;
+        const t2=acquireTarget({x:P.x+rnd(-90,90),y:P.y+rnd(-90,90)},1e9,true);
+        const la=aim+rnd(-1.4,1.4);
+        G.shots.push({f:true,kind:'homing',x:P.x,y:P.y,spd,turn,
+          vx:Math.cos(la)*200,vy:Math.sin(la)*200,
+          target:t2,dmg,r:4,dead:false});
+        puff(P.x,P.y,'#ffa1e0',2,24);
+        if(i%3===0)sfx.missile();
+      },i*46);
+    }
+  }
+  else if(type==='rail'){
+    // Beam width, damage, charge speed and impact FX all scale
+    P.fireT=Math.max(0.24,0.68-L*0.055)*mul;
+    const x2=P.x+Math.cos(aim)*1400,y2=P.y+Math.sin(aim)*1400;
+    const width=2.6+L*0.85;
+    G.beams.push({x1:P.x,y1:P.y,x2,y2,t:0.16+L*0.012,w:width});
+    if(L>=8)G.beams.push({x1:P.x,y1:P.y,x2,y2,t:0.3,w:width*2.2,glow:true});
+    const dmg=18+L*11,corridor=6+L*1.5;
+    for(const e of G.enemies){
+      if(e.dead||e.untargetable)continue;
+      const t=clamp(((e.x-P.x)*Math.cos(aim)+(e.y-P.y)*Math.sin(aim))/1400,0,1);
+      const px=P.x+Math.cos(aim)*1400*t,py=P.y+Math.sin(aim)*1400*t;
+      if(Math.hypot(e.x-px,e.y-py)<e.r+corridor){
+        damageEnemy(e,dmg);
+        if(L>=5)explode(e.x,e.y,0.32+L*0.03,'#8fd3ff');
+        else puff(e.x,e.y,'#8fd3ff',6,60);
+      }
+    }
+    for(const s of G.shots){
+      if(!s.hostile||s.dead)continue;
+      const t=clamp(((s.x-P.x)*Math.cos(aim)+(s.y-P.y)*Math.sin(aim))/1400,0,1);
+      const px=P.x+Math.cos(aim)*1400*t,py=P.y+Math.sin(aim)*1400*t;
+      if(Math.hypot(s.x-px,s.y-py)<s.r+corridor+2)interceptHostile(s,'RAIL INTERCEPT');
+    }
+    sfx.rail();
+  }
+}
+function ciwsRadius(){return 118+clamp(G.weapon.lvl,1,8)*24;}
+function ciwsUpdate(dt){
+  const P=G.player;
+  if(G.weapon.type!=='ciws'||P.dead)return;
+  const L=clamp(G.weapon.lvl,1,8);
+  P.ciwsT-=dt;
+  if(P.ciwsT>0)return;
+  const R=ciwsRadius();
+  const maxTargets=1+Math.floor((L-1)/2); // Lv1-2:1 · Lv3-4:2 · Lv5-6:3 · Lv7-8:4
+  const bulletSlots=4+L*2; // CIWS value: aggressively chews up small rounds
+  // collect all candidates in radius, heavy projectiles first, then nearby bullets, then drones
+  const cand=[];
+  for(const s of G.shots)if(s.hostile&&!s.dead&&s.kind!=='bullet'&&dist(P,s)<R)cand.push({t:s,proj:true,bullet:false,d:dist(P,s),pri:3});
+  for(const s of G.shots)if(s.hostile&&!s.dead&&s.kind==='bullet'&&dist(P,s)<R)cand.push({t:s,proj:true,bullet:true,d:dist(P,s),pri:4});
+  for(const e of G.enemies)if(!e.dead&&(e.type==='drone'||e.type==='kamikaze')&&dist(P,e)<R)cand.push({t:e,proj:false,bullet:false,d:dist(P,e),pri:1});
+  cand.sort((a,b)=>(b.pri-a.pri)||(a.d-b.d));
+  if(cand.length){
+    P.ciwsT=Math.max(0.045,0.22-L*0.018);
+    let hits=0,bulletHits=0;
+    for(const c of cand){
+      if(!c.bullet&&hits>=maxTargets)continue;
+      if(c.bullet&&bulletHits>=bulletSlots)continue;
+      const tgt=c.t;
+      if(c.bullet)bulletHits++;else hits++;
+      G.beams.push({x1:P.x,y1:P.y,x2:tgt.x,y2:tgt.y,t:0.08,ciws:true,w:L>=6?2.4:1.5});
+      if(c.proj){
+        if(c.bullet){tgt.dead=true;puff(tgt.x,tgt.y,'#b6ff8f',3,34);floatText(tgt.x,tgt.y-8,'CIWS','#b6ff8f');}
+        else {interceptHostile(tgt,'CIWS INTERCEPT');
+          if(dist(tgt,G.tanker)<130){radio(pick(SAY.close),'#ffd166');floatText(G.tanker.x,G.tanker.y-50,'CIWS SAVE','#b6ff8f');}
+        }
+      }
+      else damageEnemy(tgt,5+L*1.4);
+    }
+    sfx.ciws();
+  } else P.ciwsT=0.1;
+}
+function depthUpdate(dt){
+  const P=G.player;
+  if(G.weapon.type!=='depth'||P.dead)return;
+  P.depthT-=dt;
+  if(P.depthT>0)return;
+  const L=clamp(G.weapon.lvl,1,8);
+  P.depthT=Math.max(0.26,1.05-L*0.1);
+  const n=1+Math.floor((L-1)/3); // Lv1-3:1 · Lv4-6:2 · Lv7-8:3 charges per drop
+  for(let i=0;i<n;i++){
+    const spreadA=P.facing+Math.PI+(i-(n-1)/2)*0.55;
+    G.shots.push({f:true,kind:'depth',
+      x:P.x+Math.cos(spreadA)*(16+i*6),y:P.y+Math.sin(spreadA)*(16+i*6),
+      fuse:0.85+i*0.12,r:6,dmg:15+L*7,aoe:48+L*9,chain:L>=6,dead:false});
+  }
+}
+
+function wingmanUpdate(dt){
+  const P=G.player;
+  if(!P||P.dead||(G.wingmanT||0)<=0)return;
+  G.wingmanFireT=(G.wingmanFireT||0)-dt;
+  if(G.wingmanFireT>0)return;
+  G.wingmanFireT=0.18;
+  const tgt=acquireTarget(P,520,true);
+  if(!tgt)return;
+  const a=Math.atan2(tgt.y-P.y,tgt.x-P.x);
+  for(const side of [-1,1]){
+    const ox=Math.cos(P.facing+Math.PI/2)*side*30,oy=Math.sin(P.facing+Math.PI/2)*side*30;
+    fireBullet(P.x+ox,P.y+oy,a+rnd(-.025,.025),520,4.2,'#70e1f5',3,0);
+    puff(P.x+ox,P.y+oy,'#70e1f5',1,18);
+  }
+  if(Math.random()<.25)sfx.ciws();
+}
+
+function useBomb(){
+  if(G.scene!=='playing'||G.bombs<=0||G.bombCd>0||G.player.dead)return;
+  G.bombs--;G.bombCd=1;G.noBomb=false;
+  const P=G.player,pow=stats.bombPower();
+  radio('ALLIED AIR STRIKE — SCREEN-CLEARING BOMB DEPLOYED!','#ffd166');
+  sfx.bomb();
+  G.shake=28+pow*10;G.flash=1.15;
+  const R=Math.max(W,H)*0.92;
+  G.rings.push({x:P.x,y:P.y,r:10,max:R,t:0.95,c:'#ffd166'});
+  G.rings.push({x:P.x,y:P.y,r:22,max:R*.72,t:0.72,c:'#ffffff'});
+  // 1945-style bomb: one rare use, huge screen-wide rescue effect.
+  for(const e of G.enemies){
+    if(!e.dead){
+      const d0=dist(P,e), dmg=(e.type==='destroyer'?95:180)*pow*(d0<R?1:.55);
+      damageEnemy(e,dmg);
+      if(!e.dead&&e.type!=='destroyer')killEnemy(e,false);
+    }
+  }
+  // all hostile projectiles + bullets cleared
+  for(const s of G.shots){if(s.hostile&&!s.dead){s.dead=true;explode(s.x,s.y,0.48,'#ffd166');}}
+  for(let i=0;i<9;i++)setTimeout(()=>{if(G.scene==='playing')explode(rnd(40,W-40),rnd(H*.18,H*.84),rnd(.65,1.2),'#ffd166');},i*70);
+  explode(P.x,P.y,2.6,'#ffd166');
+}
+
+/* ============================== DAMAGE ============================== */
+function enemyRewardTier(e){
+  if(e.rewardTier)return e.rewardTier;
+  if(['gunboat','drone'].includes(e.type))return 'basic';
+  if(['suicide','rocketBoat','heli','kamikaze'].includes(e.type))return 'medium';
+  return 'heavy';
+}
+function dropPickup(x,y,e){
+  const tier=enemyRewardTier(e),tl=G.threat||1,weapons=availableWeapons(tl);
+  // Weapon crates are earned, not random: only the Supply Carrier (2-3 per stage)
+  // and the Critical Destroyer boss guarantee a weapon upgrade.
+  if(e&&e.lifeCarrier){
+    addPickup(x,y,'life');
+    radio('EXTRA ESCORT LIFE READY FOR PICKUP.','#4ee29a');
+    floatText(x,y-20,'+1 LIFE CRATE','#4ee29a');
+    return;
+  }
+  if(e&&e.elite){
+    addPickup(x,y,pick(['shield','repair','rapid','wingman','magnet','tower']));
+    radio('ELITE TARGET DOWN — SPECIAL SUPPLY DROPPED.','#ffc857');
+    floatText(x,y-22,'ELITE DROP','#ffc857');
+    return;
+  }
+  if(e&&e.guaranteedDrop){
+    addPickup(x,y,pick(weapons));
+    if(Math.random()<0.325)addPickup(x+24,y+12,'shield');
+    if(Math.random()<0.21)addPickup(x-24,y+12,'repair');
+    if(Math.random()<0.19)addPickup(x,y-24,pick(['rapid','wingman','magnet']));
+    if(Math.random()<0.24)addPickup(x+2,y+34,'tower');
+    radio('SUPPLY SECURED — WEAPON CACHE RECOVERED.','#ffd166');
+    floatText(x,y-20,'WEAPON CRATE','#ffd166');
+    return;
+  }
+  if(tier==='mini'){
+    const strong=weapons.slice(Math.max(0,weapons.length-2));addPickup(x,y,pick(strong));
+    return;
+  }
+  if(tier==='boss'){
+    addPickup(x-22,y,pick(weapons.slice(Math.max(0,weapons.length-3))));addPickup(x,y+24,'cash',250);return;
+  }
+  // Regular kills: cash or defensive shield — no weapon drops.
+  const shieldChance=tier==='heavy'?.026:tier==='medium'?.013:.004;
+  const repairChance=tier==='heavy'?.018:tier==='medium'?.008:.003;
+  const empChance=tier==='heavy'?.010:tier==='medium'?.005:.0015;
+  const medalChance=.003;
+  const towerChance=tier==='heavy'?.015:tier==='medium'?.007:.0025;
+  const cashChance=tier==='heavy'?.018:tier==='medium'?.009:.004,roll=Math.random();
+  if(roll<shieldChance)addPickup(x,y,'shield');
+  else if(roll<shieldChance+repairChance)addPickup(x,y,'repair');
+  else if(roll<shieldChance+repairChance+empChance)addPickup(x,y,'emp');
+  else if(roll<shieldChance+repairChance+empChance+medalChance)addPickup(x,y,'medal');
+  else if(roll<shieldChance+repairChance+empChance+medalChance+towerChance)addPickup(x,y,'tower');
+  else if(roll<shieldChance+repairChance+empChance+medalChance+towerChance+cashChance)addPickup(x,y,'cash',40+tl*8);
+}
+function damageEnemy(e,dmg){
+  if(e.dead)return;
+  if(e.untargetable){floatText(e.x,e.y-26,'CONTACT BELOW SURFACE','#70e1f5');return;}
+  if(e.type==='sub'&&!e.surfaced&&G.weapon.type!=='depth'&&dmg<70){dmg*=.15;floatText(e.x,e.y-18,'SUBMERGED','#6da0b7');}
+  e.hp-=dmg;
+  puff(e.x,e.y,'#ff9a3d',3,40);
+  if(e.hp<=0)killEnemy(e,false);
+}
+function killEnemy(e,silent){
+  if(e.dead)return;e.dead=true;
+  if(e.type==='destroyer')setTimeout(()=>{if(G.scene==='playing')music.stageTrack();},650);
+  explode(e.x,e.y,e.type==='destroyer'?1.8:e.elite?1.15:e.type==='sub'?.9:.55);
+  boom(e.type==='destroyer'?1.1:.35);
+  if(!silent){
+    if(e.elite){G.shake=Math.max(G.shake,12);floatText(e.x,e.y-24,'ELITE KILL','#ffc857');}
+    registerKill(e);
+    if(Math.random()<0.4)radio(pick(SAY.splash));
+    floatText(e.x,e.y,'SPLASH','#9fdcb4');
+    if(e.dropOk)dropPickup(e.x,e.y,e);
+  }
+}
+function damagePlayer(amount){
+  const P=G.player;
+  if(P.dead||P.invuln>0)return;
+  if((P.shield||0)>0&&(P.shieldTime||0)>0){
+    P.shield=Math.max(0,P.shield-amount);
+    sfx.intercept();
+    G.rings.push({x:P.x,y:P.y,r:10,max:58,t:.35,c:'rgba(112,225,245,.9)'});
+    puff(P.x,P.y,'#70e1f5',8,70);
+    floatText(P.x,P.y-28,P.shield>0?'SHIELD HIT':'SHIELD BROKEN','#70e1f5');
+    if(P.shield>0)return;
+    amount=Math.max(1,Math.round(amount*.35));
+  }
+  P.hp-=amount;sfx.hitPlayer();
+  G.shake=Math.min(10,G.shake+Math.max(0,amount-15)*0.4);
+  puff(P.x,P.y,'#ff9a3d',6,60);
+  if(P.hp<=0){
+    G.lives=Math.max(0,(G.lives||0)-1);
+    P.dead=true;P.respawnT=1.5;G.runDeaths=(G.runDeaths||0)+1;
+    explode(P.x,P.y,1.3);sfx.lost&&boom(1);
+    radio(pick(SAY.playerDown),'#ffb4a8');
+    G.weapon.lvl=1; // arcade rule: death resets weapon level
+    G.shake=16;
+    if(G.lives<=0){
+      setBanner('ALL NAVY ESCORTS LOST — STAGE FAIL');
+      radio('NO RESERVE DESTROYERS LEFT. TANKER DEFENSE COLLAPSED.','#ff4d55');
+      setTimeout(()=>{if(G.scene==='playing')lose();},650);
+    } else {
+      setBanner('NAVY ESCORT LOST — '+G.lives+' RESERVE LEFT');
+    }
+  }
+}
+function damageTanker(amount){
+  const T=G.tanker;
+  T.hp-=amount;G.noDamage=false;sfx.hitTanker();
+  G.shake=Math.min(18,G.shake+Math.max(0,amount-8)*0.35);
+  radio(pick(SAY.tankerHit),'#ff6b61');
+  floatText(T.x,T.y-56,'-'+amount+' HULL','#ff6b61');
+  if(T.hp<=22&&G.panicT<=0)triggerPanic('MAYDAY — TANKER HULL CRITICAL');
+  if(T.hp<=0)lose();
+}
+
+/* ============================== FX ============================== */
+function explode(x,y,size,color){
+  G.shake=Math.min(16,G.shake+Math.max(0,size-0.7)*10);
+  for(let i=0;i<14*size;i++){
+    const a=rnd(0,TAU),s=rnd(20,150)*size;
+    G.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,t:rnd(0.3,0.7),max:0.7,
+      c:Math.random()<0.6?(color||'#ff9a3d'):'#ffd9a0',r:rnd(2,5)*size});
+  }
+  for(let i=0;i<8*size;i++){
+    const a=rnd(0,TAU),s=rnd(10,50);
+    G.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,t:rnd(0.5,1.1),max:1.1,c:'#4a5a63',r:rnd(3,7)*size});
+  }
+}
+function waterBurst(x,y){
+  G.rings.push({x,y,r:8,max:150,t:.75,c:'rgba(210,248,255,.9)'});
+  G.rings.push({x,y,r:18,max:115,t:.55,c:'rgba(112,225,245,.8)'});
+  for(let i=0;i<72;i++){
+    const a=rnd(-Math.PI*.92,-Math.PI*.08),s=rnd(80,260),wide=rnd(-70,70);
+    G.parts.push({x:x+wide,y:y+rnd(-8,8),vx:Math.cos(a)*s*.55,vy:Math.sin(a)*s,t:rnd(.55,1.25),max:1.25,c:i%3?'#d9f8ff':'#70e1f5',r:rnd(2,6)});
+  }
+  for(let i=0;i<26;i++)G.parts.push({x:x+rnd(-55,55),y:y+rnd(-12,12),vx:rnd(-85,85),vy:rnd(-35,35),t:rnd(.45,.9),max:.9,c:'rgba(159,232,245,.8)',r:rnd(3,8)});
+}
+function splashFx(x,y){
+  for(let i=0;i<10;i++){const a=rnd(-2.6,-0.5),s=rnd(30,90);
+    G.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,t:rnd(0.3,0.6),max:0.6,c:'#bfe9f5',r:rnd(1.5,3.5)});}
+  sfx.splash();
+}
+function puff(x,y,c,n,sp){
+  for(let i=0;i<n;i++){const a=rnd(0,TAU),s=rnd(5,sp);
+    G.parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,t:rnd(0.2,0.5),max:0.5,c,r:rnd(1,3)});}
+}
+function floatText(x,y,msg,color){G.texts.push({x,y,msg,color,t:1.2});}
+
+/* ============================== INPUT ============================== */
+const keys={};
+window.addEventListener('keydown',e=>{
+  if(['Space','KeyW','KeyA','KeyS','KeyD','ArrowUp','ArrowDown','ArrowLeft','ArrowRight'].includes(e.code))e.preventDefault();
+  keys[e.code]=true;
+  if(e.code==='KeyB')useBomb();
+  if(e.code==='KeyP'||e.code==='Escape')togglePause();
+});
+window.addEventListener('keyup',e=>{keys[e.code]=false;});
+
+// touch fallback: drag to move (autofire on), on-screen bomb button
+const touch={active:false,x:0,y:0};
+function bombBtnRect(){return{x:W-86,y:H-86,r:34};}
+function tpos(ev){const t=ev.touches?ev.touches[0]:ev;return{x:t.clientX,y:t.clientY};}
+cv.addEventListener('touchstart',ev=>{
+  ev.preventDefault();
+  const p=tpos(ev),b=bombBtnRect();
+  if(Math.hypot(p.x-b.x,p.y-b.y)<b.r+14){useBomb();return;}
+  touch.active=true;touch.x=p.x;touch.y=p.y;
+},{passive:false});
+cv.addEventListener('touchmove',ev=>{ev.preventDefault();const p=tpos(ev);touch.x=p.x;touch.y=p.y;},{passive:false});
+cv.addEventListener('touchend',()=>{touch.active=false;});
+
+function togglePause(){
+  if(!['playing','escorting'].includes(G.scene))return;
+  G.paused=!G.paused;
+  if(G.paused){music.pause();setBanner('PAUSED  //  PRESS P TO RESUME','#70e1f5');}
+  else{music.resume();setBanner('MISSION RESUMED','#4ee29a');}
+}
+
+/* ============================== UPDATE ============================== */
+function update(dt){
+  // slow motion when hostile shot near tanker
+  let nearest=1e9;
+  for(const s of G.shots)if(s.hostile&&!s.dead&&s.critical)nearest=Math.min(nearest,dist(s,G.tanker));
+  if(nearest<125)G.slowTimer=0.5;
+  G.slowTimer=Math.max(0,G.slowTimer-dt);
+  G.timeScale=lerp(G.timeScale,G.slowTimer>0?0.35:1,0.18);
+  const d=dt*G.timeScale;
+  G.time+=d;
+  G.bombCd=Math.max(0,G.bombCd-dt);
+  G.bossWarningT=Math.max(0,G.bossWarningT-dt);
+  G.cameraPunch=Math.max(0,G.cameraPunch-dt*2.5);
+  G.ambushQuiet=Math.max(0,G.ambushQuiet-dt);
+  G.bombHintCd=Math.max(0,(G.bombHintCd||0)-dt);
+  G.comboT=Math.max(0,(G.comboT||0)-dt);if(G.comboT<=0)G.combo=0;
+  G.eventT=Math.max(0,(G.eventT||0)-dt);G.empT=Math.max(0,(G.empT||0)-dt);G.medalT=Math.max(0,(G.medalT||0)-dt);G.panicT=Math.max(0,(G.panicT||0)-dt);G.rapidT=Math.max(0,(G.rapidT||0)-dt);G.wingmanT=Math.max(0,(G.wingmanT||0)-dt);G.magnetT=Math.max(0,(G.magnetT||0)-dt);
+
+  const T=G.tanker,P=G.player;
+  maybeBombWarning();
+
+  /* tanker sails */
+  T.progress+=d/G.journey;
+  const nextThreat=threatLevel(T.progress);
+  if(nextThreat>G.threat){G.threat=nextThreat;grantThreatSupply(nextThreat);}
+  T.x=lerp(-T.w/2,W-34-T.w/2,clamp(T.progress,0,1));
+  if(Math.random()<d*10)puff(T.x-T.w/2,T.y+rnd(-8,8),'rgba(200,230,240,0.5)',1,14);
+  updateConvoyShips(d);
+  // Complete the combat phase when the bow reaches the visible exit line.
+  // This prevents enemies and projectiles from attacking an off-screen tanker.
+  if(T.progress>=1){
+    T.progress=1;
+    const boss=G.enemies.find(e=>e.type==='destroyer'&&!e.dead);
+    if(boss){T.x=boss.x-58;T.y=boss.y;bossCrashFail();return;}
+    win();return;
+  }
+
+  director(d);
+  if(G.supplySpawned<G.supplyQuota&&T.progress>=G.supplyCheckpoints[G.supplySpawned]){
+    G.supplySpawned++;
+    spawnEnemy('supply');
+  }
+  // Stage-event pressure: rarer, clearer surprise moments instead of constant clutter.
+  if(G.stageEvent&&G.time>8&&activeEnemyCount()<maxActiveEnemies()&&Math.random()<d*(G.stageEvent.id==='airbase'?0.075:G.stageEvent.id==='minefield'?0.068:G.stageEvent.id==='storm'?0.056:0.032)){
+    if(G.stageEvent.id==='airbase')spawnEnemy('fighter');
+    else if(G.stageEvent.id==='minefield')spawnEnemy(Math.random()<.55?'mine':'suicide');
+    else if(G.stageEvent.id==='storm')spawnEnemy(Math.random()<.55?'drone':'rocketBoat');
+    else if(G.stageEvent.id==='convoy'&&Math.random()<.28){spawnEnemy(Math.random()<.55?'missileBoat':'drone');if(Math.random()<.10)addPickup(T.x+rnd(-50,90),T.y+rnd(-90,90),'repair');}
+  }
+
+  /* player */
+  if(P.dead){
+    P.respawnT-=dt;
+    if(P.respawnT<=0&&G.lives>0){
+      P.dead=false;P.hp=P.maxHp=stats.pHp();P.shield=0;P.shieldMax=0;P.shieldTime=0;
+      P.x=clamp(T.x-92,38,W-64);P.y=clamp(T.y+rnd(-58,58),H*.18,H*.84);P.invuln=2.2;P.vx=P.vy=0;
+      G.rings.push({x:P.x,y:P.y,r:8,max:82,t:.55,c:'rgba(143,211,255,.85)'});
+      floatText(P.x,P.y-30,'ESCORT LAUNCHED','#8fd3ff');
+      radio(pick(SAY.respawn),'#8fd3ff');
+    }
+  } else {
+    P.invuln=Math.max(0,P.invuln-dt);
+    if((P.shield||0)>0){
+      P.shieldTime=Math.max(0,(P.shieldTime||0)-dt);
+      if(P.shieldTime<=0){P.shield=0;P.shieldMax=0;floatText(P.x,P.y-30,'SHIELD EXPIRED','#70e1f5');}
+    }
+    let mx=0,my=0;
+    if(keys.KeyW||keys.ArrowUp)my-=1;
+    if(keys.KeyS||keys.ArrowDown)my+=1;
+    if(keys.KeyA||keys.ArrowLeft)mx-=1;
+    if(keys.KeyD||keys.ArrowRight)mx+=1;
+    if(touch.active){
+      const dx=touch.x-P.x,dy=touch.y-P.y,dd=Math.hypot(dx,dy);
+      if(dd>10){mx=dx/dd;my=dy/dd;}
+    }
+    const mag=Math.hypot(mx,my);
+    if(mag>0){
+      const sp=stats.pSpeed();
+      P.x+=mx/mag*sp*d;P.y+=my/mag*sp*d;
+      P.facing=Math.atan2(my,mx);
+      if(Math.random()<d*8)puff(P.x-Math.cos(P.facing)*16,P.y-Math.sin(P.facing)*16,'rgba(190,225,235,0.4)',1,10);
+    }
+    P.x=clamp(P.x,16,W-16);P.y=clamp(P.y,H*.16,H*.86);
+    if(keys.Space||touch.active)firePrimary(d);
+    else P.fireT=Math.max(0,P.fireT-d);
+    ciwsUpdate(d);
+    depthUpdate(d);
+    wingmanUpdate(d);
+  }
+
+  /* enemies */
+  for(const e of G.enemies){
+    if(e.dead)continue;
+    if((G.empT||0)>0&&e.type!=='destroyer'){puff(e.x,e.y,'#8fd3ff',1,16);continue;}
+    if(G.ambushQuiet>0&&e.type!=='destroyer')continue;
+    const aT=Math.atan2(T.y-e.y,T.x-e.x),dT=dist(e,T);
+    const advance=(speed,ang=aT)=>{e.x+=Math.cos(ang)*speed*d;e.y+=Math.sin(ang)*speed*d;};
+    if(e.type==='suicide'){
+      // Smarter rammer: aim for the tanker's future position, not the current hull center.
+      const lead={x:T.x+Math.min(150,W*.18),y:T.y+Math.sin(G.time*3+e.phase)*18};
+      const aLead=Math.atan2(lead.y-e.y,lead.x-e.x);
+      advance(e.spd,aLead);
+      if(!P.dead&&dist(e,P)<e.r+P.r){damagePlayer(20);killEnemy(e,true);continue;}
+      if(dT<e.r+T.r){damageTanker(34);killEnemy(e,true);}
+    }
+    else if(e.type==='gunboat'){
+      if(dT>e.standoff)advance(e.spd);else advance(28,aT+Math.PI/2*Math.sign(Math.sin(e.phase)||1));
+      e.cool-=d;if(e.cool<=0){e.cool=rnd(.75,1.15);fireHostile(e.x,e.y,'cannon',1,(!P.dead&&Math.random()<.12)?P:T);}
+      if(!P.dead&&dist(e,P)<e.r+P.r){damagePlayer(7);killEnemy(e,true);}else if(dT<e.r+T.r){damageTanker(7);killEnemy(e,true);}
+    }
+    else if(e.type==='missileBoat'){
+      e.evadeT-=d;
+      if(e.evadeT>0)advance(e.spd*1.25,aT+Math.PI/2);else if(dT>e.standoff)advance(e.spd);else advance(e.spd*.5,aT-Math.PI/2);
+      e.cool-=d;if(e.cool<=0){
+        e.cool=Math.max(2.75,4.25-G.level*.18);e.evadeT=1.15;
+        fireHostile(e.x,e.y,'missile',1.10,T,-.08);
+        setTimeout(()=>{if(!e.dead&&G.scene==='playing')fireHostile(e.x,e.y,'missile',1.06,T,.08);},260);
+        radio('DOUBLE MISSILE LAUNCH — INTERCEPT NOW.','#ffb05f');
+      }
+      if(dT<e.r+T.r){damageTanker(8);killEnemy(e,true);}
+    }
+    else if(e.type==='rocketBoat'){
+      if(e.state==='approach'){
+        if(dT>e.standoff)advance(e.spd);else{e.state='charge';e.stateT=.75;setBanner('ROCKET SALVO CHARGING');}
+      }else if(e.state==='charge'){
+        e.stateT-=d;if(e.stateT<=0){for(let i=-3;i<=3;i++)fireHostile(e.x,e.y,'rocket',1.08,T,i*.14);e.state='retreat';e.stateT=1.25;}
+      }else{
+        advance(e.spd*1.15,aT+Math.PI);e.stateT-=d;if(e.stateT<=0){e.state='approach';e.standoff*=.92;}
+      }
+      if(dT<e.r+T.r){damageTanker(8);killEnemy(e,true);}
+    }
+    else if(e.type==='drone'){
+      if(e.dive&&dT<340){advance(e.spd*1.45,aT+Math.sin(G.time*8+e.phase)*.14);}
+      else{
+        const tx=T.x+125,ty=T.y+e.form*95+Math.sin(G.time*2+e.phase)*18,a=Math.atan2(ty-e.y,tx-e.x);
+        advance(e.spd,a);e.cool-=d;if(e.cool<=0&&dT<430){e.cool=rnd(1.15,1.95);fireHostile(e.x,e.y,'bullet',1.08,T);}
+      }
+      if(!P.dead&&dist(e,P)<e.r+P.r){damagePlayer(5);killEnemy(e,true);continue;}
+      if(dT<e.r+T.r){damageTanker(8);killEnemy(e,true);}
+    }
+    else if(e.type==='kamikaze'){
+      advance(e.spd,aT+Math.sin(G.time*9+e.phase)*.1);
+      if(dT<e.r+T.r){damageTanker(25);killEnemy(e,true);}
+    }
+    else if(e.type==='heli'){
+      if(dT>e.standoff)advance(e.spd);else advance(42,aT+Math.PI/2*Math.sin(G.time*.8+e.phase));
+      e.y+=Math.sin(G.time*3+e.phase)*18*d;e.cool-=d;
+      if(e.cool<=0){e.salvo++;e.cool=e.salvo%3===0?2.35:1.05;const tgt=(!P.dead&&Math.random()<.12)?P:T;
+        if(e.salvo%3===0)fireHostile(e.x,e.y,'heliMissile',1,tgt);
+        else for(let i=0;i<3;i++)setTimeout(()=>{if(!e.dead&&G.scene==='playing')fireHostile(e.x,e.y,'bullet',1,tgt);},i*95);
+      }
+    }
+    else if(e.type==='fighter'){
+      e.x-=e.spd*d;e.cool-=d;
+      if(Math.abs(e.x-T.x)<380&&e.cool<=0){e.cool=.18;fireHostile(e.x,e.y,'bullet',1,T);}
+      if(!e.bombed&&e.x<T.x+150){e.bombed=true;fireHostile(e.x,e.y,'bomb',1,T);}
+      if(e.x<-70)e.dead=true;
+    }
+    else if(e.type==='sub'){
+      if(dT>e.standoff)advance(e.spd);
+      e.cycle-=d;e.surfaced=e.cycle<1.35;
+      if(e.surfaced&&e.cycle<=1.35&&e.cycle+d>1.35){setBanner('⚠ SONAR CONTACT — TORPEDO DETECTED ⚠');siren();}
+      if(e.cycle<=0){fireHostile(e.x,e.y,'torpedo',1.08,T);e.cycle=rnd(4.6,5.8);e.surfaced=false;}
+    }
+    else if(e.type==='supply'){
+      if(dT>e.standoff)advance(e.spd);else advance(24,aT+Math.PI/2*Math.sign(Math.sin(e.phase)||1));
+      e.cool-=d;if(e.cool<=0){e.cool=rnd(1.7,2.5);fireHostile(e.x,e.y,'cannon',.95,(!P.dead&&Math.random()<.08)?P:T);}
+      if(!P.dead&&dist(e,P)<e.r+P.r){damagePlayer(6);killEnemy(e,true);}else if(dT<e.r+T.r){damageTanker(6);killEnemy(e,true);}
+    }
+    else if(e.type==='mine'){
+      e.x-=e.spd*d;e.y+=Math.sin(G.time+e.phase)*4*d;
+      if(!P.dead&&dist(e,P)<e.r+P.r){damagePlayer(22);killEnemy(e,true);continue;}
+      if(dT<e.r+T.r){damageTanker(45);killEnemy(e,true);}
+      if(e.x<-40)e.dead=true;
+    }
+    else if(e.type==='destroyer'){
+      if(e.state!=='active'){
+        e.stateT-=dt;
+        // bubbles + turbulent water building at the spawn point
+        const bubbleRate=e.state==='surfacing'?34:e.state==='warning'?18:7;
+        if(Math.random()<dt*bubbleRate)puff(e.x+rnd(-42,42),e.y+rnd(-15,15),'rgba(159,232,245,.75)',1,e.state==='surfacing'?42:24);
+        if(e.state!=='quiet'&&Math.random()<dt*1.8)G.rings.push({x:e.x,y:e.y,r:6,max:e.state==='surfacing'?120:85,t:.75,c:'rgba(255,77,85,.75)'});
+        if(e.state==='quiet'&&e.stateT<=0){
+          // Phase 1: the WARNING hits — siren, vibration, flashing red marker
+          e.state='warning';e.stateT=1.15;
+          G.bossWarningT=1.15;
+          G.rings.push({x:e.x,y:e.y,r:8,max:105,t:1.4,c:'#ff4d55'});
+          radio('SONAR: MASSIVE CONTACT FORMING NEAR THE TANKER ROUTE.','#ff8b91');
+          setBanner('⚠ SOMETHING DANGEROUS IS SURFACING ⚠');
+          bossSfx.intro();vibrate([180,70,180,70,320]);
+        }else if(e.state==='warning'&&e.stateT<=0){
+          e.state='surfacing';e.stateT=1.45;e.surface=0;G.shake=Math.max(G.shake,8);bossSfx.rising();
+          radio('CONTACT RISING — CLEAR THE AMBUSH ZONE!','#ffb05f');setBanner('⚠ CRITICAL DESTROYER SURFACING ⚠');
+        }else if(e.state==='surfacing'){
+          e.surface=clamp(1-e.stateT/1.45,0,1);
+          if(e.stateT<=0){e.state='active';e.surface=1;e.untargetable=false;G.shake=30;G.cameraPunch=1;waterBurst(e.x,e.y);
+            bossSfx.emerge();vibrate([260,40,120,40,420]);
+            radio('CRITICAL DESTROYER SURFACED — USE THE BOMB IF YOU NEED IT!','#ff4d55');setBanner('PRESS B TO USE BOMB — PRIORITY ONE TARGET');}
+        }
+        continue;
+      }
+      e.x=clamp(e.x,W-78,W-42);
+      e.y=lerp(e.y,T.y,.012);
+      if(!P.dead&&dist(e,P)<e.r+P.r){damagePlayer(38);P.invuln=.7;}
+      if(dT<e.r+T.r){bossCrashFail();continue;}
+      e.cool-=d;e.summon-=d;
+      if(e.cool<=0){
+        e.salvo++;
+        const phase=e.hp/e.maxHp<.33?3:(e.hp/e.maxHp<.66?2:1);
+        e.cool=phase===3?(e.salvo%4===0?1.55:.86):phase===2?(e.salvo%3===0?1.85:1.05):(e.salvo%3===0?2.25:1.25);
+        if(phase!==e.phaseAnnounced){e.phaseAnnounced=phase;setBanner('BOSS PHASE '+phase+' — PATTERN CHANGED','#ff4d55');}
+        if(phase===1){
+          if(e.salvo%3===0){fireHostile(e.x,e.y,'missile',1,T);fireHostile(e.x,e.y,'missile',.95,T,.18);}
+          else for(let i=-1;i<=1;i++)fireHostile(e.x,e.y,'cannon',.92,T,i*.16);
+        }else if(phase===2){
+          for(let i=-1;i<=1;i++)fireHostile(e.x,e.y,e.salvo%3===0?'rocket':'cannon',1.0,T,i*.20);
+          if(e.salvo%3===0)fireHostile(e.x,e.y,'missile',1.05,T);
+        }else{
+          for(let i=-2;i<=2;i++)fireHostile(e.x,e.y,'cannon',1.05,T,i*.20);
+          if(e.salvo%4===0){fireHostile(e.x,e.y,'missile',1.1,T,-.22);fireHostile(e.x,e.y,'missile',1.1,T,.22);}
+        }
+      }
+      if(e.summon<=0){e.summon=e.hp/e.maxHp<.35?5.6:7.2;for(let i=0;i<(e.hp/e.maxHp<.35?2:1);i++)setTimeout(()=>{if(!e.dead&&G.scene==='playing'&&activeEnemyCount()<maxActiveEnemies()+1)spawnEnemy('drone');},i*260);}
+    }
+  }
+
+  updateDefenseTowers(d);
+
+  /* shots */
+  for(const s of G.shots){
+    if(s.dead)continue;
+    if(s.hostile){
+      if(s.homing){
+        const target=(s.target&&!s.target.dead)?s.target:protectedTarget(),a=Math.atan2(target.y-s.y,target.x-s.x),cur=Math.atan2(s.vy,s.vx);
+        let da=a-cur;while(da>Math.PI)da-=TAU;while(da<-Math.PI)da+=TAU;
+        const rate=s.kind==='torpedo'?1.1:s.kind==='cruise'?1.7:2.4,na=cur+clamp(da,-rate*d,rate*d);
+        s.vx=Math.cos(na)*s.spd;s.vy=Math.sin(na)*s.spd;
+      }
+      s.x+=s.vx*d;s.y+=s.vy*d;
+      if(s.kind==='bullet'&&!P.dead&&(P.shield||0)>0&&(P.shieldTime||0)>0&&dist(s,P)<38){
+        s.dead=true;P.shield=Math.max(0,P.shield-1.5);
+        G.beams.push({x1:P.x,y1:P.y,x2:s.x,y2:s.y,t:0.06,ciws:true,w:1.2});
+        puff(s.x,s.y,'#70e1f5',2,24);
+        if(P.shield<=0){P.shieldMax=0;P.shieldTime=0;floatText(P.x,P.y-28,'SHIELD BROKEN','#70e1f5');}
+        continue;
+      }
+      if(s.kind!=='bullet')G.parts.push({x:s.x,y:s.y,vx:0,vy:0,t:.42,max:.42,c:s.trail||'rgba(255,190,100,.6)',r:s.critical?2.8:2});
+      if(!P.dead&&P.invuln<=0&&dist(s,P)<P.r+s.r){s.dead=true;explode(s.x,s.y,s.critical?.85:.5,s.trail);damagePlayer(s.dmgP||7);}
+      const hitTower=!s.dead?nearestTowerCollision(s):null;
+      if(hitTower){s.dead=true;explode(s.x,s.y,s.critical?.75:.42,s.trail||'#ffb05f');damageDefenseTower(hitTower,s.kind==='bullet'?4:s.kind==='cannon'?8:14);}
+      const hitShip=!s.dead?nearestProtectedCollision(s):null;
+      if(hitShip){s.dead=true;explode(s.x,s.y,s.critical?1.15:.62,s.trail);damageProtectedShip(hitShip,s.dmgT||4);}
+      if(s.x<-80||s.x>W+80||s.y<-80||s.y>H+80)s.dead=true;
+    }
+    else if(s.kind==='bullet'){
+      s.x+=s.vx*d;s.y+=s.vy*d;
+      for(const e of G.enemies){
+        if(e.dead||e.untargetable)continue;
+        if(dist(s,e)<e.r+(s.r||3)){
+          damageEnemy(e,s.dmg);
+          if(s.pierce>0){s.pierce--;puff(s.x,s.y,'#fff',2,30);}
+          else s.dead=true;
+          break;
+        }
+      }
+      // player shots can swat hostile rounds: small bullets need a close hit, missiles are easier skill shots
+      if(!s.dead)for(const h of G.shots){
+        if(!h.hostile||h.dead)continue;
+        const hitRadius=h.kind==='bullet'?9:h.r+4;
+        if(dist(s,h)<hitRadius){
+          s.dead=true;
+          if(h.kind==='bullet'){
+            h.dead=true;puff(h.x,h.y,'#dff6ff',3,28);floatText(h.x,h.y-8,'BLOCK','#dff6ff');
+          }else{
+            interceptHostile(h);
+            if(dist(h,T)<120&&!h.critical){radio(pick(SAY.close),'#ffd166');}
+          }
+          break;}
+      }
+      if(s.x<-40||s.x>W+40||s.y<-40||s.y>H+40)s.dead=true;
+    }
+    else if(s.kind==='homing'){
+      let t=s.target;
+      if(!t||t.dead){t=acquireTarget(s,1e9,true);s.target=t;}
+      if(t){
+        const a=Math.atan2(t.y-s.y,t.x-s.x),cur=Math.atan2(s.vy,s.vx);
+        let da=a-cur;while(da>Math.PI)da-=TAU;while(da<-Math.PI)da+=TAU;
+        const tr=s.turn||6;
+        const na=cur+clamp(da,-tr*d,tr*d);
+        s.vx=Math.cos(na)*s.spd;s.vy=Math.sin(na)*s.spd;
+      }
+      s.x+=s.vx*d;s.y+=s.vy*d;
+      G.parts.push({x:s.x,y:s.y,vx:0,vy:0,t:0.3,max:0.3,c:'rgba(255,161,224,0.6)',r:2});
+      if(t&&dist(s,t)<(t.r||6)+5){
+        s.dead=true;
+        if(t.hostile)interceptHostile(t,'MISSILE INTERCEPT');
+        else{damageEnemy(t,s.dmg);explode(s.x,s.y,0.4,'#ffa1e0');}
+      }
+      if(s.x<-60||s.x>W+60||s.y<-60||s.y>H+60)s.dead=true;
+    }
+    else if(s.kind==='depth'){
+      s.fuse-=d;
+      if(s.fuse<=0){
+        s.dead=true;sfx.depth();
+        splashFx(s.x,s.y);
+        G.rings.push({x:s.x,y:s.y,r:6,max:s.aoe,t:0.35,c:'#c9a5ff'});
+        for(const e of G.enemies){
+          if(e.dead)continue;
+          if((e.type==='sub')&&dist(s,e)<s.aoe)damageEnemy(e,s.dmg);
+        }
+        for(const h of G.shots){
+          if(h.hostile&&!h.dead&&h.kind==='torpedo'&&dist(s,h)<s.aoe)interceptHostile(h,'TORPEDO INTERCEPT');
+        }
+        // Lv6+: chain detonation — nearby charges go off together
+        if(s.chain)for(const h of G.shots){
+          if(h!==s&&!h.dead&&h.kind==='depth'&&h.f&&dist(s,h)<s.aoe*1.25)h.fuse=Math.min(h.fuse,0.04);
+        }
+      }
+    }
+  }
+
+  /* pickups */
+  for(const pk of G.pickups){
+    pk.t-=d;pk.x-=12*d;pk.y+=Math.sin(G.time*2+pk.phase)*10*d;
+    if((G.magnetT||0)>0&&!P.dead){const md=dist(pk,P);if(md<240){pk.x+=(P.x-pk.x)*d*3.8;pk.y+=(P.y-pk.y)*d*3.8;}}
+    if(!P.dead&&dist(pk,P)<P.r+14){
+      pk.t=0;sfx.pickup();
+      if(pk.type==='bomb'){
+        floatText(P.x,P.y-24,'BOMB ALREADY LOADED','#ffd166');
+      } else if(pk.type==='cash'){
+        G.money+=pk.value||100;sfx.cash();floatText(P.x,P.y-24,'+$'+(pk.value||100)+'M','#4ee29a');
+      } else if(pk.type==='life'){
+        G.lives++;sfx.cash();floatText(P.x,P.y-24,'+1 ESCORT LIFE','#4ee29a');radio('RESERVE DESTROYER ADDED. LIVES '+G.lives+'.','#4ee29a');
+      } else if(pk.type==='repair'){
+        const before=T.hp;T.hp=clamp(T.hp+24,0,T.maxHp);P.hp=clamp(P.hp+6,0,P.maxHp);sfx.cash();
+        G.rings.push({x:T.x,y:T.y,r:16,max:95,t:.65,c:'rgba(78,226,154,.9)'});
+        floatText(T.x,T.y-56,'CREW REPAIRED +'+Math.round(T.hp-before)+'%','#4ee29a');floatText(P.x,P.y-36,'ESCORT PATCH +6','#4ee29a');radio('DAMAGE CONTROL — TANKER AND ESCORT PATCHED.','#4ee29a');
+      } else if(pk.type==='rapid'){
+        G.rapidT=8.0;sfx.cash();G.rings.push({x:P.x,y:P.y,r:8,max:82,t:.55,c:'rgba(255,200,87,.9)'});
+        floatText(P.x,P.y-24,'RAPID FIRE — 8s','#ffc857');radio('RAPID FIRE ONLINE — CUT THEM DOWN.','#ffc857');
+      } else if(pk.type==='wingman'){
+        G.wingmanT=10.0;G.wingmanFireT=0;sfx.cash();G.rings.push({x:P.x,y:P.y,r:8,max:95,t:.65,c:'rgba(112,225,245,.9)'});
+        floatText(P.x,P.y-24,'WINGMAN DRONES — 10s','#70e1f5');radio('TWO WINGMAN DRONES JOINED FORMATION.','#70e1f5');
+      } else if(pk.type==='magnet'){
+        G.magnetT=9.0;sfx.cash();floatText(P.x,P.y-24,'SALVAGE MAGNET — 9s','#c9a5ff');radio('SALVAGE MAGNET ACTIVE — PICKUPS PULL TOWARD YOU.','#c9a5ff');
+      } else if(pk.type==='emp'){
+        G.empT=4.2;G.flash=.45;sfx.rail();
+        G.rings.push({x:P.x,y:P.y,r:10,max:W,t:.75,c:'rgba(143,211,255,.9)'});
+        floatText(P.x,P.y-24,'EMP — ENEMIES FROZEN','#8fd3ff');radio('EMP BURST — HOSTILES STALLED.','#8fd3ff');
+      } else if(pk.type==='medal'){
+        G.medalT=7.5;sfx.cash();floatText(P.x,P.y-24,'HERO MEDAL — SCORE x2','#ffc857');radio('HERO MEDAL ACTIVE — DOUBLE SCORE.','#ffc857');
+      } else if(pk.type==='tower'){
+        buildDefenseTower();
+      } else if(pk.type==='shield'){
+        P.shieldMax=46+Math.min(34,(G.level||1)*5);
+        P.shield=P.shieldMax;
+        P.shieldTime=7.2;
+        G.rings.push({x:P.x,y:P.y,r:12,max:78,t:.5,c:'rgba(112,225,245,.9)'});
+        puff(P.x,P.y,'#70e1f5',14,95);
+        floatText(P.x,P.y-24,'DEFENSE SHIELD','#70e1f5');
+        radio('DEFENSE SHIELD ONLINE — 6.5 SECONDS OR LIMITED DAMAGE.','#70e1f5');
+      } else if(pk.type===G.weapon.type){
+        if(G.weapon.lvl<8){
+          G.weapon.lvl++;
+          const maxed=G.weapon.lvl===8;
+          floatText(P.x,P.y-24,WEAPONS[pk.type].name+(maxed?' — MAX LEVEL':' LV'+G.weapon.lvl),maxed?'#ffffff':WEAPONS[pk.type].color);
+          G.rings.push({x:P.x,y:P.y,r:8,max:60+G.weapon.lvl*6,t:0.45,c:WEAPONS[pk.type].color});
+          puff(P.x,P.y,WEAPONS[pk.type].color,10,80);
+          tone(620+G.weapon.lvl*60,620+G.weapon.lvl*60,0.09,'square',0.1);
+          setTimeout(()=>tone(930+G.weapon.lvl*60,930+G.weapon.lvl*60,0.12,'square',0.1),90);
+          if(maxed){G.flash=Math.max(G.flash,0.35);radio(WEAPONS[pk.type].name+' AT MAXIMUM OUTPUT.','#ffffff');}
+        } else {
+          // WEAPON MAXED — convert pickup into bomb energy or bonus money
+          G.money+=50;floatText(P.x,P.y-24,'WEAPON MAXED → +$50M','#4ee29a');sfx.cash();
+        }
+      } else {
+        // Switching to a different weapon resets the weapon upgrade chain.
+        // Arcade rule: same weapon upgrades; different weapon starts fresh at Lv1.
+        G.weapon.type=pk.type;
+        G.weapon.lvl=1;
+        floatText(P.x,P.y-24,WEAPONS[pk.type].name+' LV1',WEAPONS[pk.type].color);
+        G.rings.push({x:P.x,y:P.y,r:8,max:44,t:0.35,c:WEAPONS[pk.type].color});
+        radio(WEAPONS[pk.type].name+' SELECTED — POWER RESET TO LV1.','#ffd166');
+      }
+    }
+  }
+  G.pickups=G.pickups.filter(p=>p.t>0);
+
+  /* cleanup + fx */
+  G.enemies=G.enemies.filter(e=>!e.dead);
+  G.shots=G.shots.filter(s=>!s.dead);
+  for(const p of G.parts){p.x+=p.vx*d;p.y+=p.vy*d;p.t-=d;}
+  G.parts=G.parts.filter(p=>p.t>0);
+  for(const t of G.texts){t.y-=20*d;t.t-=d;}
+  G.texts=G.texts.filter(t=>t.t>0);
+  for(const b of G.beams)b.t-=dt;
+  G.beams=G.beams.filter(b=>b.t>0);
+  for(const r of G.rings){r.t-=dt;r.r=lerp(r.r,r.max,dt*8);}
+  G.rings=G.rings.filter(r=>r.t>0);
+  for(const c of G.chatter)c.t-=dt;
+  G.chatter=G.chatter.filter(c=>c.t>0);
+  if(G.bannerT>0)G.bannerT-=dt;
+  G.shake=Math.max(0,G.shake-dt*26);
+  G.flash=Math.max(0,G.flash-dt*1.6);
+}
+
+/* ============================== WIN / LOSE ============================== */
+function reward(){return 500+(G.level-1)*180;}
+function win(){
+  if(G.scene!=='playing')return;
+  music.stageTrack();
+  G.scene='escorting';G.endT=2.9;G.deliveryFx=0;G.deliveryBeat=0;
+  if((G.convoy||[]).length){
+    const saved=G.convoy.filter(c=>!c.dead).length;
+    G.convoySaveBonus=saved*300;
+    if(saved){addScore(saved*900,G.tanker.x,G.tanker.y-82,'CONVOY SAVED x'+saved,'#ffc857');G.money+=G.convoySaveBonus;setBanner('CONVOY SAVED — BONUS +$'+G.convoySaveBonus+'M','#ffc857');}
+  }
+  sfx.cash();
+  radio('SAFE ZONE REACHED. ESCORT HER IN.','#37d67a');
+  // hostile ordnance fizzles
+  for(const s of G.shots)if(s.hostile)s.dead=true;
+}
+function lose(){
+  if(G.scene!=='playing')return;
+  music.stop();
+  G.scene='lost';
+  const T=G.tanker;
+  explode(T.x,T.y,2.2);explode(T.x-40,T.y,1.6);explode(T.x+40,T.y,1.6);
+  sfx.lost();G.shake=24;
+  setTimeout(()=>showResult(false,0),1700);
+}
+function bossCrashFail(){
+  if(G.scene!=='playing')return;
+  music.stop();
+  const T=G.tanker;
+  G.scene='lost';
+  radio('BOSS BLOCKADE HELD THE EXIT — TANKER COLLISION!','#ff4d55');
+  setBanner('BOSS BLOCKADE IMPACT — STAGE FAIL');
+  explode(T.x,T.y,2.6);explode(T.x+45,T.y,1.9);
+  sfx.lost();G.shake=28;G.flash=.9;
+  setTimeout(()=>showResult(false,0),1700);
+}
+
+/* ============================== SHOP / OVERLAYS ============================== */
+const $=id=>document.getElementById(id);
+function showResult(won,r){
+  music.stop();
+  $('result').classList.remove('hidden');
+  $('resTitle').textContent=won?'SAFE DELIVERY':'TANKER LOST';
+  $('resTitle').className='result-big '+(won?'win':'lose');
+  $('resReward').textContent=won?('+$'+r+'M'):'NO PAYMENT';
+  $('resReward').style.color=won?'#fff':'#8a9aa2';
+  $('resStamp').textContent=won?'CONTINENT ONLINE':'RUN ENDED';
+  $('resStamp').style.borderColor=won?'var(--safe)':'var(--alert)';
+  $('resStamp').style.color=won?'var(--safe)':'var(--alert)';
+  if(won)G.level++;
+  $('btnNext').textContent=won?'LAUNCH NEXT CONVOY':'ESCORT ANOTHER TANKER';
+  $('nextLevelLabel').textContent='NEXT: CONVOY '+G.level+'  ·  REWARD $'+reward()+'M';
+  renderShop();
+}
+function renderShop(){
+  $('moneyLabel').textContent='FUNDS: $'+G.money+'M';
+  const box=$('shopRows');box.innerHTML='';
+  for(const u of UPGRADES){
+    const n=G.upg[u.key],maxed=n>=u.max,c=cost(u);
+    const row=document.createElement('div');row.className='shop-row';
+    row.innerHTML=`<div class="info"><div class="name">${u.name}</div>
+      <div class="lvl">${u.desc} · LV ${n}${maxed?' (MAX)':''}</div></div>`;
+    const b=document.createElement('button');
+    b.textContent=maxed?'MAX':'$'+c+'M';
+    b.disabled=maxed||G.money<c;
+    b.onclick=()=>{if(G.money>=c&&!maxed){G.money-=c;G.upg[u.key]++;sfx.cash();renderShop();}};
+    row.appendChild(b);box.appendChild(row);
+  }
+}
+
+function showStageIntro(){
+  const intro=$('stageIntro');
+  $('introOp').textContent='OPERATION '+String(G.level).padStart(2,'0');
+  $('introSub').textContent=G.level===1?'CONVOY AT DUSK':'CONVOY '+String(G.level).padStart(2,'0');
+  intro.classList.remove('hidden','fadeout');
+  music.stageTrack();
+  setTimeout(()=>intro.classList.add('fadeout'),2450);
+  setTimeout(()=>{intro.classList.add('hidden');newRun();},3020);
+}
+$('btnStart').onclick=()=>{audio();G.level=1;G.money=0;G.upg={speed:0,gun:0,armor:0,bombs:0};G.weapon={type:'cannon',lvl:1};G.lives=3;G.score=0;G.paused=false;$('menu').classList.add('hidden');showStageIntro();};
+$('btnNext').onclick=()=>{audio();if(G.lives<=0)G.lives=3;G.paused=false;$('result').classList.add('hidden');showStageIntro();};
+if(IS_TOUCH)$('briefText').innerHTML=`One tanker. She never stops, she never turns around.<br>
+  You fly the escort. She is the mission.<br><br>
+  <b>Drag</b> to steer — your guns fire automatically.<br>
+  Tap the <b>◎ button</b> for your once-per-stage bomb.<br><br>
+  Grab <b>weapon pickups</b> — same weapon upgrades, different weapon resets to Lv1.<br>Pick up <b>shield, rapid fire, wingman drone, magnet, EMP, and repair crates</b>. Early Stage 1 now drops starter support crates.<br>
+  Your destroyer is expendable. <b>The tanker is not.</b>`;
+
+
+/* ============================== MISSION COMPLETION SCREENS ============================== */
+/* Presentation + emotional reward only — every delivery is an event in the world. */
+function dbTier(L){return L<=3?0:L<=6?1:2;} // local / regional / global stakes
+const DB_SFX={
+  factory:()=>{tone(196,196,.5,'sawtooth',.05);setTimeout(()=>sfx.cash(),260);},
+  newspaper:()=>{[0,110,240,400,560].forEach(t=>setTimeout(()=>tone(1500,900,.03,'square',.07),t));},
+  tv:()=>{tone(880,880,.13,'square',.09);setTimeout(()=>tone(660,660,.13,'square',.09),150);setTimeout(()=>tone(990,990,.22,'square',.1),300);},
+  naval:()=>{[0,320,640].forEach(t=>setTimeout(()=>tone(1180,1080,.09,'sine',.08),t));},
+  satellite:()=>{[900,1180,1420,1720].forEach((f,i)=>setTimeout(()=>tone(f,f,.05,'square',.06),i*95));},
+  harbor:()=>{tone(520,680,.55,'sine',.06);setTimeout(()=>tone(680,520,.65,'sine',.05),420);},
+  insurance:()=>{setTimeout(()=>boom(.3),380);},
+  stock:()=>{sfx.cash();setTimeout(()=>sfx.cash(),170);setTimeout(()=>tone(1320,1560,.14,'square',.08),340);},
+  medal:()=>{[523,659,784,1046].forEach((f,i)=>setTimeout(()=>tone(f,f,.28,'triangle',.1),i*170));},
+  intel:()=>{[0,90,180,290,400,540].forEach(t=>setTimeout(()=>tone(1400,900,.025,'square',.06),t));}
+};
+function dbRewards(d,accent,dim,dark){
+  return '<div style="display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;margin-top:16px;animation:dbRise .6s .25s both">'
+    +'<span style="font:800 clamp(26px,4vw,34px)/1 var(--mono);color:'+accent+'">+$'+d.total+'M</span>'
+    +(d.bonus?'<span style="font:700 11px/1 var(--mono);color:'+accent+'">NO DAMAGE BONUS +$'+d.bonus+'M</span>':'')
+    +'<span style="font:700 11px/1 var(--mono);color:'+dim+'">ESCORT RATING: '+d.rating+'</span>'
+    +'<span style="font:700 11px/1 var(--mono);color:'+dim+'">TANKER HULL '+d.hp+'%</span>'
+    +'</div>';
+}
+function dbBtn(bg,fg,label){
+  return '<button id="dbContinue" class="db-btn" style="background:'+bg+';color:'+fg+'">'+(label||'Continue to command')+' →</button>';
+}
+const DEBRIEFS={
+/* 1 · Industrial news — the very first delivery keeps a real factory running */
+factory:d=>'<div class="db" style="background:linear-gradient(160deg,#1d2b36,#12202b);border:1px solid #3d5568;color:#dce8ee;font-family:var(--sans)">'
+ +'<div style="overflow:hidden;background:#0c151d;border-bottom:2px solid #2e4553;padding:8px 0"><div style="white-space:nowrap;font:700 9px/1 var(--mono);letter-spacing:.18em;color:#7fa6ba;animation:dbTicker 16s linear infinite;display:inline-block">INDUSTRIAL WIRE // OIL SHIPMENT ARRIVES · POWER PLANTS REFUELED · AIR CONDITIONING RESTORED CITYWIDE · SUMMER BLACKOUT AVERTED · INDUSTRIAL WIRE // OIL SHIPMENT ARRIVES · POWER PLANTS REFUELED · AIR CONDITIONING RESTORED CITYWIDE · SUMMER BLACKOUT AVERTED ·&nbsp;</div></div>'
+ +'<div style="padding:34px 28px 8px">'
+ +'<div class="db-kicker" style="color:#6ea8c4">INDUSTRIAL NEWS // ENERGY DESK</div>'
+ +'<h2 style="font-size:clamp(26px,4.6vw,42px);font-weight:900;letter-spacing:-.02em;margin:14px 0 8px;color:#fff">AIR CONDITIONING RESTORED</h2>'
+ +'<p style="color:#9db6c2;font-size:14px;line-height:1.6">The tanker arrived in time. Its fuel keeps power plants running through Europe’s heat wave — air conditioners come back on, shops reopen, and people celebrate in cool rooms again.</p>'
+ +'<div style="display:flex;align-items:flex-end;gap:26px;margin:26px 4px 4px;height:86px">'
+ // tanker icon
+ +'<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:96px;height:26px;background:#e2611f;clip-path:polygon(0 0,82% 0,100% 50%,82% 100%,0 100%);position:relative"><div style="position:absolute;left:6px;top:4px;width:14px;height:18px;background:#f2ede2"></div></div><span style="font:700 8px/1 var(--mono);color:#7fa6ba">HORMUZ CARGO</span></div>'
+ +'<div style="font:800 20px/1 var(--mono);color:#4ee29a;padding-bottom:24px">→</div>'
+ // factory silhouette
+ +'<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:110px;height:52px;background:#31465a;clip-path:polygon(0 100%,0 45%,18% 25%,18% 45%,38% 25%,38% 45%,58% 25%,58% 45%,72% 45%,72% 5%,82% 5%,82% 45%,100% 45%,100% 100%)"></div><span style="font:700 8px/1 var(--mono);color:#7fa6ba">POWER PLANT FUELED</span></div>'
+ +'<div style="font:800 20px/1 var(--mono);color:#4ee29a;padding-bottom:24px">→</div>'
+ // A/C unit
+ +'<div style="display:flex;flex-direction:column;align-items:center;gap:7px"><div style="width:84px;height:40px;background:#e8f4f8;border-radius:6px;position:relative;box-shadow:inset 0 -6px #c3d8e0"><div style="position:absolute;left:10px;right:10px;top:9px;height:2px;background:#8fb4c2"></div><div style="position:absolute;left:10px;right:10px;top:15px;height:2px;background:#8fb4c2"></div><div style="position:absolute;left:14px;top:24px;font:700 9px/1 var(--mono);color:#3d8aa8">❆ 24°C</div></div><span style="font:700 8px/1 var(--mono);color:#70e1f5">COOLING RESTORED</span></div>'
+ +'</div>'
+ +'<div style="margin-top:20px;padding:12px 14px;background:#0c151d;border-left:3px solid #4ee29a;font:600 11px/1.6 var(--mono);color:#a9c3ce">"One tanker. One power plant. Tonight, an entire city sleeps with the air conditioning on." — GRID OPERATOR</div>'
+ +'<div style="display:flex;justify-content:center;gap:18px;margin:18px 0 2px;padding:14px;border:1px solid #243d4a;background:#10232d;border-radius:8px">'
+ +'<div style="text-align:center"><div style="font-size:30px">😊</div><div style="font:700 8px/1.3 var(--mono);color:#70e1f5">FAMILIES COOL OFF</div></div>'
+ +'<div style="text-align:center"><div style="font-size:30px">❄️</div><div style="font:700 8px/1.3 var(--mono);color:#70e1f5">A/C RUNNING</div></div>'
+ +'<div style="text-align:center"><div style="font-size:30px">🎉</div><div style="font:700 8px/1.3 var(--mono);color:#70e1f5">CITY CELEBRATES</div></div>'
+ +'</div>'
+ +dbRewards(d,'#4ee29a','#7fa6ba')
+ +'</div>'+dbBtn('#4ee29a','#06231a'),
+/* 2 · Front-page newspaper */
+newspaper:d=>{const t=dbTier(d.level);
+ const head=t===0?'TANKER REACHES PORT UNDER FIRE — CARGO INTACT':t===1?'REGIONAL FUEL CRISIS AVERTED AS CONVOY '+String(d.level).padStart(2,'0')+' ARRIVES':'WORLD ENERGY MARKETS EXHALE: THE TANKER MADE IT';
+ return '<div class="db" style="background:#f2ecdd;color:#191510;font-family:Georgia,\'Times New Roman\',serif;border-radius:4px">'
+ +'<div style="padding:26px 30px 6px;border-bottom:3px double #191510;margin:0 22px;text-align:center">'
+ +'<div style="font:700 9px/1 var(--mono);letter-spacing:.3em;color:#5e564a">EST. 1908 · FINAL EDITION · $2.50</div>'
+ +'<div style="font-size:clamp(28px,5vw,44px);font-weight:900;letter-spacing:.04em;margin:6px 0 4px">The Maritime Herald</div>'
+ +'<div style="font:600 9px/1 var(--mono);letter-spacing:.2em;color:#5e564a">STRAIT OF HORMUZ BUREAU</div></div>'
+ +'<div style="padding:18px 30px 6px">'
+ +'<h2 style="font-size:clamp(22px,4vw,34px);line-height:1.08;font-weight:900;margin-bottom:10px">'+head+'</h2>'
+ +'<div style="font-style:italic;color:#4a4238;margin-bottom:14px">Escort commander credited with '+(d.rating==='S'?'a flawless':'a hard-fought')+' transit; hull at '+d.hp+'%.</div>'
+ +'<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">'
+ +'<div><div style="background:#dcd3bd;height:110px;display:grid;place-items:center;border:1px solid #b8ad93;margin-bottom:6px"><div style="width:70%;height:22px;background:#c8501e;clip-path:polygon(0 0,85% 0,100% 50%,85% 100%,0 100%)"></div></div><div style="font-size:10px;color:#5e564a;font-style:italic">The crude carrier entering the safe zone at dawn. The escort held the line.</div></div>'
+ +'<div style="font-size:11.5px;line-height:1.55;text-align:justify;color:#33302a">Witnesses described missile trails over the eastbound lane as the escort screen absorbed wave after wave of attacks. "She never stopped," one officer said of the tanker. "Not once."<br><br>Analysts say the delivery keeps '+(t===0?'local refineries':'regional power grids')+' supplied through the season. Command has already scheduled the next convoy.</div>'
+ +'</div>'
+ +dbRewards(d,'#8a2f14','#5e564a')
+ +'</div>'+dbBtn('#191510','#f2ecdd','Read tomorrow\'s edition');},
+/* 3 · Breaking TV news */
+tv:d=>{const t=dbTier(d.level);
+ const head=t===2?'GLOBAL OIL SUPPLY STABLE — HORMUZ CONVOY SUCCEEDS':'ESCORTED TANKER ARRIVES SAFELY DESPITE ATTACKS';
+ return '<div class="db" style="background:#05070c;color:#fff;font-family:var(--sans);overflow:hidden">'
+ +'<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 22px">'
+ +'<div style="font:900 16px/1 var(--sans);letter-spacing:.06em;color:#fff;background:#c8102e;padding:7px 12px;border-radius:3px">GNN <span style="font-weight:400">24</span></div>'
+ +'<div style="display:flex;align-items:center;gap:8px;font:800 11px/1 var(--mono);color:#ff4d55"><span style="width:9px;height:9px;border-radius:50%;background:#ff4d55;animation:dbBlink 1s infinite"></span>LIVE · STRAIT OF HORMUZ</div></div>'
+ +'<div style="height:190px;background:linear-gradient(180deg,#0e2836,#051520);position:relative;margin:0 22px;border-radius:6px;overflow:hidden">'
+ +'<div style="position:absolute;left:12%;top:52%;width:130px;height:30px;background:#e2611f;clip-path:polygon(0 0,84% 0,100% 50%,84% 100%,0 100%)"></div>'
+ +'<div style="position:absolute;left:46%;top:64%;width:44px;height:12px;background:#7d939d;clip-path:polygon(0 20%,80% 0,100% 50%,80% 100%,0 80%)"></div>'
+ +'<div style="position:absolute;right:14px;top:12px;font:700 9px/1 var(--mono);color:#9fd7ff;background:#0008;padding:4px 8px;border-radius:3px">CHOPPER 4 · '+d.hp+'% HULL CONFIRMED</div>'
+ +'<div style="position:absolute;left:0;right:0;bottom:0;height:34%;background:linear-gradient(0deg,#000c,transparent)"></div></div>'
+ +'<div style="margin:14px 22px 0">'
+ +'<div style="display:inline-block;background:#c8102e;font:900 11px/1 var(--sans);letter-spacing:.14em;padding:7px 12px;border-radius:3px 3px 0 0">BREAKING NEWS</div>'
+ +'<div style="background:#101722;border-left:4px solid #c8102e;padding:14px 16px">'
+ +'<div style="font:900 clamp(18px,3.4vw,26px)/1.15 var(--sans)">'+head+'</div>'
+ +'<div style="font:600 11px/1.5 var(--sans);color:#9fb2c8;margin-top:6px">Escort rating '+d.rating+' · '+(d.deaths?d.deaths+' escort hull(s) lost in the defense':'no escorts lost')+' · cargo 100% intact</div>'
+ +dbRewards(d,'#ffd166','#9fb2c8')+'</div></div>'
+ +'<div style="overflow:hidden;background:#0b0f16;border-top:1px solid #1d2735;margin-top:16px;padding:8px 0"><div style="white-space:nowrap;display:inline-block;font:700 10px/1 var(--mono);color:#c5d4e8;animation:dbTicker 14s linear infinite">MARKETS: BRENT CRUDE STEADIES ▼ · SHIPPING INSURERS RELIEVED · NEXT CONVOY ANNOUNCED · MARKETS: BRENT CRUDE STEADIES ▼ · SHIPPING INSURERS RELIEVED · NEXT CONVOY ANNOUNCED ·&nbsp;</div></div>'
+ +dbBtn('#c8102e','#fff','Back to the newsroom');},
+/* 4 · Naval command mission report */
+naval:d=>'<div class="db" style="background:#020a05;color:#7dffa8;font-family:var(--mono);border:1px solid #1d5a34">'
+ +'<div style="padding:26px 28px 6px">'
+ +'<div class="db-kicker" style="color:#3f9a63">GLOBAL MARITIME COMMAND // AFTER ACTION REPORT '+String(d.level).padStart(3,'0')+'</div>'
+ +'<div style="display:grid;grid-template-columns:150px 1fr;gap:24px;margin-top:20px;align-items:center">'
+ +'<div style="width:150px;height:150px;border:1px solid #2d7a4a;border-radius:50%;position:relative;background:radial-gradient(circle,#04170c,#020a05)">'
+ +'<div style="position:absolute;inset:24px;border:1px solid #1d5a34;border-radius:50%"></div>'
+ +'<div style="position:absolute;inset:52px;border:1px solid #1d5a34;border-radius:50%"></div>'
+ +'<div style="position:absolute;left:50%;top:50%;width:50%;height:2px;transform-origin:left center;background:linear-gradient(90deg,#7dffa8,transparent);animation:dbSweep 2.6s linear infinite"></div>'
+ +'<div style="position:absolute;left:66%;top:40%;width:7px;height:7px;background:#ffb347;clip-path:polygon(0 0,100% 0,100% 100%,0 100%)"></div>'
+ +'<div style="position:absolute;left:30%;top:60%;width:6px;height:6px;border-radius:50%;background:#7dffa8"></div></div>'
+ +'<div style="font-size:12px;line-height:2.05">'
+ +'&gt; MISSION ............ ESCORT CONVOY '+String(d.level).padStart(2,'0')+'<br>'
+ +'&gt; STATUS ............. <span style="color:#b8ffce;font-weight:800">SUCCESS — TANKER SURVIVED</span><br>'
+ +'&gt; TANKER HULL ........ '+d.hp+'%'+(d.noDamage?'  [PRISTINE]':'')+'<br>'
+ +'&gt; ESCORT HULLS LOST .. '+d.deaths+'<br>'
+ +'&gt; PAYMENT ............ +$'+d.total+'M'+(d.bonus?'  (INCL. NO-DAMAGE BONUS $'+d.bonus+'M)':'')+'</div></div>'
+ +'<div style="display:flex;align-items:center;gap:20px;margin-top:22px;border:1px solid #1d5a34;padding:14px 18px">'
+ +'<div style="font:900 54px/1 var(--mono);color:'+(d.rating==='S'?'#ffd166':'#b8ffce')+';text-shadow:0 0 26px currentColor">'+d.rating+'</div>'
+ +'<div style="font-size:11px;line-height:1.6;color:#57c07e">ESCORT RATING<br>'+(d.rating==='S'?'FLAWLESS SCREEN. COMMAND TAKES NOTICE.':d.rating==='A'?'EXEMPLARY DEFENSE UNDER FIRE.':d.rating==='B'?'SHE MADE IT. THAT IS WHAT COUNTS.':'BY A THREAD — BUT SHE MADE IT.')+'</div></div>'
+ +'</div>'+dbBtn('#7dffa8','#03210f','Acknowledge report'),
+/* 5 · Satellite intelligence */
+satellite:d=>'<div class="db" style="background:#040b18 linear-gradient(rgba(72,120,190,.06) 1px,transparent 1px),#040b18;background-size:100% 26px;color:#cfe0ff;font-family:var(--mono);border:1px solid #24406e">'
+ +'<div style="background:#f5d34c;color:#1a1500;text-align:center;font:900 10px/1 var(--mono);letter-spacing:.3em;padding:6px">TOP SECRET // ORCON // MARITIME</div>'
+ +'<div style="padding:24px 28px 8px">'
+ +'<div class="db-kicker" style="color:#6f92d4">KEYHOLE-9 PASS 0447Z · STRAIT OF HORMUZ · 26.56N 56.25E</div>'
+ +'<svg viewBox="0 0 560 180" style="width:100%;margin:18px 0 4px">'
+ +'<defs><linearGradient id="rt" x1="0" x2="1"><stop offset="0" stop-color="#ff7a2f"/><stop offset="1" stop-color="#4ee29a"/></linearGradient></defs>'
+ +'<rect x="0" y="0" width="560" height="180" fill="none" stroke="#24406e" stroke-dasharray="3 5"/>'
+ +'<path d="M20 60 Q120 30 220 55 T420 40 L540 50" fill="none" stroke="#31518a" stroke-width="1.5"/>'
+ +'<path d="M20 150 Q140 130 260 152 T540 140" fill="none" stroke="#31518a" stroke-width="1.5"/>'
+ +'<path d="M30 100 C160 82,320 118,520 92" fill="none" stroke="url(#rt)" stroke-width="3" stroke-dasharray="9 7"/>'
+ +'<circle cx="30" cy="100" r="5" fill="#ff7a2f"/><circle cx="520" cy="92" r="7" fill="#4ee29a"><animate attributeName="r" values="7;11;7" dur="1.6s" repeatCount="indefinite"/></circle>'
+ +'<text x="42" y="118" fill="#ffb27a" font-size="10" font-family="monospace">DEPARTURE</text>'
+ +'<text x="428" y="80" fill="#8ef5bd" font-size="10" font-family="monospace">SAFE ZONE — ARRIVED</text></svg>'
+ +'<div style="font-size:11px;line-height:1.8;color:#8ba7d8">IMAGERY CONFIRMS: high-value unit crossed the exit vector intact. Hull integrity assessed at '+d.hp+'%. Hostile wreckage distributed along the route. Escort profile rated <b style="color:#f5d34c">'+d.rating+'</b>.</div>'
+ +dbRewards(d,'#4ee29a','#6f92d4')+'</div>'
+ +'<div style="background:#f5d34c;color:#1a1500;text-align:center;font:900 10px/1 var(--mono);letter-spacing:.3em;padding:6px;margin-top:14px">TOP SECRET // ORCON // MARITIME</div>'
+ +dbBtn('#24406e','#cfe0ff','Close intelligence feed'),
+/* 6 · Harbor arrival photo */
+harbor:d=>'<div class="db" style="background:#efe9df;padding:24px 24px 4px;font-family:var(--sans);color:#2b241c">'
+ +'<div style="background:#fff;padding:14px 14px 0;box-shadow:0 12px 34px #0004;transform:rotate(-1.1deg)">'
+ +'<div style="height:230px;position:relative;overflow:hidden;background:linear-gradient(180deg,#ff9d5c 0%,#e0656b 42%,#5b3a68 70%,#1d2740 100%)">'
+ +'<div style="position:absolute;left:0;right:0;bottom:0;height:36%;background:#141b30"></div>'
+ +'<div style="position:absolute;left:8%;bottom:34%;width:5px;height:74px;background:#0c1122"></div><div style="position:absolute;left:5%;bottom:calc(34% + 66px);width:64px;height:5px;background:#0c1122"></div>'
+ +'<div style="position:absolute;left:26%;bottom:34%;width:5px;height:92px;background:#0c1122"></div><div style="position:absolute;left:23%;bottom:calc(34% + 84px);width:78px;height:5px;background:#0c1122"></div>'
+ +'<div style="position:absolute;right:10%;bottom:30%;width:210px;height:44px;background:#1a2033;clip-path:polygon(0 30%,6% 30%,6% 0,14% 0,14% 30%,88% 30%,100% 65%,88% 100%,0 100%)"></div>'
+ +'<div style="position:absolute;right:13%;bottom:31%;width:150px;height:8px;background:#e2611f"></div>'
+ +'<div style="position:absolute;left:52%;top:16%;width:44px;height:44px;border-radius:50%;background:#ffe9b8;box-shadow:0 0 44px #ffdf9d"></div></div>'
+ +'<div style="font-family:\'Segoe Script\',\'Comic Sans MS\',cursive;font-size:16px;color:#3d352a;padding:14px 6px 16px">Convoy '+String(d.level).padStart(2,'0')+' — she came home. Every light in the harbor was on.</div></div>'
+ +'<div style="padding:4px 6px">'+dbRewards(d,'#b3541e','#7a6a55')+'</div>'
+ +dbBtn('#2b241c','#efe9df','Leave the harbor'),
+/* 7 · Insurance report */
+insurance:d=>'<div class="db" style="background:#fbfaf6;color:#22262b;font-family:var(--sans)">'
+ +'<div style="padding:28px 32px 4px">'
+ +'<div style="display:flex;justify-content:space-between;align-items:baseline;border-bottom:2px solid #22262b;padding-bottom:12px">'
+ +'<div style="font:900 19px/1 var(--sans);letter-spacing:.02em">LLOYD&rsquo;S MARITIME UNDERWRITERS</div>'
+ +'<div style="font:600 9px/1 var(--mono);color:#7a828c">POLICY HZ-'+(4400+d.level*7)+' / WAR RISK</div></div>'
+ +'<div style="font:700 12px/1 var(--sans);margin:18px 0 10px;color:#3c4650">CLAIMS ASSESSMENT — CONVOY '+String(d.level).padStart(2,'0')+'</div>'
+ +'<table style="width:100%;border-collapse:collapse;font-size:12px">'
+ +'<tr style="border-bottom:1px solid #dde1e6"><td style="padding:9px 4px;color:#5a636d">Insured cargo value</td><td style="text-align:right;font:700 12px var(--mono)">$'+(500+(d.level-1)*180)+',000,000</td></tr>'
+ +'<tr style="border-bottom:1px solid #dde1e6"><td style="padding:9px 4px;color:#5a636d">Cargo lost in transit</td><td style="text-align:right;font:700 12px var(--mono);color:#1f8a4c">$0 — NONE</td></tr>'
+ +'<tr style="border-bottom:1px solid #dde1e6"><td style="padding:9px 4px;color:#5a636d">Claim payable</td><td style="text-align:right;font:700 12px var(--mono);color:#1f8a4c">CLAIM AVOIDED</td></tr>'
+ +'<tr><td style="padding:9px 4px;color:#5a636d">Escort performance bonus</td><td style="text-align:right;font:700 12px var(--mono)">'+(d.bonus?'+$'+d.bonus+',000,000':'—')+'</td></tr></table>'
+ +'<div style="position:relative;margin:20px 0 6px;min-height:64px">'
+ +'<div style="font-size:11px;color:#7a828c;max-width:60%">Underwriter&rsquo;s note: hull returned at '+d.hp+'%. Escort commander rated '+d.rating+'. Premium for the next transit is hereby adjusted in the client&rsquo;s favor.</div>'
+ +'<div style="position:absolute;right:6px;top:0;border:3px solid #1f8a4c;color:#1f8a4c;font:900 17px/1 var(--mono);letter-spacing:.18em;padding:9px 15px;border-radius:5px;animation:dbStamp .5s .5s both;opacity:0">NO CLAIM ✓</div></div>'
+ +dbRewards(d,'#1f8a4c','#7a828c')+'</div>'
+ +dbBtn('#22262b','#fbfaf6','File the paperwork'),
+/* 8 · Stock market report */
+stock:d=>'<div class="db" style="background:#07090d;color:#d7e3ea;font-family:var(--mono);border:1px solid #1d2833">'
+ +'<div style="display:flex;gap:16px;flex-wrap:wrap;background:#0b0f15;border-bottom:1px solid #1d2833;padding:12px 22px;font:700 10px/1 var(--mono)">'
+ +'<span style="color:#ff6b61">BRENT ▼ -2.4%</span><span style="color:#4ee29a">SHIPX ▲ +6.1%</span><span style="color:#4ee29a">TANKR ▲ +8.9%</span><span style="color:#ff6b61">HORMUZ RISK ▼ -31%</span><span style="color:#4ee29a">ESCORT CO. ▲ +'+(4+d.level)+'.2%</span></div>'
+ +'<div style="padding:22px 26px 6px">'
+ +'<div class="db-kicker" style="color:#5c7382">MARKET WRAP · ENERGY & SHIPPING</div>'
+ +'<h2 style="font:900 clamp(19px,3.6vw,27px)/1.2 var(--sans);color:#fff;margin:12px 0 14px">Oil supply stable — shipping stocks rally as convoy '+String(d.level).padStart(2,'0')+' arrives intact</h2>'
+ +'<svg viewBox="0 0 540 130" style="width:100%;background:#0b0f15;border:1px solid #1d2833">'
+ +'<polyline points="0,104 60,96 110,101 160,84 210,90 260,70 310,76 360,55 410,60 460,34 540,20" fill="none" stroke="#4ee29a" stroke-width="2.5"/>'
+ +'<polyline points="0,104 60,96 110,101 160,84 210,90 260,70 310,76 360,55 410,60 460,34 540,20 540,130 0,130" fill="rgba(78,226,154,.09)"/>'
+ +'<text x="404" y="26" fill="#4ee29a" font-size="11" font-family="monospace">▲ SAFE DELIVERY</text></svg>'
+ +'<div style="font-size:11px;line-height:1.7;color:#8fa3b0;margin-top:12px">Traders had priced in a loss. The escort had other plans. Insurance spreads tightened within minutes of the arrival confirmation; the shipping index posted its best session of the quarter.</div>'
+ +dbRewards(d,'#4ee29a','#5c7382')+'</div>'
+ +dbBtn('#4ee29a','#04160d','Close the terminal'),
+/* 9 · Medal ceremony */
+medal:d=>'<div class="db" style="background:radial-gradient(circle at 50% 18%,#16305a,#0a1530 62%);color:#e8eefc;font-family:var(--sans);text-align:center;border:1px solid #2b4577">'
+ +'<div style="padding:34px 28px 6px">'
+ +'<div class="db-kicker" style="color:#8fa8d8">GLOBAL MARITIME COMMAND · HONORS CEREMONY</div>'
+ +'<div style="margin:26px auto 0;width:120px;position:relative;animation:dbRise .7s .1s both">'
+ +'<div style="width:0;height:0;border-left:26px solid transparent;border-right:26px solid transparent;border-top:44px solid #b0332f;margin:0 auto;transform:translateX(-16px) rotate(8deg);display:inline-block"></div>'
+ +'<div style="width:0;height:0;border-left:26px solid transparent;border-right:26px solid transparent;border-top:44px solid #7c1f2b;margin:0 auto;transform:translateX(16px) rotate(-8deg);display:inline-block"></div>'
+ +'<div style="width:96px;height:96px;margin:-18px auto 0;border-radius:50%;background:radial-gradient(circle at 34% 30%,#ffe9a8,#d4a531 58%,#9c741b);box-shadow:0 8px 26px #000a,inset 0 2px 8px #fff7;display:grid;place-items:center;position:relative">'
+ +'<div style="width:74px;height:74px;border-radius:50%;border:2px solid #8a6a17;display:grid;place-items:center;font:900 34px/1 var(--sans);color:#6b500f">'+d.rating+'</div></div></div>'
+ +'<h2 style="font:900 clamp(20px,3.8vw,28px)/1.2 var(--sans);margin:22px 0 6px">DISTINGUISHED ESCORT COMMANDER</h2>'
+ +'<div style="font-size:12px;color:#9fb4e2;max-width:420px;margin:0 auto;line-height:1.7">For conspicuous devotion to a single irreplaceable ship. Convoy '+String(d.level).padStart(2,'0')+' delivered · hull '+d.hp+'% · '+(d.deaths?d.deaths+' escort(s) given in her defense.':'not one escort lost.')+'</div>'
+ +'<div style="display:inline-block;text-align:left">'+dbRewards(d,'#ffd166','#8fa8d8')+'</div></div>'
+ +dbBtn('#ffd166','#3a2a05','Return to duty'),
+/* 10 · Intelligence briefing — warns about the next mission */
+intel:d=>'<div class="db" style="background:#d9c99a;color:#241c0d;font-family:var(--mono);border-radius:6px">'
+ +'<div style="padding:26px 30px 8px">'
+ +'<div style="display:flex;justify-content:space-between;align-items:center"><div style="font:900 12px/1 var(--mono);letter-spacing:.24em">INTELLIGENCE BRIEFING</div><div style="border:2px solid #a8271e;color:#a8271e;font:900 10px/1 var(--mono);letter-spacing:.22em;padding:5px 9px;transform:rotate(4deg)">EYES ONLY</div></div>'
+ +'<div style="border-top:2px solid #241c0d;margin:14px 0"></div>'
+ +'<div style="font-size:12px;line-height:2.05">'
+ +'SUBJECT: CONVOY '+String(d.level).padStart(2,'0')+' — DELIVERED. TANKER SURVIVED ('+d.hp+'% HULL).<br>'
+ +'PAYMENT CLEARED: +$'+d.total+'M'+(d.bonus?' INCL. NO-DAMAGE BONUS':'')+'. RATING: '+d.rating+'.<br><br>'
+ +'HOWEVER — INTERCEPTED TRAFFIC INDICATES <span style="background:#241c0d;color:#241c0d">redacted redac</span> IS MOVING '
+ +'<span style="background:#241c0d;color:#241c0d">redacted</span> INTO THE STRAIT.<br>'
+ +'EXPECT: HEAVIER SALVOS · COORDINATED WAVES · <span style="background:#241c0d;color:#241c0d">redact</span> SUBSURFACE ACTIVITY.<br><br>'
+ +'ASSESSMENT: CONVOY '+String(d.level+1).padStart(2,'0')+' WILL BE THE MOST CONTESTED TRANSIT TO DATE.<br>'
+ +'RECOMMENDATION: INVEST EVERY DOLLAR. SHE SAILS EITHER WAY.</div>'
+ +'<div style="display:inline-block">'+dbRewards(d,'#7a3b12','#5e4c28')+'</div></div>'
+ +dbBtn('#241c0d','#d9c99a','Burn after reading')
+};
+const DB_SEQUENCE=['factory','newspaper','tv','naval','satellite','harbor','insurance','stock','medal','intel'];
+const DB_LATE_POOL=['tv','naval','satellite','harbor','insurance','stock','medal','intel'];
+let dbLast='';
+function debriefStyle(level){
+  if(level<=DB_SEQUENCE.length)return DB_SEQUENCE[level-1];
+  let k;do{k=pick(DB_LATE_POOL);}while(k===dbLast);
+  return k;
+}
+function showDebrief(d){
+  const key=debriefStyle(d.level);dbLast=key;
+  const el=$('debrief');
+  el.innerHTML=DEBRIEFS[key](d);
+  el.classList.remove('hidden');
+  (DB_SFX[key]||sfx.cash)();
+  $('dbContinue').onclick=()=>{el.classList.add('hidden');showResult(true,d.total);};
+}
+
+/* ============================== DRAW ============================== */
+
+function drawEscortLifeHud(x,y,lives){
+  ctx.save();
+  ctx.textAlign='left';
+  ctx.font='bold 8px "Cascadia Mono",monospace';
+  ctx.fillStyle='rgba(136,166,175,.9)';
+  ctx.fillText('ESCORTS',x,y-8);
+  const shown=Math.min(6,Math.max(0,lives||0));
+  for(let i=0;i<shown;i++)drawEscortLifeIcon(x+i*18,y,0.62,true);
+  if((lives||0)>6){
+    ctx.fillStyle='#8fd3ff';ctx.font='bold 9px "Cascadia Mono",monospace';
+    ctx.fillText('+'+((lives||0)-6),x+shown*18+2,y+4);
+  }
+  ctx.restore();
+}
+function drawEscortLifeIcon(x,y,sc,active){
+  ctx.save();ctx.translate(x,y);ctx.scale(sc||1,sc||1);
+  ctx.globalAlpha=active?1:.32;
+  ctx.fillStyle=active?'#8fd3ff':'rgba(143,211,255,.28)';
+  ctx.beginPath();
+  ctx.moveTo(14,0);ctx.lineTo(6,-5);ctx.lineTo(-11,-5);ctx.lineTo(-15,-2.5);
+  ctx.lineTo(-15,2.5);ctx.lineTo(-11,5);ctx.lineTo(6,5);
+  ctx.closePath();ctx.fill();
+  ctx.strokeStyle='rgba(230,250,255,.9)';ctx.lineWidth=1;ctx.stroke();
+  ctx.fillStyle='#e8f8ff';ctx.fillRect(-8,-3,6,6);ctx.fillRect(-1,-2,5,4);
+  ctx.strokeStyle='#e8f8ff';ctx.beginPath();ctx.moveTo(-5,-5);ctx.lineTo(-7,-12);ctx.moveTo(-5,-5);ctx.lineTo(1,-11);ctx.stroke();
+  ctx.fillStyle='#20313a';ctx.fillRect(7,-1,8,2);
+  ctx.restore();
+}
+
+function drawSupportShip(S){
+  if(!S||S.dead){
+    if(S&&S.dead){
+      ctx.save();ctx.globalAlpha=.55;ctx.fillStyle='rgba(20,24,27,.8)';ctx.beginPath();ctx.ellipse(S.x,S.y,48,12,0,0,TAU);ctx.fill();ctx.restore();
+    }
+    return;
+  }
+  ctx.save();ctx.translate(S.x,S.y);
+  // wake
+  ctx.fillStyle='rgba(210,248,255,.16)';ctx.beginPath();ctx.ellipse(-S.w*.43,0,S.w*.45,13,0,0,TAU);ctx.fill();
+  const hull=S.kind==='hospital'?'#eef8f9':'#58636b';
+  const stripe=S.kind==='hospital'?'#ff4d55':'#ffc857';
+  ctx.fillStyle=hull;ctx.strokeStyle='rgba(2,10,16,.65)';ctx.lineWidth=2;
+  ctx.beginPath();ctx.moveTo(-S.w/2,-S.h/2);ctx.lineTo(S.w*.28,-S.h/2);ctx.lineTo(S.w/2,0);ctx.lineTo(S.w*.28,S.h/2);ctx.lineTo(-S.w/2,S.h/2);ctx.closePath();ctx.fill();ctx.stroke();
+  ctx.fillStyle='rgba(2,10,16,.22)';ctx.fillRect(-S.w*.25,-S.h*.35,S.w*.26,S.h*.7);
+  ctx.fillStyle=stripe;
+  if(S.kind==='hospital'){
+    ctx.fillRect(-6,-11,12,22);ctx.fillRect(-14,-3,28,6);
+  }else{
+    for(let i=0;i<3;i++){ctx.fillRect(-S.w*.30+i*22,-7,14,14);ctx.strokeRect(-S.w*.30+i*22,-7,14,14);}
+  }
+  ctx.textAlign='center';ctx.font='bold 8px "Cascadia Mono",monospace';ctx.fillStyle=S.kind==='hospital'?'#ff4d55':'#ffc857';ctx.fillText(S.label,0,-S.h/2-12);
+  ctx.fillStyle='rgba(0,0,0,.45)';ctx.fillRect(-S.w*.38,S.h/2+6,S.w*.76,4);
+  ctx.fillStyle=S.hp/S.maxHp<.35?'#ff4d55':'#4ee29a';ctx.fillRect(-S.w*.38,S.h/2+6,S.w*.76*clamp(S.hp/S.maxHp,0,1),4);
+  ctx.restore();
+}
+
+function drawTanker(T,charred){
+  const x=T.x,y=T.y,Lh=T.w,Wd=T.h;
+  ctx.save();ctx.translate(x,y);
+  // glow — the tanker is the visual focus
+  const gl=ctx.createRadialGradient(0,0,20,0,0,145);
+  gl.addColorStop(0,'rgba(255,122,47,0.18)');gl.addColorStop(1,'rgba(255,122,47,0)');
+  ctx.fillStyle=gl;ctx.beginPath();ctx.arc(0,0,145,0,TAU);ctx.fill();
+  // hull
+  ctx.fillStyle=charred?'#3a2a24':'#a63f14';
+  ctx.beginPath();
+  ctx.moveTo(Lh/2,0);
+  ctx.lineTo(Lh/2-18,-Wd/2);ctx.lineTo(-Lh/2,-Wd/2);
+  ctx.lineTo(-Lh/2,Wd/2);ctx.lineTo(Lh/2-18,Wd/2);
+  ctx.closePath();ctx.fill();
+  // deck
+  ctx.fillStyle=charred?'#4a3830':'#e2611f';
+  ctx.beginPath();
+  ctx.moveTo(Lh/2-6,0);
+  ctx.lineTo(Lh/2-20,-Wd/2+4);ctx.lineTo(-Lh/2+4,-Wd/2+4);
+  ctx.lineTo(-Lh/2+4,Wd/2-4);ctx.lineTo(Lh/2-20,Wd/2-4);
+  ctx.closePath();ctx.fill();
+  if(!charred){
+    // central pipeline + transverse piping
+    ctx.strokeStyle='#7d2f0c';ctx.lineWidth=3;
+    ctx.beginPath();ctx.moveTo(-Lh/2+26,0);ctx.lineTo(Lh/2-22,0);ctx.stroke();
+    ctx.lineWidth=1.5;
+    for(let i=0;i<6;i++){
+      const px=-Lh/2+34+i*((Lh-70)/5);
+      ctx.beginPath();ctx.moveTo(px,-Wd/2+6);ctx.lineTo(px,Wd/2-6);ctx.stroke();
+    }
+    // tank hatches
+    ctx.fillStyle='#c8501e';
+    for(let i=0;i<5;i++){
+      const px=-Lh/2+40+i*((Lh-80)/4);
+      ctx.beginPath();ctx.arc(px,-Wd/4,3.4,0,TAU);ctx.fill();
+      ctx.beginPath();ctx.arc(px,Wd/4,3.4,0,TAU);ctx.fill();
+    }
+    // white bridge castle at stern
+    ctx.fillStyle='#f2ede2';
+    ctx.fillRect(-Lh/2+6,-Wd/2+6,20,Wd-12);
+    ctx.fillStyle='#cfd8d4';
+    ctx.fillRect(-Lh/2+9,-5,14,10);
+    // funnel
+    ctx.fillStyle='#c8501e';ctx.fillRect(-Lh/2+11,-3,5,6);
+    // bow mark
+    ctx.fillStyle='#f2ede2';ctx.fillRect(Lh/2-13,-2,7,4);
+    // clear readable label so first-time players instantly understand the ship
+    ctx.save();ctx.rotate(-G.time*.01);
+    ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.font='900 13px "Cascadia Mono",monospace';
+    ctx.lineWidth=4;ctx.strokeStyle='rgba(55,20,4,.75)';ctx.strokeText('OIL TANKER',8,1);
+    ctx.fillStyle='#fff3dc';ctx.fillText('OIL TANKER',8,1);
+    ctx.restore();
+  }
+  ctx.restore();
+  // hull bar + role label
+  ctx.fillStyle='#000a';ctx.fillRect(x-50,y-Wd-18,100,7);
+  ctx.fillStyle=T.hp>40?'#37d67a':(T.hp>20?'#ffd166':'#ff3b30');
+  ctx.fillRect(x-50,y-Wd-18,100*Math.max(0,T.hp)/T.maxHp,7);
+  ctx.textAlign='center';ctx.font='bold 9px "Cascadia Mono",monospace';
+  ctx.fillStyle='rgba(255,240,210,.92)';ctx.fillText('HULL '+Math.max(0,Math.ceil(T.hp))+'%',x,y-Wd-25);
+}
+function drawPlayer(P){
+  if(P.dead)return;
+  if(P.invuln>0&&Math.floor(G.time*12)%2===0)return; // blink
+  ctx.save();ctx.translate(P.x,P.y);ctx.rotate(P.facing);
+  // Navy escort destroyer — bigger silhouette, flag, radar mast, hull number
+  ctx.fillStyle='#5f737e';
+  ctx.beginPath();
+  ctx.moveTo(28,0);ctx.lineTo(13,-10);ctx.lineTo(-20,-10);ctx.lineTo(-27,-5);
+  ctx.lineTo(-27,5);ctx.lineTo(-20,10);ctx.lineTo(13,10);
+  ctx.closePath();ctx.fill();
+  ctx.strokeStyle='#d9e6ec';ctx.lineWidth=1.2;ctx.stroke();
+  // deck
+  ctx.fillStyle='#b8c8cf';
+  ctx.beginPath();ctx.moveTo(23,0);ctx.lineTo(9,-6.5);ctx.lineTo(-21,-6.5);ctx.lineTo(-21,6.5);ctx.lineTo(9,6.5);ctx.closePath();ctx.fill();
+  // bow gun + barrel
+  ctx.fillStyle='#45545d';ctx.fillRect(11,-3,8,6);ctx.fillRect(18,-1.2,11,2.4);
+  // VLS cells
+  ctx.fillStyle='#3f4e56';for(let i=0;i<4;i++)for(let j=0;j<2;j++)ctx.fillRect(-2-i*4,-4+j*5,2.6,3.2);
+  // superstructure and mast
+  ctx.fillStyle='#8fa4ad';ctx.fillRect(-16,-5,10,10);ctx.fillRect(-7,-4,8,8);
+  ctx.strokeStyle='#d9e6ec';ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(-9,-7);ctx.lineTo(-11,-18);ctx.moveTo(-9,-7);ctx.lineTo(-3,-17);ctx.stroke();
+  ctx.fillStyle='#70e1f5';ctx.fillRect(-15,-18,15,2);
+  // U.S. flag stripes and hull number
+  ctx.fillStyle='#fff';ctx.fillRect(-24,-8,7,5);ctx.fillStyle='#c8102e';ctx.fillRect(-24,-8,7,1.2);ctx.fillRect(-24,-4.8,7,1.2);ctx.fillStyle='#1f4aa8';ctx.fillRect(-24,-8,3,2.6);
+  ctx.save();ctx.scale(1,-1);ctx.textAlign='center';ctx.font='900 6px "Cascadia Mono",monospace';ctx.fillStyle='#20313a';ctx.fillText('N',-8,-1.5);ctx.restore();
+  ctx.restore();
+
+  // defense shield bubble
+  if((P.shield||0)>0){
+    const ratio=clamp(Math.min(P.shield/(P.shieldMax||1),(P.shieldTime||0)/6.5),0,1);
+    ctx.save();
+    ctx.globalAlpha=.22+.18*Math.sin(G.time*8);
+    ctx.strokeStyle='rgba(112,225,245,.95)';ctx.lineWidth=2;
+    ctx.beginPath();ctx.arc(P.x,P.y,26+ratio*8,0,TAU);ctx.stroke();
+    ctx.globalAlpha=.11;ctx.fillStyle='#70e1f5';ctx.beginPath();ctx.arc(P.x,P.y,24+ratio*8,0,TAU);ctx.fill();
+    ctx.restore();
+  }
+  // temporary wingman drones
+  if((G.wingmanT||0)>0){
+    ctx.save();
+    for(const side of [-1,1]){
+      const bx=P.x+Math.cos(P.facing+Math.PI/2)*side*34-Math.cos(P.facing)*10;
+      const by=P.y+Math.sin(P.facing+Math.PI/2)*side*34-Math.sin(P.facing)*10;
+      ctx.translate(bx,by);ctx.rotate(P.facing);
+      ctx.fillStyle='#70e1f5';ctx.globalAlpha=.92;
+      ctx.beginPath();ctx.moveTo(13,0);ctx.lineTo(-9,-6);ctx.lineTo(-4,0);ctx.lineTo(-9,6);ctx.closePath();ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,.8)';ctx.lineWidth=1;ctx.stroke();
+      ctx.setTransform(DPR,0,0,DPR,0,0);
+    }
+    ctx.restore();
+  }
+  // floating label: readable but not too intrusive
+  ctx.textAlign='center';ctx.font='bold 9px "Cascadia Mono",monospace';ctx.fillStyle='rgba(210,235,245,.92)';ctx.fillText('NAVY ESCORT',P.x,P.y-31);
+  // CIWS radius
+  if(G.weapon.type==='ciws'){
+    ctx.strokeStyle='rgba(182,255,143,0.18)';ctx.lineWidth=1.5;
+    ctx.beginPath();ctx.arc(P.x,P.y,ciwsRadius(),0,TAU);ctx.stroke();
+  }
+  // hp bar
+  ctx.fillStyle='#000a';ctx.fillRect(P.x-16,P.y-24,32,4);
+  ctx.fillStyle='#8fd3ff';ctx.fillRect(P.x-16,P.y-24,32*Math.max(0,P.hp)/P.maxHp,4);
+}
+function drawEnemy(e,T){
+  const ang=Math.atan2(T.y-e.y,T.x-e.x);
+  if(e.critical){
+    ctx.globalAlpha=.55+.35*Math.sin(G.time*9+e.phase);ctx.strokeStyle='#ff4d55';ctx.lineWidth=2;
+    ctx.beginPath();ctx.arc(e.x,e.y,e.r+8+Math.sin(G.time*6)*2,0,TAU);ctx.stroke();ctx.globalAlpha=1;
+  }
+  if(e.supply){
+    ctx.globalAlpha=.6+.4*Math.sin(G.time*5+e.phase);ctx.strokeStyle='#ffd166';ctx.lineWidth=2;
+    ctx.setLineDash([5,4]);
+    ctx.beginPath();ctx.arc(e.x,e.y,e.r+9+Math.sin(G.time*4)*2,0,TAU);ctx.stroke();
+    ctx.setLineDash([]);ctx.globalAlpha=1;
+  }
+  if(e.type==='supply'){
+    ctx.save();ctx.translate(e.x,e.y);ctx.rotate(ang);
+    ctx.fillStyle='#4a3a1a';
+    ctx.beginPath();
+    ctx.moveTo(15,0);ctx.lineTo(8,-6);ctx.lineTo(-16,-6);ctx.lineTo(-16,6);ctx.lineTo(8,6);
+    ctx.closePath();ctx.fill();
+    ctx.fillStyle='#ffd166';ctx.fillRect(-7,-4.5,12,9); // crate
+    ctx.strokeStyle='#a97f1c';ctx.lineWidth=1;ctx.strokeRect(-7,-4.5,12,9);
+    ctx.beginPath();ctx.moveTo(-1,-4.5);ctx.lineTo(-1,4.5);ctx.moveTo(-7,0);ctx.lineTo(5,0);ctx.stroke();
+    ctx.restore();
+  }
+  else if(e.type==='mine'){
+    ctx.fillStyle='#250b0d';ctx.beginPath();ctx.arc(e.x,e.y,e.r,0,TAU);ctx.fill();
+    ctx.strokeStyle='#ff4d55';ctx.lineWidth=2;
+    for(let i=0;i<8;i++){const a=i/8*TAU+G.time*.35;
+      ctx.beginPath();ctx.moveTo(e.x+Math.cos(a)*e.r,e.y+Math.sin(a)*e.r);
+      ctx.lineTo(e.x+Math.cos(a)*(e.r+5),e.y+Math.sin(a)*(e.r+5));ctx.stroke();}
+  }
+  else if(e.type==='sub'){
+    ctx.save();ctx.translate(e.x,e.y);ctx.rotate(ang);
+    ctx.globalAlpha=e.surfaced?1:.22;ctx.fillStyle='#07131c';ctx.strokeStyle=e.surfaced?'#66a6be':'#1d5267';ctx.lineWidth=2;
+    ctx.beginPath();ctx.ellipse(0,0,24,8,0,0,TAU);ctx.fill();ctx.stroke();
+    ctx.fillStyle='#102b38';ctx.fillRect(-6,-5,12,10);ctx.fillRect(1,-12,2,8);
+    ctx.restore();
+    if(e.surfaced){ctx.strokeStyle='rgba(112,225,245,.4)';ctx.beginPath();ctx.arc(e.x,e.y,24+(1-e.cycle%1)*25,0,TAU);ctx.stroke();}
+  }
+  else if(e.type==='heli'){
+    ctx.save();ctx.translate(e.x,e.y);
+    ctx.fillStyle='#8a2626';
+    ctx.beginPath();ctx.ellipse(0,0,11,7,0,0,TAU);ctx.fill();
+    ctx.fillRect(-18,-2,10,4); // tail
+    ctx.strokeStyle='#d66';ctx.lineWidth=2;
+    const ra=G.time*22;
+    ctx.beginPath();ctx.moveTo(Math.cos(ra)*16,Math.sin(ra)*16);ctx.lineTo(-Math.cos(ra)*16,-Math.sin(ra)*16);ctx.stroke();
+    ctx.restore();
+  }
+  else if(e.type==='fighter'){
+    ctx.save();ctx.translate(e.x,e.y);ctx.rotate(Math.PI); // flying left
+    ctx.fillStyle='#a03030';
+    ctx.beginPath();ctx.moveTo(14,0);ctx.lineTo(-8,-9);ctx.lineTo(-4,0);ctx.lineTo(-8,9);ctx.closePath();ctx.fill();
+    ctx.restore();
+    puff(e.x+14,e.y,'rgba(255,120,90,0.35)',1,8);
+  }
+  else if(e.type==='drone'||e.type==='kamikaze'){
+    ctx.save();ctx.translate(e.x,e.y);ctx.rotate(ang);ctx.fillStyle=e.type==='kamikaze'?'#ef343b':'#92282f';
+    ctx.beginPath();ctx.moveTo(11,0);ctx.lineTo(-7,-7);ctx.lineTo(-3,0);ctx.lineTo(-7,7);ctx.closePath();ctx.fill();
+    ctx.fillStyle=e.type==='kamikaze'?'#ffc857':'#d85c62';ctx.fillRect(-5,-2,7,4);ctx.restore();
+  }
+  else if(e.type==='destroyer'){
+    const surfaced=e.state==='active'?1:(e.surface||0);
+    // Underwater shadow, sonar pulses and a clear danger marker precede the ship.
+    ctx.save();ctx.translate(e.x,e.y);
+    const shadowA=e.state==='quiet'?.13:e.state==='warning'?.36:(.32+.28*(1-surfaced));
+    ctx.fillStyle='rgba(2,10,16,'+shadowA+')';ctx.beginPath();ctx.ellipse(0,0,54,19,0,0,TAU);ctx.fill();
+    if(e.state==='quiet'){
+      // barely-there disturbance — a ripple you almost miss
+      ctx.strokeStyle='rgba(159,232,245,'+(.22+.18*Math.sin(G.time*5))+')';ctx.lineWidth=1.5;
+      ctx.beginPath();ctx.ellipse(0,0,30+Math.sin(G.time*3)*4,11,0,0,TAU);ctx.stroke();
+    }
+    else if(e.state!=='active'){
+      const pulse=34+(G.time*34)%42;ctx.strokeStyle='rgba(255,77,85,'+(.85-(pulse-34)/75)+')';ctx.lineWidth=2;
+      ctx.beginPath();ctx.arc(0,0,pulse,0,TAU);ctx.stroke();ctx.beginPath();ctx.arc(0,0,pulse+18,0,TAU);ctx.stroke();
+      ctx.fillStyle='#ff4d55';ctx.beginPath();ctx.moveTo(0,-32);ctx.lineTo(-9,-17);ctx.lineTo(9,-17);ctx.closePath();ctx.fill();
+      ctx.textAlign='center';ctx.font='bold 9px "Cascadia Mono",monospace';ctx.fillText(e.state==='warning'?'SONAR CONTACT':'SURFACING',0,-40);
+    }
+    ctx.restore();
+    if(surfaced>0){
+      ctx.save();ctx.globalAlpha=.2+.8*surfaced;ctx.translate(e.x,e.y+(1-surfaced)*16);ctx.rotate(ang);
+      ctx.fillStyle='#5d161b';ctx.strokeStyle='#df454c';ctx.lineWidth=2;
+      ctx.beginPath();ctx.moveTo(42,0);ctx.lineTo(27,-14);ctx.lineTo(-37,-14);ctx.lineTo(-48,-7);ctx.lineTo(-48,7);ctx.lineTo(-37,14);ctx.lineTo(27,14);ctx.closePath();ctx.fill();ctx.stroke();
+      ctx.fillStyle='#92282f';ctx.fillRect(-20,-9,34,18);ctx.fillStyle='#d95a5f';
+      for(const x of [-28,2,25]){ctx.beginPath();ctx.arc(x,0,5,0,TAU);ctx.fill();}
+      ctx.fillStyle='#ff4d55';ctx.fillRect(-40,-3,8,6);ctx.restore();
+      ctx.strokeStyle='rgba(159,232,245,'+(.75*(1-surfaced)+.2)+')';ctx.lineWidth=2;ctx.beginPath();ctx.ellipse(e.x,e.y,52,18,0,0,TAU);ctx.stroke();
+    }
+  }
+  else{
+    const cols={gunboat:'#792127',suicide:'#c32129',missileBoat:'#5d171c',rocketBoat:'#88242a'};
+    const lens={gunboat:28,suicide:24,missileBoat:38,rocketBoat:34};
+    const wids={gunboat:11,suicide:11,missileBoat:14,rocketBoat:13};
+    ctx.save();ctx.translate(e.x,e.y);ctx.rotate(ang);
+    ctx.fillStyle=e.elite?'#b12b34':(cols[e.type]||'#7a1f1f');
+    const L2=lens[e.type],W2=wids[e.type];
+    ctx.beginPath();
+    ctx.moveTo(L2/2,0);ctx.lineTo(L2/4,-W2/2);ctx.lineTo(-L2/2,-W2/2);
+    ctx.lineTo(-L2/2,W2/2);ctx.lineTo(L2/4,W2/2);ctx.closePath();ctx.fill();
+    ctx.fillStyle=e.elite?'#ffc857':'#c14040';ctx.fillRect(-L2/2+L2*.15,-W2*.26,L2*.44,W2*.52);
+    if(e.elite){ctx.strokeStyle='#ffc857';ctx.lineWidth=2;ctx.stroke();ctx.fillStyle='#ffc857';ctx.beginPath();ctx.arc(-L2*.18,0,2.6,0,TAU);ctx.fill();}
+    if(e.type==='gunboat'){ctx.fillStyle='#ef6d70';ctx.beginPath();ctx.arc(4,0,3.2,0,TAU);ctx.fill();ctx.fillRect(4,-1,9,2);}
+    if(e.type==='missileBoat'){ctx.strokeStyle='#ffb05f';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(-2,-4);ctx.lineTo(11,-4);ctx.moveTo(-2,4);ctx.lineTo(11,4);ctx.stroke();}
+    if(e.type==='rocketBoat'){ctx.fillStyle='#ffc857';for(let i=-1;i<=1;i++)ctx.fillRect(-1,i*4-1,11,2);}
+    if(e.type==='suicide'&&Math.floor(G.time*8)%2===0){
+      ctx.fillStyle='#ffd166';ctx.beginPath();ctx.arc(0,0,3,0,TAU);ctx.fill();
+    }
+    ctx.restore();
+  }
+  // hp pip
+  if((e.hp<e.maxHp||e.type==='destroyer')&&!e.untargetable){
+    const bw=e.type==='destroyer'?72:26;
+    ctx.fillStyle='#000a';ctx.fillRect(e.x-bw/2,e.y-e.r-10,bw,4);
+    ctx.fillStyle=e.critical?'#ff4d55':'#ff7b72';ctx.fillRect(e.x-bw/2,e.y-e.r-10,bw*Math.max(0,e.hp)/e.maxHp,4);
+  }
+}
+
+function drawHormuzStrait(){
+  const sand='#735d3f',sandHi='#9a8057',rock='#4a4437',coast='rgba(255,207,123,.42)';
+  // Iranian coastline — a broken, mountainous northern shore.
+  ctx.fillStyle=sand;ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(W,0);ctx.lineTo(W,H*.075);
+  ctx.lineTo(W*.91,H*.065);ctx.lineTo(W*.83,H*.10);ctx.lineTo(W*.76,H*.12);ctx.lineTo(W*.69,H*.095);
+  ctx.lineTo(W*.61,H*.14);ctx.lineTo(W*.54,H*.105);ctx.lineTo(W*.44,H*.145);ctx.lineTo(W*.34,H*.115);
+  ctx.lineTo(W*.25,H*.15);ctx.lineTo(W*.12,H*.12);ctx.lineTo(0,H*.16);ctx.closePath();ctx.fill();
+  ctx.strokeStyle=coast;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(0,H*.16);ctx.lineTo(W*.12,H*.12);ctx.lineTo(W*.25,H*.15);
+  ctx.lineTo(W*.34,H*.115);ctx.lineTo(W*.44,H*.145);ctx.lineTo(W*.54,H*.105);ctx.lineTo(W*.61,H*.14);
+  ctx.lineTo(W*.69,H*.095);ctx.lineTo(W*.76,H*.12);ctx.lineTo(W*.83,H*.10);ctx.lineTo(W*.91,H*.065);ctx.lineTo(W,H*.075);ctx.stroke();
+  // Musandam peninsula / Oman — the recognizable southern pinch point.
+  ctx.fillStyle=rock;ctx.beginPath();ctx.moveTo(0,H*.90);ctx.lineTo(W*.16,H*.88);ctx.lineTo(W*.31,H*.92);
+  ctx.lineTo(W*.44,H*.875);ctx.lineTo(W*.55,H*.90);ctx.lineTo(W*.63,H*.80);ctx.lineTo(W*.68,H*.83);
+  ctx.lineTo(W*.74,H*.93);ctx.lineTo(W*.86,H*.88);ctx.lineTo(W,H*.92);ctx.lineTo(W,H);ctx.lineTo(0,H);ctx.closePath();ctx.fill();
+  ctx.strokeStyle=coast;ctx.beginPath();ctx.moveTo(0,H*.90);ctx.lineTo(W*.16,H*.88);ctx.lineTo(W*.31,H*.92);
+  ctx.lineTo(W*.44,H*.875);ctx.lineTo(W*.55,H*.90);ctx.lineTo(W*.63,H*.80);ctx.lineTo(W*.68,H*.83);
+  ctx.lineTo(W*.74,H*.93);ctx.lineTo(W*.86,H*.88);ctx.lineTo(W,H*.92);ctx.stroke();
+  // Mountain ridges make the dry, dramatic shores read at a glance.
+  ctx.strokeStyle='rgba(31,28,24,.28)';ctx.lineWidth=1;
+  for(let i=0;i<7;i++){
+    const x=W*(.05+i*.14),y=H*(i%2?.045:.072);
+    ctx.beginPath();ctx.moveTo(x-30,y+10);ctx.lineTo(x,y-7);ctx.lineTo(x+26,y+9);ctx.lineTo(x+44,y-2);ctx.stroke();
+  }
+  for(let i=0;i<6;i++){
+    const x=W*(.08+i*.17),y=H*(.965-(i%2)*.018);
+    ctx.beginPath();ctx.moveTo(x-27,y+7);ctx.lineTo(x,y-11);ctx.lineTo(x+31,y+8);ctx.stroke();
+  }
+  const island=(x,y,rx,ry,name)=>{
+    ctx.fillStyle=sandHi;ctx.beginPath();ctx.ellipse(x,y,rx,ry,-.12,0,TAU);ctx.fill();ctx.strokeStyle=coast;ctx.stroke();
+    if(W>640){ctx.fillStyle='rgba(238,248,249,.55)';ctx.font='bold 8px "Cascadia Mono",monospace';ctx.textAlign='center';ctx.fillText(name,x,y-ry-6);}
+  };
+  island(W*.39,H*.19,W*.085,7,'QESHM');
+  island(W*.58,H*.175,15,6,'LARAK');
+  island(W*.72,H*.155,11,5,'HORMUZ');
+  // Two separated traffic lanes, as used through the real strait.
+  ctx.save();ctx.setLineDash([18,16]);ctx.lineWidth=2;
+  ctx.strokeStyle='rgba(112,225,245,.34)';ctx.beginPath();ctx.moveTo(-20,H*.44);ctx.bezierCurveTo(W*.30,H*.40,W*.62,H*.45,W+20,H*.40);ctx.stroke();
+  ctx.strokeStyle='rgba(255,200,87,.30)';ctx.beginPath();ctx.moveTo(-20,H*.57);ctx.bezierCurveTo(W*.30,H*.61,W*.62,H*.55,W+20,H*.59);ctx.stroke();ctx.restore();
+  ctx.font='bold 9px "Cascadia Mono",monospace';ctx.textAlign='left';ctx.fillStyle='rgba(112,225,245,.6)';ctx.fillText('EASTBOUND ENERGY LANE  →',24,H*.405);
+  ctx.fillStyle='rgba(255,200,87,.55)';ctx.fillText('←  WESTBOUND LANE',24,H*.635);
+  ctx.textAlign='center';ctx.fillStyle='rgba(238,248,249,.62)';ctx.font='bold 11px "Cascadia Mono",monospace';ctx.fillText('ISLAMIC REPUBLIC OF IRAN',W*.52,22);
+  ctx.fillStyle='rgba(238,248,249,.5)';ctx.fillText('MUSANDAM  //  OMAN',W*.69,H-10);
+  ctx.fillStyle='rgba(112,225,245,.75)';ctx.font='bold 10px "Cascadia Mono",monospace';ctx.fillText('STRAIT OF HORMUZ  ·  21 NM BOTTLENECK',W*.55,H*.515);
+  // Oil terminals and flares along the Iranian shore.
+  for(const x of [W*.18,W*.87]){
+    ctx.fillStyle='#27323a';ctx.fillRect(x-13,H*.085-6,26,6);ctx.fillRect(x-2,H*.085-15,4,9);
+    ctx.fillStyle='#ff9a43';ctx.beginPath();ctx.arc(x,H*.085-18,2.2+Math.sin(G.time*8+x)*.6,0,TAU);ctx.fill();
+  }
+}
+
+function drawBossWarning(){
+  if(G.bossWarningT<=0)return;
+  const flash=.55+.45*Math.abs(Math.sin(G.bossWarningT*22)),bandY=H*.39,bandH=Math.min(150,H*.24);
+  ctx.save();ctx.globalAlpha=flash;
+  const vg=ctx.createRadialGradient(W/2,H/2,H*.16,W/2,H/2,H*.78);
+  vg.addColorStop(0,'rgba(255,20,35,0)');vg.addColorStop(1,'rgba(255,20,35,.38)');ctx.fillStyle=vg;ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='rgba(8,2,5,.88)';ctx.fillRect(0,bandY, W,bandH);
+  ctx.fillStyle='#ff3340';ctx.fillRect(0,bandY, W,3);ctx.fillRect(0,bandY+bandH-3,W,3);
+  ctx.textAlign='center';ctx.fillStyle='#ff4d55';ctx.font='900 '+Math.max(30,Math.min(58,W*.055))+'px "Segoe UI",sans-serif';ctx.fillText('⚠ WARNING',W/2,bandY+bandH*.45);
+  ctx.fillStyle='#fff';ctx.font='900 '+Math.max(14,Math.min(25,W*.024))+'px "Cascadia Mono",monospace';ctx.fillText('ENEMY DESTROYER DETECTED — PUSH B TO USE BOMB',W/2,bandY+bandH*.72);
+  ctx.fillStyle='#ff8b91';ctx.font='bold 9px "Cascadia Mono",monospace';ctx.fillText('ONE BOMB PER STAGE  //  SAVE THE TANKER',W/2,bandY+bandH*.88);
+  ctx.restore();
+}
+
+
+function drawStageEventOverlay(){
+  const ev=G.stageEvent;if(!ev)return;
+  if(ev.id==='night'){
+    ctx.fillStyle='rgba(0,5,18,.34)';ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='rgba(143,211,255,.08)';for(let i=0;i<5;i++){ctx.beginPath();ctx.arc(W*.5,H*.5,160+i*80,0,TAU);ctx.stroke();}
+  }else if(ev.id==='storm'){
+    ctx.fillStyle='rgba(120,170,190,.08)';ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='rgba(210,248,255,.18)';ctx.lineWidth=1;
+    for(let i=0;i<26;i++){const x=(i*73+G.time*220)%W;ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x-35,H);ctx.stroke();}
+  }else if(ev.id==='heat'){
+    ctx.fillStyle='rgba(255,122,47,.045)';ctx.fillRect(0,0,W,H);
+  }
+  if((G.eventT||0)>0){
+    ctx.save();ctx.textAlign='center';ctx.fillStyle='rgba(2,10,16,.75)';ctx.fillRect(W/2-230,H*.19-34,460,68);
+    ctx.strokeStyle='rgba(255,200,87,.55)';ctx.strokeRect(W/2-230.5,H*.19-34.5,461,69);
+    ctx.fillStyle='#ffc857';ctx.font='bold 18px "Cascadia Mono",monospace';ctx.fillText(ev.name,W/2,H*.19-8);
+    ctx.fillStyle='#dff6ff';ctx.font='bold 10px "Cascadia Mono",monospace';ctx.fillText(ev.desc,W/2,H*.19+16);
+    ctx.restore();
+  }
+  if((G.panicT||0)>0){ctx.fillStyle='rgba(255,0,0,'+(0.12+0.08*Math.sin(G.time*18))+')';ctx.fillRect(0,0,W,H);}
+}
+function draw(){
+  ctx.save();
+  if(G.cameraPunch>0){const z=1+G.cameraPunch*.035;ctx.translate(W/2,H/2);ctx.scale(z,z);ctx.translate(-W/2,-H/2);}
+  if(G.shake>0)ctx.translate(rnd(-G.shake,G.shake),rnd(-G.shake,G.shake));
+
+  // tactical ocean grid
+  const grad=ctx.createLinearGradient(0,0,0,H);
+  grad.addColorStop(0,'#092b39');grad.addColorStop(0.55,'#06232f');grad.addColorStop(1,'#031722');
+  ctx.fillStyle=grad;ctx.fillRect(-30,-30,W+60,H+60);
+  ctx.save();ctx.strokeStyle='rgba(112,225,245,0.055)';ctx.lineWidth=1;
+  const grid=64,ox=(G.time*7)%grid;
+  for(let x=-grid+ox;x<W+grid;x+=grid){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();}
+  for(let y=0;y<H+grid;y+=grid){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke();}
+  ctx.setLineDash([12,18]);ctx.strokeStyle='rgba(255,200,87,0.16)';ctx.lineWidth=1.5;
+  ctx.beginPath();ctx.moveTo(0,H*.5);ctx.lineTo(W,H*.5);ctx.stroke();ctx.setLineDash([]);
+  for(let i=0;i<7;i++){const yy=(i/7)*H+Math.sin(G.time*.7+i)*8;ctx.strokeStyle='rgba(180,220,235,0.055)';ctx.beginPath();for(let x=0;x<=W;x+=40)ctx.lineTo(x,yy+Math.sin(x*.02+G.time+i)*5);ctx.stroke();}
+  ctx.restore();
+  const dg=ctx.createLinearGradient(W-130,0,W,0);
+  dg.addColorStop(0,'rgba(78,226,154,0)');dg.addColorStop(1,'rgba(78,226,154,0.2)');
+  ctx.fillStyle=dg;ctx.fillRect(W-130,0,130,H);
+  ctx.strokeStyle='rgba(78,226,154,.45)';ctx.lineWidth=1;ctx.setLineDash([6,8]);
+  ctx.beginPath();ctx.moveTo(W-34,0);ctx.lineTo(W-34,H);ctx.stroke();ctx.setLineDash([]);
+  ctx.save();ctx.translate(W-48,H*.5);ctx.rotate(-Math.PI/2);ctx.fillStyle='rgba(78,226,154,.65)';
+  ctx.font='bold 10px "Cascadia Mono",monospace';ctx.textAlign='center';ctx.fillText('SAFE ZONE // EXIT VECTOR',0,0);ctx.restore();
+  drawHormuzStrait();
+  drawStageEventOverlay();
+
+  if(G.scene!=='menu'){
+    const T=G.tanker,P=G.player;
+
+    // particles
+    for(const p of G.parts){
+      ctx.globalAlpha=Math.max(0,p.t/p.max);
+      ctx.fillStyle=p.c;
+      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,TAU);ctx.fill();
+    }
+    ctx.globalAlpha=1;
+
+    // enemies
+    for(const e of G.enemies)drawEnemy(e,T);
+
+    // PROTECTED CONVOY SHIPS
+    if(G.convoy)for(const c of G.convoy)drawSupportShip(c);
+
+    // THE TANKER
+    drawTanker(T,G.scene==='lost');
+
+    // continent defense towers
+    if(G.towers)for(const tw of G.towers)drawDefenseTower(tw);
+
+    // player
+    drawPlayer(P);
+
+    // pickups
+    for(const pk of G.pickups){
+      const bob=Math.sin(G.time*3+pk.phase)*3;
+      const c=pk.type==='bomb'?'#ffd166':pk.type==='cash'?'#4ee29a':pk.type==='life'?'#4ee29a':pk.type==='shield'?'#70e1f5':pk.type==='repair'?'#4ee29a':pk.type==='emp'?'#8fd3ff':pk.type==='rapid'?'#ffc857':pk.type==='wingman'?'#70e1f5':pk.type==='magnet'?'#c9a5ff':pk.type==='medal'?'#ffc857':pk.type==='tower'?'#b6ff8f':WEAPONS[pk.type].color;
+      const letter=pk.type==='bomb'?'B':pk.type==='cash'?'$':pk.type==='life'?'+':pk.type==='shield'?'◇':pk.type==='repair'?'R':pk.type==='emp'?'E':pk.type==='rapid'?'F':pk.type==='wingman'?'2':pk.type==='magnet'?'M':pk.type==='medal'?'★':pk.type==='tower'?'T':WEAPONS[pk.type].letter;
+      ctx.save();ctx.translate(pk.x,pk.y+bob);
+      ctx.globalAlpha=pk.t<2?(0.4+0.6*Math.abs(Math.sin(G.time*6))):1;
+      ctx.fillStyle='rgba(0,0,0,0.55)';ctx.fillRect(-10,-10,20,20);
+      ctx.strokeStyle=c;ctx.lineWidth=2;ctx.strokeRect(-10,-10,20,20);
+      ctx.fillStyle=c;ctx.font='bold 12px "Courier New",monospace';ctx.textAlign='center';
+      ctx.fillText(letter,0,4.5);
+      ctx.restore();ctx.globalAlpha=1;
+    }
+
+    // shots
+    for(const s of G.shots){
+      if(s.hostile){
+        if(s.kind==='bullet'){
+          ctx.fillStyle='#ff5a3c';ctx.beginPath();ctx.arc(s.x,s.y,3,0,TAU);ctx.fill();
+        }else if(s.kind==='cannon'){
+          ctx.fillStyle='#ff9b65';ctx.beginPath();ctx.arc(s.x,s.y,4,0,TAU);ctx.fill();
+        }else{
+          const a=Math.atan2(s.vy,s.vx);
+          ctx.save();ctx.translate(s.x,s.y);ctx.rotate(a);
+          ctx.fillStyle=s.trail||'#ff5a3c';
+          if(s.kind==='bomb'){ctx.beginPath();ctx.arc(0,0,7,0,TAU);ctx.fill();ctx.strokeStyle='#ff4d55';ctx.stroke();}
+          else{const len=s.kind==='cruise'?20:s.kind==='rocket'?12:14;ctx.fillRect(-len/2,-2.5,len,5);if(s.kind==='cruise'){ctx.beginPath();ctx.moveTo(-4,0);ctx.lineTo(-10,-8);ctx.lineTo(5,0);ctx.lineTo(-10,8);ctx.closePath();ctx.fill();}}
+          ctx.restore();
+          if(s.critical){ctx.strokeStyle='rgba(255,77,85,'+(.55+.4*Math.sin(G.time*10))+')';ctx.lineWidth=2;ctx.beginPath();ctx.arc(s.x,s.y,s.r+8,0,TAU);ctx.stroke();}
+        }
+      }
+      else if(s.kind==='bullet'){
+        const a=Math.atan2(s.vy,s.vx);
+        ctx.save();ctx.translate(s.x,s.y);ctx.rotate(a);
+        ctx.fillStyle=s.c||'#dff6ff';ctx.fillRect(-5,-1.4,10,2.8);
+        ctx.restore();
+      }
+      else if(s.kind==='homing'){
+        const a=Math.atan2(s.vy,s.vx);
+        ctx.save();ctx.translate(s.x,s.y);ctx.rotate(a);
+        ctx.fillStyle='#ffa1e0';ctx.fillRect(-5,-2,10,4);
+        ctx.restore();
+      }
+      else if(s.kind==='depth'){
+        ctx.fillStyle='#c9a5ff';ctx.beginPath();ctx.arc(s.x,s.y,5*(0.5+s.fuse*0.5),0,TAU);ctx.fill();
+      }
+    }
+
+    // beams (railgun / CIWS tracers)
+    for(const b of G.beams){
+      ctx.globalAlpha=Math.min(1,b.t*8)*(b.glow?0.35:1);
+      ctx.strokeStyle=b.ciws?'#b6ff8f':(b.glow?'#d8f2ff':'#8fd3ff');
+      ctx.lineWidth=b.w||(b.ciws?1.5:3.5);
+      ctx.beginPath();ctx.moveTo(b.x1,b.y1);ctx.lineTo(b.x2,b.y2);ctx.stroke();
+      ctx.globalAlpha=1;
+    }
+    // rings (bomb / depth AoE)
+    for(const r of G.rings){
+      ctx.globalAlpha=Math.min(1,r.t*3);
+      ctx.strokeStyle=r.c||'#ffd166';ctx.lineWidth=3;
+      ctx.beginPath();ctx.arc(r.x,r.y,r.r,0,TAU);ctx.stroke();
+      ctx.globalAlpha=1;
+    }
+
+    // off-screen threat arrows
+    ctx.fillStyle='#ff3b30';
+    const threats=[...G.enemies,...G.shots.filter(s=>s.hostile&&s.kind!=='bullet')];
+    for(const t of threats){
+      if(t.x>=0&&t.x<=W&&t.y>=0&&t.y<=H)continue;
+      const cx=clamp(t.x,16,W-16),cy=clamp(t.y,16,H-16);
+      const a=Math.atan2(t.y-cy,t.x-cx);
+      ctx.save();ctx.translate(cx,cy);ctx.rotate(a);
+      ctx.fillStyle=t.critical?'#ff3340':(t.supply?'#ffd166':'#ff765f');ctx.globalAlpha=0.7+0.3*Math.sin(G.time*(t.critical?12:8));
+      ctx.beginPath();ctx.moveTo(10,0);ctx.lineTo(-6,-7);ctx.lineTo(-6,7);ctx.closePath();ctx.fill();
+      ctx.restore();ctx.globalAlpha=1;
+      if(t.critical){ctx.fillStyle='#ff8b91';ctx.font='bold 8px "Cascadia Mono",monospace';ctx.textAlign=cx>W/2?'right':'left';ctx.fillText('CRITICAL '+String(t.kind||t.type).toUpperCase(),cx+(cx>W/2?-13:13),cy-10);}
+      else if(t.supply){ctx.fillStyle=t.lifeCarrier?'#4ee29a':'#ffd166';ctx.font='bold 8px "Cascadia Mono",monospace';ctx.textAlign=cx>W/2?'right':'left';ctx.fillText(t.lifeCarrier?'RESCUE CARRIER':'SUPPLY CARRIER',cx+(cx>W/2?-13:13),cy-10);}
+    }
+
+    // float texts
+    ctx.textAlign='center';ctx.font='bold 13px "Courier New",monospace';
+    for(const t of G.texts){
+      ctx.globalAlpha=Math.min(1,t.t);
+      ctx.fillStyle=t.color;ctx.fillText(t.msg,t.x,t.y);
+    }
+    ctx.globalAlpha=1;
+
+    /* ---------- COMMAND HUD ---------- */
+    const bx=18,bw=W-36,top=14;
+    ctx.fillStyle='rgba(2,10,16,.72)';ctx.fillRect(bx,top,bw,66);
+    ctx.strokeStyle='rgba(112,225,245,.22)';ctx.lineWidth=1;ctx.strokeRect(bx+.5,top+.5,bw-1,65);
+    ctx.fillStyle='rgba(255,255,255,.08)';ctx.fillRect(bx+14,top+42,bw-28,5);
+    ctx.fillStyle='#ff7a2f';ctx.fillRect(bx+14,top+42,(bw-28)*clamp(T.progress,0,1),5);
+    ctx.fillStyle='#4ee29a';ctx.fillRect(bx+bw-18,top+39,4,11);
+    ctx.textAlign='left';ctx.font='bold 10px "Cascadia Mono",monospace';ctx.fillStyle='#70e1f5';
+    ctx.fillText('GLOBAL MARITIME COMMAND  /  CONVOY '+String(G.level).padStart(2,'0')+'  /  THREAT '+G.threat,bx+14,top+18);
+    ctx.fillStyle='#88a6af';ctx.font='9px "Cascadia Mono",monospace';ctx.fillText('TRANSIT VECTOR',bx+14,top+34);
+    ctx.textAlign='right';ctx.fillStyle='#ffc857';ctx.font='bold 11px "Cascadia Mono",monospace';ctx.fillText('$'+reward()+'M CARGO',bx+bw-14,top+18);
+    const fireBoost=Math.round((1/stats.threatFireMul()-1)*100);
+    ctx.fillStyle='#ff8b91';ctx.font='9px "Cascadia Mono",monospace';ctx.fillText('THREAT LEVEL '+G.threat+'  ·  FIRE RATE +'+fireBoost+'%',bx+bw-14,top+34);
+    ctx.textAlign='center';ctx.fillStyle=(G.combo||0)>=8?'#ffc857':'#dff6ff';ctx.font='bold 12px "Cascadia Mono",monospace';
+    ctx.fillText('SCORE '+(G.score||0)+(G.combo>1?'  //  CHAIN '+G.combo:''),W/2,top+20);
+    ctx.textAlign='right';
+    ctx.textAlign='left';ctx.fillStyle='#88a6af';ctx.font='8px "Cascadia Mono",monospace';ctx.fillText(Math.round(clamp(T.progress,0,1)*100)+'% COMPLETE',bx+14,top+61);
+    ctx.textAlign='right';ctx.fillText('HULL '+Math.max(0,Math.ceil(T.hp))+'%',bx+bw-14,top+61);
+    if((G.convoy||[]).length){const alive=G.convoy.filter(c=>!c.dead).length;ctx.textAlign='center';ctx.fillStyle=alive===G.convoy.length?'#ffc857':'#ff8b91';ctx.font='bold 9px "Cascadia Mono",monospace';ctx.fillText('CONVOY '+alive+'/'+G.convoy.length+' SUPPORT SHIPS SAFE',W/2,top+61);}
+    ctx.fillStyle='rgba(0,0,0,.55)';ctx.fillRect(W/2-90,top+54,180,7);
+    ctx.fillStyle=T.hp<25?'#ff4d55':(T.hp<55?'#ffc857':'#4ee29a');ctx.fillRect(W/2-90,top+54,180*clamp(T.hp/T.maxHp,0,1),7);
+    ctx.strokeStyle='rgba(238,248,249,.25)';ctx.strokeRect(W/2-90,top+54,180,7);
+    const wp=WEAPONS[G.weapon.type],cardY=92,cardW=226;
+    ctx.fillStyle='rgba(2,10,16,.64)';ctx.fillRect(bx,cardY,cardW,48);
+    ctx.strokeStyle='rgba(112,225,245,.16)';ctx.strokeRect(bx+.5,cardY+.5,cardW-1,47);
+    ctx.textAlign='left';ctx.fillStyle='#88a6af';ctx.font='8px "Cascadia Mono",monospace';ctx.fillText('ACTIVE LOADOUT',bx+11,cardY+14);
+    ctx.fillStyle=wp.color;ctx.font='bold 11px "Cascadia Mono",monospace';ctx.fillText(wp.name,bx+11,cardY+31);
+    for(let i=0;i<8;i++){ctx.fillStyle=i<G.weapon.lvl?wp.color:'rgba(159,180,189,.2)';ctx.fillRect(bx+117+i*10,cardY+25,7,4);}
+    if(G.weapon.lvl>=8){ctx.fillStyle='#fff';ctx.font='bold 8px "Cascadia Mono",monospace';ctx.fillText('MAX',bx+117+8*10+4,cardY+30);}
+    ctx.fillStyle='#ffc857';ctx.font='bold 9px "Cascadia Mono",monospace';ctx.fillText('BOMB  '+G.bombs+'/3  ·  PRESS B',bx+11,cardY+43);
+    if((P.shield||0)>0){ctx.fillStyle='#70e1f5';ctx.font='bold 8px "Cascadia Mono",monospace';ctx.fillText('SHIELD '+Math.ceil(P.shield)+' / '+(P.shieldTime||0).toFixed(1)+'s',bx+98,cardY+43);}
+    const buffs=[];if((G.rapidT||0)>0)buffs.push('RAPID '+Math.ceil(G.rapidT));if((G.wingmanT||0)>0)buffs.push('WING '+Math.ceil(G.wingmanT));if((G.magnetT||0)>0)buffs.push('MAG '+Math.ceil(G.magnetT));
+    if(buffs.length){ctx.fillStyle='#ffc857';ctx.font='bold 8px "Cascadia Mono",monospace';ctx.fillText(buffs.join('  '),bx+98,cardY+56);}
+    drawEscortLifeHud(bx+151,cardY+39,G.lives);
+    // respawn countdown
+    if(P.dead&&G.scene==='playing'){
+      ctx.textAlign='center';ctx.font='bold 16px "Courier New",monospace';
+      ctx.fillStyle='#ffb4a8';
+      ctx.fillText(G.lives>0?'ESCORT LAUNCHING IN '+Math.max(1,Math.ceil(P.respawnT))+'...':'NO ESCORTS LEFT',W/2,H/2-40);
+    }
+
+    // radio chatter
+    ctx.textAlign='left';ctx.font='bold 12px "Courier New",monospace';
+    G.chatter.forEach((c,i)=>{
+      ctx.globalAlpha=Math.min(1,c.t);
+      ctx.fillStyle=c.color;
+      ctx.fillText('▸ '+c.msg,16,H-18-i*18);
+    });
+    ctx.globalAlpha=1;
+
+    // banner
+    if(G.bannerT>0&&G.banner){
+      ctx.globalAlpha=Math.min(1,G.bannerT*2)*(0.7+0.3*Math.sin(G.time*10));
+      ctx.textAlign='center';ctx.font='bold 18px "Courier New",monospace';
+      ctx.fillStyle=G.bannerColor||'#ff3b30';
+      ctx.fillText(G.banner,W/2,H*0.16);
+      ctx.globalAlpha=1;
+    }
+
+    // touch bomb button
+    if(IS_TOUCH){
+      const b=bombBtnRect();
+      ctx.globalAlpha=G.bombs>0?0.85:0.3;
+      ctx.strokeStyle='#ffd166';ctx.lineWidth=3;
+      ctx.beginPath();ctx.arc(b.x,b.y,b.r,0,TAU);ctx.stroke();
+      ctx.fillStyle='#ffd166';ctx.font='bold 15px "Courier New",monospace';ctx.textAlign='center';
+      ctx.fillText('◎',b.x,b.y+5);
+      ctx.font='9px "Courier New",monospace';
+      ctx.fillText('SUPPORT',b.x,b.y+b.r+13);
+      ctx.globalAlpha=1;
+    }
+
+    // slow-mo vignette
+    if(G.timeScale<0.85){
+      const v=ctx.createRadialGradient(W/2,H/2,H*0.3,W/2,H/2,H*0.75);
+      v.addColorStop(0,'rgba(255,60,40,0)');v.addColorStop(1,'rgba(255,60,40,'+(0.28*(1-G.timeScale))+')');
+      ctx.fillStyle=v;ctx.fillRect(-30,-30,W+60,H+60);
+    }
+    // low hull heartbeat
+    if(T.hp<=30&&G.scene==='playing'){
+      ctx.globalAlpha=0.10+0.08*Math.sin(G.time*6);
+      ctx.fillStyle='#ff3b30';ctx.fillRect(-30,-30,W+60,H+60);ctx.globalAlpha=1;
+    }
+    // bomb flash
+    if(G.flash>0){
+      ctx.globalAlpha=G.flash*0.55;
+      ctx.fillStyle='#fff8e0';ctx.fillRect(-30,-30,W+60,H+60);ctx.globalAlpha=1;
+    }
+    drawBossWarning();
+  }
+  ctx.restore();
+  if(G.paused){
+    ctx.save();
+    ctx.fillStyle='rgba(2,10,16,.72)';ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle='rgba(112,225,245,.5)';ctx.lineWidth=1;ctx.strokeRect(W/2-170,H/2-58,340,116);
+    ctx.textAlign='center';ctx.fillStyle='#70e1f5';ctx.font='900 26px "Cascadia Mono",monospace';ctx.fillText('PAUSED',W/2,H/2-8);
+    ctx.fillStyle='#88a6af';ctx.font='bold 11px "Cascadia Mono",monospace';ctx.fillText('PRESS P / ESC TO RESUME',W/2,H/2+24);
+    ctx.restore();
+  }
+}
+
+/* ============================== LOOP ============================== */
+let last=performance.now();
+function frame(now){
+  let dt=Math.min(0.05,(now-last)/1000);last=now;
+  if(G.paused){dt=0;}
+  if(G.scene==='playing'&&!G.paused)update(dt);
+  else if(G.scene==='escorting'&&!G.paused){
+    // brief cinematic: destroyer escorts her into the safe zone
+    const T=G.tanker,P=G.player;
+    G.time+=dt;G.deliveryFx+=dt;
+    T.x+=60*dt;
+    if(!P.dead){
+      P.y=lerp(P.y,T.y+56,dt*2.5);
+      P.x=lerp(P.x,T.x-40,dt*1.8);
+      P.facing=lerp(P.facing,0,dt*4);
+      if(Math.random()<dt*10)puff(P.x-16,P.y,'rgba(190,225,235,0.4)',1,10);
+    }
+    if(Math.random()<dt*10)puff(T.x-T.w/2,T.y+rnd(-8,8),'rgba(200,230,240,0.5)',1,14);
+    for(const p of G.parts){p.x+=p.vx*dt;p.y+=p.vy*dt;p.t-=dt;}
+    G.parts=G.parts.filter(p=>p.t>0);
+    G.shots=G.shots.filter(s=>!s.dead);
+    G.endT-=dt;
+    if(G.endT<=0){
+      const r=reward();
+      const hp=Math.max(0,Math.ceil(G.tanker.hp));
+      const noDamage=!!G.noDamage;
+      let bonus=0;let bonusBits=[];
+      if(noDamage){bonus+=250;bonusBits.push('PERFECT ESCORT');}
+      if(G.noBomb){bonus+=150;bonusBits.push('NO BOMB CLEAR');}
+      if((G.comboBest||0)>=20){bonus+=120;bonusBits.push('CHAIN MASTER');}
+      const rating=(noDamage&&!(G.runDeaths||0))?'S':hp>=70?'A':hp>=40?'B':'C';
+      const total=r+bonus;
+      G.money+=total;G.score+=(total*100);
+      G.bonusText=bonusBits.join(' / ');
+      G.scene='won';
+      showDebrief({level:G.level,reward:r,bonus,noDamage,rating,total,hp,deaths:G.runDeaths||0,combo:G.comboBest||0,bonusText:G.bonusText});
+    }
+  }
+  else if(G.scene==='lost'||G.scene==='won'){
+    G.time+=dt;
+    for(const p of G.parts){p.x+=p.vx*dt;p.y+=p.vy*dt;p.t-=dt;}
+    G.parts=G.parts.filter(p=>p.t>0);
+    G.shake=Math.max(0,G.shake-dt*26);
+  }
+  draw();
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
