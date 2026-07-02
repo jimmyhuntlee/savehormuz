@@ -144,113 +144,99 @@ function vibrate(pattern){try{if(typeof navigator!=='undefined'&&navigator.vibra
 const STAGE_MUSIC_SRC="stage.mp3";
 const BOSS_MUSIC_SRC="boss.mp3";
 const music={
-  stage:null,boss:null,current:null,currentName:null,ready:false,unlocked:false,unlocking:false,fadeTimer:null,paused:false,pausedName:null,targetVolumes:{stage:0.46,boss:0.58},
+  // Mobile-safe music system: one real <audio> element only.
+  // iOS/Android browsers often block a later second Audio.play(), so boss/stage are swapped through the same player.
+  audio:null,currentName:null,ready:false,unlocked:false,fadeTimer:null,paused:false,pausedName:null,targetVolumes:{stage:0.46,boss:0.58},
   init(){
     if(this.ready)return;
-    this.stage=new Audio(STAGE_MUSIC_SRC);this.boss=new Audio(BOSS_MUSIC_SRC);
-    [this.stage,this.boss].forEach(a=>{
-      a.loop=true;a.preload='auto';a.volume=0;
-      a.setAttribute('playsinline','');
-      a.setAttribute('webkit-playsinline','');
-      a.crossOrigin='anonymous';
-    });
+    this.audio=new Audio();
+    this.audio.loop=true;
+    this.audio.preload='auto';
+    this.audio.volume=0;
+    this.audio.setAttribute('playsinline','');
+    this.audio.setAttribute('webkit-playsinline','');
+    this.audio.src=STAGE_MUSIC_SRC;
     this.ready=true;
   },
   async unlock(){
-    // Mobile Safari/Chrome require real user gesture playback before later music control works.
-    if(this.unlocked||this.unlocking)return this.unlocked;
-    this.unlocking=true;
+    // Must be called directly from a tap/click. Start the one music element quietly and keep it alive.
     this.init();
     try{
       audio();
       const ac=audio();
       if(ac&&ac.state==='suspended')await ac.resume();
-      // Prime both tracks at near-silent volume during the user's tap/click.
-      this.stage.volume=0.001;
-      await this.stage.play();
-      this.boss.volume=0.001;
-      await this.boss.play();
-      this.boss.pause();this.boss.currentTime=0;this.boss.volume=0;
-      this.stage.volume=0;
+      if(!this.currentName){this.audio.src=STAGE_MUSIC_SRC;this.currentName='stage';}
+      this.audio.loop=true;
+      this.audio.volume=0.001;
+      await this.audio.play();
       this.unlocked=true;
       this.hidePrompt();
     }catch(e){
       this.showPrompt();
-    }finally{this.unlocking=false;}
+    }
     return this.unlocked;
   },
-  showPrompt(){
-    const el=document.getElementById('soundPrompt');
-    if(el)el.classList.remove('hidden');
-  },
-  hidePrompt(){
-    const el=document.getElementById('soundPrompt');
-    if(el)el.classList.add('hidden');
-  },
+  showPrompt(){const el=document.getElementById('soundPrompt');if(el)el.classList.remove('hidden');},
+  hidePrompt(){const el=document.getElementById('soundPrompt');if(el)el.classList.add('hidden');},
+  srcFor(name){return name==='boss'?BOSS_MUSIC_SRC:STAGE_MUSIC_SRC;},
   play(name,dur){
     this.init();
-    const next=name==='boss'?this.boss:this.stage;
     const target=this.targetVolumes[name]||0.46;
-    if(this.current===next&&!next.paused&&!this.paused)return;
-    const prev=this.current;
-    this.current=next;this.currentName=name;this.paused=false;this.pausedName=null;
-    if(next.volume===0)next.volume=0.001;
-    if(prev!==next)next.currentTime=0;
-    next.play().then(()=>this.hidePrompt()).catch(()=>this.showPrompt());
-    this.crossfade(prev,next,target,dur==null?800:dur);
+    const desired=this.srcFor(name);
+    this.paused=false;this.pausedName=null;
+    // Same track: just fade up and continue.
+    if(this.currentName===name && !this.audio.paused){
+      this.fadeTo(target,dur==null?500:dur);
+      return;
+    }
+    const switchTrack=()=>{
+      this.currentName=name;
+      if(!this.audio.src || !this.audio.src.endsWith(desired)){
+        this.audio.pause();
+        this.audio.src=desired;
+        this.audio.currentTime=0;
+      }
+      this.audio.loop=true;
+      this.audio.volume=Math.max(0.001,this.audio.volume||0.001);
+      this.audio.play().then(()=>this.hidePrompt()).catch(()=>this.showPrompt());
+      this.fadeTo(target,dur==null?800:dur);
+    };
+    if(this.audio.paused || this.audio.volume<=0.002){switchTrack();return;}
+    // Mobile-safe pseudo-crossfade: fade current down, swap src, fade new track up.
+    this.fadeTo(0,Math.max(180,Math.floor((dur==null?800:dur)*0.45)),switchTrack);
   },
-  crossfade(prev,next,target,dur){
+  fadeTo(target,dur=500,done){
     clearInterval(this.fadeTimer);
-    const start=performance.now(),prevStart=prev?prev.volume:0,nextStart=next?next.volume:0;
+    const a=this.audio;if(!a){if(done)done();return;}
+    const start=performance.now(),from=a.volume||0;
     this.fadeTimer=setInterval(()=>{
       const t=Math.min(1,(performance.now()-start)/dur);
       const eased=t*t*(3-2*t);
-      if(prev)prev.volume=Math.max(0,prevStart*(1-eased));
-      if(next)next.volume=nextStart+(target-nextStart)*eased;
-      if(t>=1){
-        clearInterval(this.fadeTimer);
-        if(prev&&prev!==next){prev.pause();prev.currentTime=0;prev.volume=0;}
-        if(next)next.volume=target;
-      }
+      a.volume=from+(target-from)*eased;
+      if(t>=1){clearInterval(this.fadeTimer);a.volume=target;if(done)done();}
     },33);
   },
   fadeOut(dur=300,reset=false){
     this.init();
-    clearInterval(this.fadeTimer);
-    const active=this.current;
-    if(!active)return;
-    const start=performance.now(),vol=active.volume;
-    this.fadeTimer=setInterval(()=>{
-      const t=Math.min(1,(performance.now()-start)/dur);
-      active.volume=vol*(1-(t*t*(3-2*t)));
-      if(t>=1){clearInterval(this.fadeTimer);active.pause();active.volume=0;if(reset)active.currentTime=0;}
-    },33);
+    this.fadeTo(0,dur,()=>{this.audio.pause();if(reset)this.audio.currentTime=0;});
   },
   stageTrack(){this.play('stage',800);},
   bossTrack(){this.play('boss',800);},
   pause(){
-    if(!this.current||this.paused)return;
-    this.paused=true;this.pausedName=this.currentName;
+    if(!this.audio||this.paused)return;
+    this.paused=true;this.pausedName=this.currentName||'stage';
     this.fadeOut(300,false);
   },
   resume(){
     if(!this.paused)return;
     const name=this.pausedName||this.currentName||'stage';
     this.paused=false;this.pausedName=null;
-    this.init();
-    const a=name==='boss'?this.boss:this.stage;
-    this.current=a;this.currentName=name;
-    a.play().catch(()=>{});
-    this.crossfade(null,a,this.targetVolumes[name]||0.46,300);
+    this.play(name,300);
   },
   stop(){
     this.init();
     this.paused=false;this.pausedName=null;
-    const prev=this.current;
-    this.currentName=null;
-    if(prev){this.current=prev;this.fadeOut(650,true);}
-    this.current=null;
-    setTimeout(()=>{[this.stage,this.boss].forEach(a=>{if(a){a.pause();a.currentTime=0;a.volume=0;}});},720);
+    this.fadeTo(0,650,()=>{this.audio.pause();this.audio.currentTime=0;this.currentName=null;});
   }
 };
 
@@ -1624,8 +1610,8 @@ function showStageIntro(){
   setTimeout(()=>intro.classList.add('fadeout'),2450);
   setTimeout(()=>{intro.classList.add('hidden');newRun();},3020);
 }
-$('btnStart').onclick=async()=>{audio();await music.unlock();G.level=1;G.money=0;G.upg={speed:0,gun:0,armor:0,bombs:0};G.weapon={type:'cannon',lvl:1};G.lives=3;G.score=0;G.paused=false;$('menu').classList.add('hidden');showStageIntro();};
-$('btnNext').onclick=async()=>{audio();await music.unlock();if(G.lives<=0)G.lives=3;G.paused=false;$('result').classList.add('hidden');showStageIntro();};
+$('btnStart').onclick=async()=>{audio();await music.unlock();music.stageTrack();G.level=1;G.money=0;G.upg={speed:0,gun:0,armor:0,bombs:0};G.weapon={type:'cannon',lvl:1};G.lives=3;G.score=0;G.paused=false;$('menu').classList.add('hidden');showStageIntro();};
+$('btnNext').onclick=async()=>{audio();await music.unlock();music.stageTrack();if(G.lives<=0)G.lives=3;G.paused=false;$('result').classList.add('hidden');showStageIntro();};
 $('btnSound').onclick=async(e)=>{e.stopPropagation();await music.unlock();if(music.currentName)music.play(music.currentName,300);else music.stageTrack();};
 ['pointerdown','touchstart','click'].forEach(ev=>{
   window.addEventListener(ev,()=>{if(!music.unlocked)music.unlock();},{once:true,passive:true});
