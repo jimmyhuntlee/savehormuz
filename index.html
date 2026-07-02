@@ -44,10 +44,15 @@ button{border:0;border-radius:8px;padding:16px 25px;cursor:pointer;font:800 11px
 .intro-start{margin-top:30px;font:900 22px/1 var(--mono);letter-spacing:.18em;color:var(--safe);animation:dbBlink .85s infinite;}
 @keyframes introRise{from{transform:translateY(24px) scale(.98);opacity:0}to{transform:none;opacity:1}}
 
+/* ---- MOBILE SOUND PROMPT ---- */
+#soundPrompt{position:fixed;left:50%;bottom:18px;transform:translateX(-50%);z-index:30;padding:12px 16px;border:1px solid rgba(112,225,245,.45);border-radius:999px;background:rgba(3,14,21,.92);box-shadow:0 10px 35px #000a;color:var(--paper);font:800 10px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase} 
+#soundPrompt button{margin-left:10px;padding:8px 10px;border-radius:999px;background:var(--orange);color:#1b0b02;font-size:9px}
+
 </style>
 </head>
 <body>
 <canvas id="cv"></canvas>
+<div id="soundPrompt" class="hidden">Tap to enable sound <button id="btnSound">Sound On</button></div>
 
 <!-- MAIN MENU -->
 <div id="menu" class="overlay"><div class="command-shell">
@@ -139,12 +144,48 @@ function vibrate(pattern){try{if(typeof navigator!=='undefined'&&navigator.vibra
 const STAGE_MUSIC_SRC="stage.mp3";
 const BOSS_MUSIC_SRC="boss.mp3";
 const music={
-  stage:null,boss:null,current:null,currentName:null,ready:false,fadeTimer:null,paused:false,pausedName:null,targetVolumes:{stage:0.46,boss:0.58},
+  stage:null,boss:null,current:null,currentName:null,ready:false,unlocked:false,unlocking:false,fadeTimer:null,paused:false,pausedName:null,targetVolumes:{stage:0.46,boss:0.58},
   init(){
     if(this.ready)return;
     this.stage=new Audio(STAGE_MUSIC_SRC);this.boss=new Audio(BOSS_MUSIC_SRC);
-    [this.stage,this.boss].forEach(a=>{a.loop=true;a.preload='auto';a.volume=0;});
+    [this.stage,this.boss].forEach(a=>{
+      a.loop=true;a.preload='auto';a.volume=0;
+      a.setAttribute('playsinline','');
+      a.setAttribute('webkit-playsinline','');
+      a.crossOrigin='anonymous';
+    });
     this.ready=true;
+  },
+  async unlock(){
+    // Mobile Safari/Chrome require real user gesture playback before later music control works.
+    if(this.unlocked||this.unlocking)return this.unlocked;
+    this.unlocking=true;
+    this.init();
+    try{
+      audio();
+      const ac=audio();
+      if(ac&&ac.state==='suspended')await ac.resume();
+      // Prime both tracks at near-silent volume during the user's tap/click.
+      this.stage.volume=0.001;
+      await this.stage.play();
+      this.boss.volume=0.001;
+      await this.boss.play();
+      this.boss.pause();this.boss.currentTime=0;this.boss.volume=0;
+      this.stage.volume=0;
+      this.unlocked=true;
+      this.hidePrompt();
+    }catch(e){
+      this.showPrompt();
+    }finally{this.unlocking=false;}
+    return this.unlocked;
+  },
+  showPrompt(){
+    const el=document.getElementById('soundPrompt');
+    if(el)el.classList.remove('hidden');
+  },
+  hidePrompt(){
+    const el=document.getElementById('soundPrompt');
+    if(el)el.classList.add('hidden');
   },
   play(name,dur){
     this.init();
@@ -153,9 +194,9 @@ const music={
     if(this.current===next&&!next.paused&&!this.paused)return;
     const prev=this.current;
     this.current=next;this.currentName=name;this.paused=false;this.pausedName=null;
-    next.volume=next.volume||0;
+    if(next.volume===0)next.volume=0.001;
     if(prev!==next)next.currentTime=0;
-    next.play().catch(()=>{});
+    next.play().then(()=>this.hidePrompt()).catch(()=>this.showPrompt());
     this.crossfade(prev,next,target,dur==null?800:dur);
   },
   crossfade(prev,next,target,dur){
@@ -1583,8 +1624,12 @@ function showStageIntro(){
   setTimeout(()=>intro.classList.add('fadeout'),2450);
   setTimeout(()=>{intro.classList.add('hidden');newRun();},3020);
 }
-$('btnStart').onclick=()=>{audio();G.level=1;G.money=0;G.upg={speed:0,gun:0,armor:0,bombs:0};G.weapon={type:'cannon',lvl:1};G.lives=3;G.score=0;G.paused=false;$('menu').classList.add('hidden');showStageIntro();};
-$('btnNext').onclick=()=>{audio();if(G.lives<=0)G.lives=3;G.paused=false;$('result').classList.add('hidden');showStageIntro();};
+$('btnStart').onclick=async()=>{audio();await music.unlock();G.level=1;G.money=0;G.upg={speed:0,gun:0,armor:0,bombs:0};G.weapon={type:'cannon',lvl:1};G.lives=3;G.score=0;G.paused=false;$('menu').classList.add('hidden');showStageIntro();};
+$('btnNext').onclick=async()=>{audio();await music.unlock();if(G.lives<=0)G.lives=3;G.paused=false;$('result').classList.add('hidden');showStageIntro();};
+$('btnSound').onclick=async(e)=>{e.stopPropagation();await music.unlock();if(music.currentName)music.play(music.currentName,300);else music.stageTrack();};
+['pointerdown','touchstart','click'].forEach(ev=>{
+  window.addEventListener(ev,()=>{if(!music.unlocked)music.unlock();},{once:true,passive:true});
+});
 if(IS_TOUCH)$('briefText').innerHTML=`One tanker. She never stops, she never turns around.<br>
   You fly the escort. She is the mission.<br><br>
   <b>Drag</b> to steer — your guns fire automatically.<br>
