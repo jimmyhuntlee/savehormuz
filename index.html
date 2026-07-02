@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>HORMUZ ESCORT // GLOBAL MARITIME COMMAND</title>
+<title>HORMUZ ESCORT // ARCADE AIR-STRIKE UPDATE</title>
 <style>
 :root{--night:#020a10;--line:rgba(147,203,219,.18);--cyan:#70e1f5;--orange:#ff7a2f;--amber:#ffc857;--safe:#4ee29a;--alert:#ff4d55;--paper:#eef8f9;--muted:#88a6af;--mono:"Cascadia Mono",Consolas,monospace;--sans:Inter,"Segoe UI",Arial,sans-serif}
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}html,body{width:100%;height:100%;overflow:hidden;background:var(--night);color:var(--paper);font-family:var(--sans);touch-action:none;user-select:none}canvas{display:block;width:100vw;height:100vh}.hidden{display:none!important}
@@ -58,8 +58,8 @@ button{border:0;border-radius:8px;padding:16px 25px;cursor:pointer;font:800 11px
 <div id="menu" class="overlay"><div class="command-shell">
 <div class="topbar"><div class="brand"><span class="brand-mark"></span>GLOBAL MARITIME COMMAND</div><span>HORMUZ TRAFFIC CONTROL // 26.5°N</span><span class="live"><i></i> NETWORK ONLINE</span></div>
 <div class="menu-grid">
-<section><div class="eyebrow">GLOBAL MARITIME COMMAND</div><h1>Hormuz <span>Escort.</span></h1><p class="hero-copy"><b>Protect the world's most important convoy.</b><br>Protect the tanker through the Strait of Hormuz and keep the energy lifeline open.</p><button id="btnStart" class="primary">Assume command</button></section>
-<aside class="mission-card"><div class="route"><span>PERSIAN GULF</span><span class="route-line"></span><span>ARABIAN SEA</span></div><div class="cargo-value"><small>CARGO UNDER YOUR PROTECTION</small><strong>$500,000,000</strong></div><div class="stats"><div class="stat"><small>CHOKEPOINT</small><b>21 NM</b></div><div class="stat"><small>TRANSIT</small><b>~48 SEC</b></div><div class="stat"><small>LOSS LIMIT</small><b>ZERO</b></div></div><div class="brief" id="briefText"><div class="keys"><span class="k">W</span><span class="k">A</span><span class="k">S</span><span class="k">D</span><span>MOVE</span><span class="k">SPACE</span><span>FIRE</span><span class="k">B</span><span>SUPPORT</span></div><div class="brief-note">Navigate between <b>Iran and Musandam</b>. Collect weapon crates to escalate firepower. <b>The tanker must pass.</b></div></div></aside>
+<section><div class="eyebrow">GLOBAL MARITIME COMMAND</div><h1>Hormuz <span>Escort.</span></h1><p class="hero-copy"><b>Protect the world's most important convoy.</b><br>Protect the tanker through the Strait of Hormuz in a tighter arcade-shooter rhythm: clear waves, grab P/S/M/B crates, break the boss, escape.</p><button id="btnStart" class="primary">Assume command</button></section>
+<aside class="mission-card"><div class="route"><span>PERSIAN GULF</span><span class="route-line"></span><span>ARABIAN SEA</span></div><div class="cargo-value"><small>CARGO UNDER YOUR PROTECTION</small><strong>$500,000,000</strong></div><div class="stats"><div class="stat"><small>CHOKEPOINT</small><b>21 NM</b></div><div class="stat"><small>TRANSIT</small><b>~48 SEC</b></div><div class="stat"><small>LOSS LIMIT</small><b>ZERO</b></div></div><div class="brief" id="briefText"><div class="keys"><span class="k">W</span><span class="k">A</span><span class="k">S</span><span class="k">D</span><span>MOVE</span><span class="k">SPACE</span><span>FIRE</span><span class="k">B</span><span>BOMB</span></div><div class="brief-note">Arcade rule: <b>P</b> Power, <b>S</b> Spread, <b>M</b> Missile, <b>B</b> Bomb. Same weapon upgrades to MAX. <b>The tanker must pass.</b></div></div></aside>
 </div><div class="bottom-meta"><span>HORMUZ ESCORT</span><span>PROTECT THE TANKER · HOLD THE EXIT · KEEP THE WORLD MOVING</span></div>
 </div></div>
 <!-- RESULT + SHOP -->
@@ -69,7 +69,7 @@ button{border:0;border-radius:8px;padding:16px 25px;cursor:pointer;font:800 11px
 <section class="result-summary"><div class="result-kicker">CONVOY STATUS // FINAL</div><div id="resTitle" class="result-big win">SAFE DELIVERY</div><div id="resReward" class="reward">+$500M</div><div id="resStamp" class="stamp">MISSION COMPLETE</div><div class="fund-box"><div class="fund-label">TOTAL COMMAND FUNDS</div><div class="money" id="moneyLabel">$0M</div></div></section>
 <section class="upgrade-panel"><div class="panel-title"><h2>Fleet upgrades</h2><span>INVEST BEFORE DEPLOYMENT</span></div><div class="shop" id="shopRows"></div><div class="next-wrap"><button id="btnNext" class="primary">Launch next convoy</button><div class="next-label sub" id="nextLevelLabel"></div></div></section>
 </div>
-<div class="bottom-meta"><span>LEDGER VERIFIED</span><span>ONE MORE RUN. FEWER TARGETS. HIGHER TENSION.</span></div>
+<div class="bottom-meta"><span>LEDGER VERIFIED</span><span>ARCADE WAVE FLOW · CLEAR ROLES · BOSS PHASES</span></div>
 </div></div>
 <div id="debrief" class="overlay hidden"></div>
 <div id="stageIntro" class="overlay hidden"><div class="intro-card">
@@ -293,18 +293,15 @@ const stats={
 
 /* ============================== WEAPONS ============================== */
 const WEAPONS={
-  cannon:{name:'30MM CANNON', color:'#dff6ff', letter:'C'},
+  cannon:{name:'POWER SHOT', color:'#dff6ff', letter:'P'},
   spread:{name:'SPREAD SHOT', color:'#ffd166', letter:'S'},
-  missile:{name:'MISSILES',   color:'#ffa1e0', letter:'M'},
-  rail:  {name:'RAILGUN',     color:'#8fd3ff', letter:'R'},
-  ciws:  {name:'CIWS',        color:'#b6ff8f', letter:'W'},
-  depth: {name:'DEPTH CHARGES',color:'#c9a5ff', letter:'D'},
+  missile:{name:'MISSILE LOCK', color:'#ffa1e0', letter:'M'},
 };
 const WKEYS=Object.keys(WEAPONS);
 const THREAT_WEAPONS={1:['cannon'],2:['cannon','spread'],3:['cannon','spread','missile'],
-  4:['cannon','spread','missile','rail'],5:['cannon','spread','missile','rail','depth'],
-  6:['cannon','spread','missile','rail','depth','ciws'],7:WKEYS};
-const THREAT_UNLOCK={2:'spread',3:'missile',4:'rail',5:'depth',6:'ciws',7:'all'};
+  4:['cannon','spread','missile'],5:['cannon','spread','missile'],
+  6:['cannon','spread','missile'],7:WKEYS};
+const THREAT_UNLOCK={2:'spread',3:'missile',4:'missile',5:'missile',6:'missile',7:'all'};
 function threatLevel(progress){
   const p=progress==null?(G.tanker?G.tanker.progress:0):progress;
   if(G.level===1)return p<.35?1:2;
@@ -450,11 +447,11 @@ function newRun(){
   G.combo=0;G.comboT=0;G.comboBest=0;G.stageKills=0;G.noDamage=true;G.noBomb=true;G.empT=0;G.medalT=0;G.panicT=0;G.rapidT=0;G.wingmanT=0;G.magnetT=0;G.wingmanFireT=0;G.starterDrops=false;G.bonusText='';
   G.stageEvent=stageEventFor(G.level);G.eventT=3.85;
   G.time=0;G.timeScale=1;G.slowTimer=0;G.shake=0;G.flash=0;G.banner=null;G.endT=0;G.deliveryFx=0;G.deliveryBeat=0;
-  G.bossWarningT=0;G.cameraPunch=0;G.ambushQuiet=0;G.bombHintCd=0;G.bossPreWarn=false;G.flowBeat=0;
+  G.bossWarningT=0;G.cameraPunch=0;G.ambushQuiet=0;G.bombHintCd=0;G.bossPreWarn=false;G.midBossSpawned=false;G.flowBeat=0;
   G.journey=46+G.level*1.5;G.spawnT=G.level===1?4.8:G.level===2?2.35:2.05;G.bossSpawned=false;
   G.bombs=stats.bombCap();G.bombCd=0;G.lifeCarrierSpawned=false;
   // Fewer, more meaningful supply moments: less screen clutter, stronger tension.
-  G.supplyQuota=G.level===1?1:(1+(Math.random()<0.35?1:0));
+  G.supplyQuota=G.level===1?1:2;
   G.supplySpawned=0;
   {
     const spans=G.supplyQuota===2?[0.30,0.66]:[0.42];
@@ -462,6 +459,7 @@ function newRun(){
   }
   G.weapon={type:G.weapon.type,lvl:Math.max(1,Math.min(G.weapon.lvl,8))};
   G.runDeaths=0;
+  if(G.level===1){G.weapon={type:'cannon',lvl:1};}
   G.tanker={x:-120,y:H*0.5,hp:100,maxHp:100,progress:0,w:150,h:34,r:44,label:'OIL TANKER'};
   initConvoyShips();
   G.player={x:W*0.3,y:H*0.5,vx:0,vy:0,hp:stats.pHp(),maxHp:stats.pHp(),r:14,
@@ -544,34 +542,34 @@ function spawnEnemy(type){
 }
 function activeEnemyCount(){return G.enemies.filter(e=>!e.dead&&e.type!=='supply').length;}
 function maxActiveEnemies(){
-  // Simpler screen: fewer units at once, but every unit has a job.
+  // Arcade-aircraft rule: fewer objects, stronger intent.
   if(G.level===1)return 3;
   if(G.level===2)return 4;
-  return Math.min(6,4+Math.floor(G.level/3));
+  if(G.level<=5)return 5;
+  return 6;
 }
 function urgentThreatOnScreen(){
   return G.enemies.some(e=>!e.dead&&(e.type==='suicide'||e.type==='kamikaze'||e.type==='missileBoat'||e.type==='destroyer')) ||
          G.shots.some(s=>s.hostile&&!s.dead&&s.critical);
 }
 function enemyPoolForStage(L,p){
-  // A cleaner Raiden/1945 rhythm: fewer enemy types, clearer roles.
-  // gunboat = light pressure, drone/suicide = tanker rush, missileBoat = must-intercept threat.
+  // Proven 1942 / Raiden / Strikers-style pacing: four core enemy roles.
+  // gunboat = popcorn fire, drone = formation pressure, suicide = rush target, missileBoat = priority threat.
   if(L===1){
-    if(p<.35)return ['gunboat','drone'];
+    if(p<.34)return ['gunboat','drone'];
     if(p<.70)return ['gunboat','drone','suicide'];
     return ['gunboat','suicide','missileBoat'];
   }
   if(L===2){
-    if(p<.30)return ['gunboat','drone','suicide'];
-    if(p<.68)return ['gunboat','suicide','missileBoat'];
-    return ['suicide','missileBoat','rocketBoat'];
+    if(p<.28)return ['gunboat','drone'];
+    if(p<.66)return ['gunboat','drone','suicide'];
+    return ['suicide','missileBoat','gunboat'];
   }
   const pool=['gunboat','drone','suicide','missileBoat'];
-  if(p>.48)pool.push('rocketBoat');
-  if(L>=4&&p>.55)pool.push('mine');
-  if(L>=5&&p>.62)pool.push('heli');
-  if(L>=6&&p>.74)pool.push('kamikaze');
-  if(L>=7&&p>.82)pool.push('cruise');
+  // Special enemies are stage gimmicks only, not constant clutter.
+  if(G.stageEvent&&G.stageEvent.id==='minefield'&&p>.50)pool.push('mine');
+  if(G.stageEvent&&G.stageEvent.id==='airbase'&&p>.58)pool.push('fighter');
+  if(G.stageEvent&&G.stageEvent.id==='storm'&&p>.55)pool.push('rocketBoat');
   return pool;
 }
 function director(dt){
@@ -579,39 +577,50 @@ function director(dt){
   if(G.spawnT>0)return;
   const L=G.level,p=G.tanker.progress;
   const bossAlive=G.enemies.some(e=>e.type==='destroyer'&&!e.dead);
+
+  // Mid-stage priority boat: one memorable checkpoint before the boss.
+  if(!G.midBossSpawned&&p>.32&&L>=2){
+    G.midBossSpawned=true;
+    const mb=spawnEnemy('missileBoat');
+    const e=G.enemies[G.enemies.length-1];
+    if(e&&e.type==='missileBoat'){e.elite=true;e.hp=e.maxHp=Math.round(e.maxHp*2.35);e.critical=true;e.rewardTier='mini';}
+    setBanner('MID-BOSS — MISSILE BOAT','#ffc857');
+    radio('PRIORITY TARGET: MISSILE BOAT BLOCKING THE LANE.','#ffc857');
+    G.spawnT=2.2;return;
+  }
+
   if(L>=3&&!G.bossSpawned&&p>.49&&!G.bossPreWarn){
     G.bossPreWarn=true;G.spawnT=1.4;G.ambushQuiet=Math.max(G.ambushQuiet,1.25);
     radio('SEA GOES QUIET — MAJOR CONTACT NEAR THE EXIT.','#9fb9c2');
     setBanner('WARNING — CRITICAL DESTROYER APPROACHING','#ff4d55');
     bossSfx.ping();return;
   }
-  if(L>=3&&p>.54&&!G.bossSpawned){G.bossSpawned=true;spawnEnemy('destroyer');G.spawnT=4.5;setBanner('BOSS BLOCKING EXIT — DESTROY IT BEFORE ARRIVAL','#ff4d55');return;}
+  if(L>=3&&p>.56&&!G.bossSpawned){G.bossSpawned=true;spawnEnemy('destroyer');G.spawnT=4.5;setBanner('BOSS BLOCKING EXIT — DESTROY IT BEFORE ARRIVAL','#ff4d55');return;}
   if(G.enemies.some(e=>e.type==='destroyer'&&!e.dead&&e.state!=='active')){G.spawnT=.8;return;}
 
   const cap=maxActiveEnemies()+(bossAlive?1:0);
   if(activeEnemyCount()>=cap){G.spawnT=.72;return;}
 
-  // Raiden/1945 rhythm: tension window -> short breath -> tension again.
-  const cycle=(G.time+G.level*2.7)%27;
-  const pressurePhase=cycle<18;
+  // Pressure → breath → pressure. This creates rhythm instead of chaos.
+  const cycle=(G.time+G.level*2.7)%24;
+  const pressurePhase=cycle<15;
+  const breathPhase=cycle>=15;
   const danger=(G.tanker.hp/G.tanker.maxHp)<.42 || (G.panicT||0)>0 || urgentThreatOnScreen();
-  const base=L===1?5.2:L===2?4.15:Math.max(2.85,4.65-(L-2)*.24);
-  const ramp=p<.25?.95:p<.55?1.12:1.32+(p-.55)*1.28;
-  const dangerMul=danger?.68:1;
-  const phaseMul=pressurePhase?.82:1.42;
-  const jitter=rnd(.84,1.12);
-  G.spawnT=clamp(base/ramp*jitter*dangerMul*phaseMul,1.05,L===1?6.8:5.4);
+  const base=L===1?5.45:L===2?4.35:Math.max(3.05,4.85-(L-2)*.22);
+  const ramp=p<.25?.95:p<.55?1.10:1.28+(p-.55)*1.18;
+  const dangerMul=danger?1.18:1; // when already dangerous, let the player breathe a little
+  const phaseMul=pressurePhase?.76:1.55;
+  const jitter=rnd(.86,1.12);
+  G.spawnT=clamp(base/ramp*jitter*dangerMul*phaseMul,1.05,L===1?6.9:5.5);
 
   const pool=enemyPoolForStage(L,p);
   let t=pick(pool);
-  // If the screen is calm, send one clear objective threat. If already dangerous, use lighter pressure.
   if(!danger&&pressurePhase&&p>.38&&Math.random()<.62)t=pick(['suicide','missileBoat']);
-  if(danger&&Math.random()<.72)t=pick(['gunboat','drone']);
-  if(!pressurePhase&&Math.random()<.62)t=pick(['gunboat','drone']);
+  if(danger&&Math.random()<.78)t=pick(['gunboat','drone']);
+  if(breathPhase&&Math.random()<.70)t=pick(['gunboat','drone']);
 
-  if(t==='cruise'){ if(activeEnemyCount()<cap-1)spawnEnemy(t); return; }
   if(t==='drone'){
-    const n=L===1?1:(L===2?2:Math.min(3,2+Math.floor(L/4)));
+    const n=L===1?1:(L===2?2:Math.min(3,2+Math.floor(L/5)));
     for(let i=0;i<n;i++)setTimeout(()=>{if(G.scene==='playing'&&activeEnemyCount()<maxActiveEnemies()+1)spawnEnemy('drone');},i*220);
   } else {
     spawnEnemy(t);
@@ -970,13 +979,11 @@ function dropPickup(x,y,e){
     return;
   }
   if(e&&e.guaranteedDrop){
-    addPickup(x,y,pick(weapons));
-    if(Math.random()<0.325)addPickup(x+24,y+12,'shield');
-    if(Math.random()<0.21)addPickup(x-24,y+12,'repair');
-    if(Math.random()<0.19)addPickup(x,y-24,pick(['rapid','wingman','magnet']));
-    if(Math.random()<0.24)addPickup(x+2,y+34,'tower');
-    radio('SUPPLY SECURED — WEAPON CACHE RECOVERED.','#ffd166');
-    floatText(x,y-20,'WEAPON CRATE','#ffd166');
+    addPickup(x,y,pick(['cannon','spread','missile']));
+    if(Math.random()<0.45)addPickup(x+26,y+12,'bomb');
+    if(Math.random()<0.24)addPickup(x-24,y+12,'repair');
+    radio('SUPPLY SECURED — P/S/M/B ARCADE CRATE RECOVERED.','#ffd166');
+    floatText(x,y-20,'P/S/M/B CRATE','#ffd166');
     return;
   }
   if(tier==='mini'){
@@ -984,15 +991,15 @@ function dropPickup(x,y,e){
     return;
   }
   if(tier==='boss'){
-    addPickup(x-22,y,pick(weapons.slice(Math.max(0,weapons.length-3))));addPickup(x,y+24,'cash',250);return;
+    addPickup(x-30,y,pick(['cannon','spread','missile']));addPickup(x+4,y+24,'bomb');addPickup(x+34,y,'cash',250);return;
   }
   // Regular kills: cash or defensive shield — no weapon drops.
-  const shieldChance=tier==='heavy'?.026:tier==='medium'?.013:.004;
-  const repairChance=tier==='heavy'?.018:tier==='medium'?.008:.003;
-  const empChance=tier==='heavy'?.010:tier==='medium'?.005:.0015;
-  const medalChance=.003;
-  const towerChance=tier==='heavy'?.015:tier==='medium'?.007:.0025;
-  const cashChance=tier==='heavy'?.018:tier==='medium'?.009:.004,roll=Math.random();
+  const shieldChance=tier==='heavy'?.012:tier==='medium'?.006:.002;
+  const repairChance=tier==='heavy'?.012:tier==='medium'?.005:.002;
+  const empChance=0;
+  const medalChance=.002;
+  const towerChance=0;
+  const cashChance=tier==='heavy'?.014:tier==='medium'?.007:.003,roll=Math.random();
   if(roll<shieldChance)addPickup(x,y,'shield');
   else if(roll<shieldChance+repairChance)addPickup(x,y,'repair');
   else if(roll<shieldChance+repairChance+empChance)addPickup(x,y,'emp');
@@ -1168,7 +1175,7 @@ function update(dt){
     spawnEnemy('supply');
   }
   // Stage-event pressure: rarer, clearer surprise moments instead of constant clutter.
-  if(G.stageEvent&&G.time>8&&activeEnemyCount()<maxActiveEnemies()&&Math.random()<d*(G.stageEvent.id==='airbase'?0.075:G.stageEvent.id==='minefield'?0.068:G.stageEvent.id==='storm'?0.056:0.032)){
+  if(G.stageEvent&&G.time>8&&activeEnemyCount()<maxActiveEnemies()&&Math.random()<d*(G.stageEvent.id==='airbase'?0.045:G.stageEvent.id==='minefield'?0.042:G.stageEvent.id==='storm'?0.038:0.020)){
     if(G.stageEvent.id==='airbase')spawnEnemy('fighter');
     else if(G.stageEvent.id==='minefield')spawnEnemy(Math.random()<.55?'mine':'suicide');
     else if(G.stageEvent.id==='storm')spawnEnemy(Math.random()<.55?'drone':'rocketBoat');
@@ -1347,7 +1354,14 @@ function update(dt){
           if(e.salvo%4===0){fireHostile(e.x,e.y,'missile',1.1,T,-.22);fireHostile(e.x,e.y,'missile',1.1,T,.22);}
         }
       }
-      if(e.summon<=0){e.summon=e.hp/e.maxHp<.35?5.6:7.2;for(let i=0;i<(e.hp/e.maxHp<.35?2:1);i++)setTimeout(()=>{if(!e.dead&&G.scene==='playing'&&activeEnemyCount()<maxActiveEnemies()+1)spawnEnemy('drone');},i*260);}
+      if(e.summon<=0){
+        const phase=e.hp/e.maxHp<.33?3:(e.hp/e.maxHp<.66?2:1);
+        e.summon=phase===3?7.8:9.4;
+        if(activeEnemyCount()<maxActiveEnemies()){
+          const support=phase===3?'suicide':'drone';
+          setTimeout(()=>{if(!e.dead&&G.scene==='playing'&&activeEnemyCount()<maxActiveEnemies()+1)spawnEnemy(support);},220);
+        }
+      }
     }
   }
 
@@ -1453,7 +1467,8 @@ function update(dt){
     if(!P.dead&&dist(pk,P)<P.r+14){
       pk.t=0;sfx.pickup();
       if(pk.type==='bomb'){
-        floatText(P.x,P.y-24,'BOMB ALREADY LOADED','#ffd166');
+        if(G.bombs<stats.bombCap()){G.bombs++;floatText(P.x,P.y-24,'BOMB STOCK +1','#ffd166');radio('BOMB STOCK ADDED. PRESS B WHEN THE SCREEN GETS HOT.','#ffd166');}
+        else {G.money+=50;floatText(P.x,P.y-24,'BOMB MAX → +$50M','#4ee29a');sfx.cash();}
       } else if(pk.type==='cash'){
         G.money+=pk.value||100;sfx.cash();floatText(P.x,P.y-24,'+$'+(pk.value||100)+'M','#4ee29a');
       } else if(pk.type==='life'){
